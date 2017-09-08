@@ -5,5 +5,5 @@
 |----------------------|-------------------------|--------------------------------------------------------------------------------------------|
 |ES6转ES5              |Webpack + Babel          |[webpack-babel](https://github.com/pwcong/FrontEnd-Dev/tree/master/webpack-babel)           |
 |TypeScript转ES5       |Webpack + TypeScript     |[webpack-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/webpack-typescript) |
-|实时预览              |Browsersync              |[browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/master/browsersync)               |
-|实时预览，打包构建     |Gulp + Browsersync       |[gulp-browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/master/gulp-browsersync)     |
+|实时预览              |Browsersync              |[browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/master/browsersync)                |
+|实时预览，打包构建|Gulp + Browsersync + Babel + Webpack|[gulp-browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/master/gulp-browsersync)|
