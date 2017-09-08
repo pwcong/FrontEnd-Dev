@@ -1,0 +1,66 @@
+const path = require('path');
+const webpack = require('webpack');
+
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'js/bundle.[hash].js'
+    },
+    module: {
+        rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader',
+				options: {
+					presets: ['es2015']
+				}
+			}
+        ]
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        historyApiFallback: true,
+        port: 3000,
+        contentBase: [
+            './'
+        ],
+        inline: true,
+        publicPath: '/'
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            title: 'Webpack-Babel',
+            template: 'index.ejs',
+            minify: {
+                collapseWhitespace: true
+            }
+        })
+    ]
+}
+
+if (process.env.NODE_ENV === 'production') {
+
+    module.exports.devtool = 'source-map';
+
+    module.exports.plugins = (module.exports.plugins || []).concat([
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ]);
+}
