@@ -1,17 +1,17 @@
 {
-  "name": "browser-sync",
+  "name": "browsersync",
   "version": "1.0.0",
   "description": "preview when coding",
-  "main": "./src/index.html",
+  "main": "./app",
   "scripts": {
     "start": "browser-sync start --server \"app\" --files \"app\""
   },
   "keywords": [
-    "browser-sync"
+    "browsersync"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.18.13"
   }
 }
