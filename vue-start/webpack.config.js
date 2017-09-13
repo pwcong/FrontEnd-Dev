@@ -63,7 +63,7 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            title: 'Vue-Start',
+            title: 'Vue Start',
             template: 'index.ejs',
             minify: {
                 collapseWhitespace: true

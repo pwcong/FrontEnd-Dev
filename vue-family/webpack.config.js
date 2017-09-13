@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         index: './src/app.js',
-        vendor: ['vue', 'vue-router']
+        vendor: ['vue', 'vuex', 'vue-router', 'axios']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -63,7 +63,7 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            title: 'Vue SPA',
+            title: 'Vue Family',
             template: 'index.ejs',
             minify: {
                 collapseWhitespace: true
