@@ -1,0 +1,40 @@
+{
+  "name": "vue-start",
+  "version": "1.0.0",
+  "description": "A Vue Start demo.",
+  "main": "./src/app.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "npm run clean & webpack-dev-server",
+    "build": "npm run clean & cross-env NODE_ENV=production webpack --progress"
+  },
+  "keywords": [
+    "Vue",
+    "Start"
+  ],
+  "author": "pwcong@foxmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "postcss-cssnext": "^3.0.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "vue-loader": "^13.0.4",
+    "vue-template-compiler": "^2.4.3",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "cross-env": "^5.0.5",
+    "rimraf": "^2.6.2",
+    "vue": "^2.4.3"
+  }
+}
