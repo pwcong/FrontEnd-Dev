@@ -1,4 +1,4 @@
-# Gulp - Webpack
+# Gulp - Browsersync
 
 ```shell
 # dev

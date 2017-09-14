@@ -13,6 +13,7 @@ const cssnext = require('postcss-cssnext');
 // minify css styles
 const cleanCSS = require('gulp-clean-css');
 
+// minify javascript
 const uglify = require('gulp-uglify');
 const pump = require('pump');
 
