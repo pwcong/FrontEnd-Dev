@@ -9,4 +9,4 @@
 |实时预览，打包构建|Gulp + Browsersync + Babel + Webpack|[gulp-browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/master/gulp-browsersync)|
 |Vue 标准开发环境       |Vue + Babel + Webpack    |[vue-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-start)                   |
 |Vue 单页面应用         |Vue + Router + Babel + Webpack   |[vue-spa](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-start)             |
-|Vue 全家桶             |Vue + Vuex + Router     |[vue-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-family)                |
+|Vue 全家桶             |Vue + Vuex + Router + Axios |[vue-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-family)             |
