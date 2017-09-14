@@ -1,5 +1,5 @@
 {
-  "name": "gulp-browsersync",
+  "name": "gulp-webpack",
   "version": "1.0.0",
   "description": "preview when coding & standardized output",
   "main": "./app",
@@ -9,7 +9,7 @@
     "dev": "gulp dev"
   },
   "keywords": [
-    "gulp-browsersync"
+    "gulp-webpack"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
