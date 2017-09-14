@@ -9,7 +9,7 @@
     "dev": "npm run clean & gulp dev"
   },
   "keywords": [
-    "gulp-browserify"
+    "gulp-browsersync"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",

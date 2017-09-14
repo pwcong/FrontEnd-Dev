@@ -20,21 +20,16 @@ const pump = require('pump');
 ///////////////////////////////////////////////
 /*              npm run dev                  */
 ///////////////////////////////////////////////
-gulp.task('dev', ['sass', 'script'], function () {
+gulp.task('dev', ['sass', 'js', 'libs'], function () {
 
     browserSync.init({
         server: './app'
     });
 
     gulp.watch('app/scss/**/*.scss', ['sass']);
-    gulp.watch(['app/js/**/*.js', 'app/libs/**/*.js'], ['script']);
+    gulp.watch('app/js/**/*.js', ['js']);
+    gulp.watch('app/libs/**/*', ['libs']);
     gulp.watch('app/*.html').on('change', browserSync.reload);
-});
-
-gulp.task('script', function () {
-
-    return gulp.src(['app/js/**/*.js', 'app/libs/**/*.js'])
-        .pipe(browserSync.stream());
 });
 
 gulp.task('sass', function () {
@@ -48,26 +43,24 @@ gulp.task('sass', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('js', function () {
+
+    return gulp.src('app/js/**/*.js')
+        .pipe(browserSync.stream());
+});
+
+gulp.task('libs', function () {
+
+    return gulp.src('app/libs/**/*')
+        .pipe(browserSync.stream());
+
+});
+
 ///////////////////////////////////////////////
 /*              npm run build                */
 ///////////////////////////////////////////////
-gulp.task('build', ['sass-prod', 'script-prod'], function () {
+gulp.task('build', ['sass-prod', 'js-prod', 'libs-prod'], function () {
     gulp.src('app/*.html').pipe(gulp.dest('dist'));
-});
-
-gulp.task('script-prod', function (cb) {
-
-    pump(
-        [
-            gulp.src('app/js/**/*.js'),
-            uglify(),
-            gulp.dest('dist/js')
-        ],
-        cb
-    );
-
-    gulp.src('app/libs/**/*.js').pipe(gulp.dest('dist/libs'));
-
 });
 
 gulp.task('sass-prod', function () {
@@ -78,4 +71,24 @@ gulp.task('sass-prod', function () {
             compatibility: 'ie8'
         }))
         .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('js-prod', function (cb) {
+
+    pump(
+        [
+            gulp.src('app/js/**/*.js'),
+            uglify(),
+            gulp.dest('dist/js')
+        ],
+        cb
+    );
+
+
+});
+
+gulp.task('libs-prod', function () {
+
+    gulp.src('app/libs/**/*').pipe(gulp.dest('dist/libs'));
+
 });
