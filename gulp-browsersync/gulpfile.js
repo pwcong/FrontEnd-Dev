@@ -20,7 +20,7 @@ const pump = require('pump');
 ///////////////////////////////////////////////
 /*              npm run dev                  */
 ///////////////////////////////////////////////
-gulp.task('dev', ['sass', 'js', 'libs'], function () {
+gulp.task('dev', ['sass', 'js'], function () {
 
     browserSync.init({
         server: './app'
@@ -28,7 +28,6 @@ gulp.task('dev', ['sass', 'js', 'libs'], function () {
 
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/js/**/*.js', ['js']);
-    gulp.watch('app/libs/**/*', ['libs']);
     gulp.watch('app/*.html').on('change', browserSync.reload);
 });
 
@@ -49,17 +48,11 @@ gulp.task('js', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('libs', function () {
-
-    return gulp.src('app/libs/**/*')
-        .pipe(browserSync.stream());
-
-});
 
 ///////////////////////////////////////////////
 /*              npm run build                */
 ///////////////////////////////////////////////
-gulp.task('build', ['sass-prod', 'js-prod', 'libs-prod'], function () {
+gulp.task('build', ['sass-prod', 'js-prod'], function () {
     gulp.src('app/*.html').pipe(gulp.dest('dist'));
 });
 
@@ -84,11 +77,5 @@ gulp.task('js-prod', function (cb) {
         cb
     );
 
-
-});
-
-gulp.task('libs-prod', function () {
-
-    gulp.src('app/libs/**/*').pipe(gulp.dest('dist/libs'));
 
 });
