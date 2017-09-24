@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         index: './src/app.js',
-        vendor: ['vue', 'vuex', 'vue-router', 'axios']
+        vendor: ['babel-polyfill', 'vue', 'vuex', 'vue-router', 'axios']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -20,7 +20,7 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: [
-                        'es2015',
+                        'env',
                         'stage-1'
                     ]
                 }

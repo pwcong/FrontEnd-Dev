@@ -45,7 +45,7 @@ gulp.task('js', function () {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            'es2015'
+                            'env'
                         ]
                     }
                 }]

@@ -14,7 +14,7 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
     entry: {
         index: './src/index.jsx',
-        vendor: ['react', 'react-dom', 'react-router-dom']
+        vendor: ['babel-polyfill', 'react', 'react-dom', 'react-router-dom']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -28,7 +28,7 @@ module.exports = {
                 options: {
                     presets: [
                         'react',
-                        'es2015',
+                        'env',
                         'stage-1'
                     ]
                 }
