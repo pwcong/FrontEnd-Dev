@@ -1,0 +1,41 @@
+{
+  "name": "react-spa",
+  "version": "1.0.0",
+  "description": "Let's learn how to build React SPA.",
+  "main": "./src/index.jsx",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "npm run clean & webpack-dev-server",
+    "build": "npm run clean & cross-env NODE_ENV=production webpack --progress"
+  },
+  "keywords": [
+    "react-spa"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^5.0.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  }
+}
