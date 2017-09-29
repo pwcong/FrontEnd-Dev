@@ -5,7 +5,7 @@
   "main": "./src/app.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "dev": "npm run clean & webpack-dev-server",
+    "dev": "npm run clean & webpack-dev-server --open",
     "build": "npm run clean & cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [

@@ -13,3 +13,4 @@
 |Vue 全家桶             |Vue + Vuex + Router + Axios |[vue-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-family)              |
 |React 标准开发环境     |React + Babel + Webpack  |[react-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-start)               |
 |React 单页面应用       |React + Router + Babel + Webpack |[react-spa](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-spa)           |
+|React 全家桶           |React + Redux + Router + Fetch   |[react-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-family)     |

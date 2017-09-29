@@ -1,7 +1,7 @@
 {
-  "name": "react-start",
+  "name": "react-family",
   "version": "1.0.0",
-  "description": "Let's start enjoying React.",
+  "description": "Let's use React Family.",
   "main": "./src/index.jsx",
   "scripts": {
     "clean": "rimraf ./dist",
@@ -9,7 +9,7 @@
     "build": "npm run clean & cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
-    "react-start"
+    "react-family"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
@@ -17,7 +17,12 @@
     "cross-env": "^5.0.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "rimraf": "^2.6.2"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.2",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 
 import Home from './Home.jsx';
-import About from './About.jsx';
+import Counter from './Counter.jsx';
 
 import style from './style/app.scss';
 import logo from '../assets/imgs/logo.png';
@@ -20,13 +20,13 @@ export default class App extends React.Component {
 
                 <img src={logo} className="logo" />
                 <ul className="nav">
-                    <li><NavLink strict exact to="/" disabled="true">Home</NavLink></li>
-                    <li><NavLink strict to="/about" disabled>About</NavLink></li>
+                    <li><NavLink strict exact to="/">Home</NavLink></li>
+                    <li><NavLink strict to="/counter">Counter</NavLink></li>
                 </ul>
 
                 <div>
                     <Route exact path="/" component={Home} />
-                    <Route path="/about" component={About} />
+                    <Route path="/counter" component={Counter} />
                 </div>
 
             </div>

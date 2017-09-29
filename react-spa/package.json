@@ -5,7 +5,7 @@
   "main": "./src/index.jsx",
   "scripts": {
     "clean": "rimraf ./dist",
-    "dev": "npm run clean & webpack-dev-server",
+    "dev": "npm run clean & webpack-dev-server --open",
     "build": "npm run clean & cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
@@ -15,8 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "cross-env": "^5.0.5",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
     "rimraf": "^2.6.2"
   },
