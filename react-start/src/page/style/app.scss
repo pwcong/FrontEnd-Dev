@@ -4,12 +4,12 @@
     box-sizing: border-box;
     padding: 0 24px;
     text-align: center;
-     :local .logo {
+    .logo {
         margin-top: 100px;
         width: 152px;
         height: 152px;
     }
-     :local .welcome {
+    .welcome {
         font-size: 32px;
         color: #333;
     }

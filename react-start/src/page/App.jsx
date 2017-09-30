@@ -16,7 +16,7 @@ export default class App extends React.Component {
             <div className={style.container}>
 
                 <img src={logo} className={style.logo} />
-                <p className={style.welcome}>Vue Start</p>
+                <p className={style.welcome}>React Start</p>
 
             </div>
         );
