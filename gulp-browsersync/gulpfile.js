@@ -17,6 +17,11 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
 
+// static asset revisioning by appending content hash to filenames
+const rev = require('gulp-rev');
+const revCollector = require('gulp-rev-collector');
+
+
 ///////////////////////////////////////////////
 /*              npm run dev                  */
 ///////////////////////////////////////////////
@@ -53,7 +58,13 @@ gulp.task('js', function () {
 /*              npm run build                */
 ///////////////////////////////////////////////
 gulp.task('build', ['sass-prod', 'js-prod'], function () {
-    gulp.src('app/*.html').pipe(gulp.dest('dist'));
+
+    return gulp.src(['dist/rev/**/*.json', 'app/*.html'])
+        .pipe(revCollector({
+            replaceReved: true
+        }))
+        .pipe(gulp.dest('dist'));
+
 });
 
 gulp.task('sass-prod', function () {
@@ -63,7 +74,10 @@ gulp.task('sass-prod', function () {
         .pipe(cleanCSS({
             compatibility: 'ie8'
         }))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(rev())
+        .pipe(gulp.dest('dist/css'))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('dist/rev/css'));
 });
 
 gulp.task('js-prod', function (cb) {
@@ -72,7 +86,10 @@ gulp.task('js-prod', function (cb) {
         [
             gulp.src('app/js/**/*.js'),
             uglify(),
-            gulp.dest('dist/js')
+            rev(),
+            gulp.dest('dist/js'),
+            rev.manifest(),
+            gulp.dest('dist/rev/js')
         ],
         cb
     );
