@@ -27,15 +27,15 @@
     "node-sass": "^4.5.3",
     "postcss-cssnext": "^3.0.2",
     "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "vue-loader": "^13.0.4",
-    "vue-template-compiler": "^2.4.3",
-    "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.7.1"
+    "style-loader": "^0.19.0",
+    "vue-loader": "^13.3.0",
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
-    "cross-env": "^5.0.5",
+    "cross-env": "^5.1.0",
     "rimraf": "^2.6.2",
-    "vue": "^2.4.3"
+    "vue": "^2.5.2"
   }
 }
