@@ -16,7 +16,7 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'babel-loader',
 				options: {
-					presets: ['es2015']
+					presets: ['env']
 				}
 			}
         ]
@@ -28,6 +28,7 @@ module.exports = {
         contentBase: [
             './'
         ],
+        hot: true,
         inline: true,
         publicPath: '/'
     },

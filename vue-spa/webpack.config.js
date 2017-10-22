@@ -58,6 +58,7 @@ module.exports = {
         contentBase: [
             './'
         ],
+        hot: true,
         inline: true,
         publicPath: '/'
     },
