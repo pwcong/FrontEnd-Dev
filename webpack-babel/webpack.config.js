@@ -39,7 +39,8 @@ module.exports = {
             minify: {
                 collapseWhitespace: true
             }
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
 

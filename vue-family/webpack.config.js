@@ -77,7 +77,8 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'js/vendor.js'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
 
