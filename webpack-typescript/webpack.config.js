@@ -26,7 +26,6 @@ module.exports = {
         contentBase: [
             './'
         ],
-        hot: true,
         inline: true,
         publicPath: '/'
     },
@@ -37,8 +36,7 @@ module.exports = {
             minify: {
                 collapseWhitespace: true
             }
-        }),
-        new webpack.HotModuleReplacementPlugin()
+        })
     ]
 }
 

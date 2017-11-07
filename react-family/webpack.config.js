@@ -70,7 +70,6 @@ module.exports = {
         contentBase: [
             './'
         ],
-        hot: true,
         inline: true,
         publicPath: '/'
     },
@@ -86,8 +85,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'js/vendor.js'
-        }),
-        new webpack.HotModuleReplacementPlugin()
+        })
     ]
 }
 
