@@ -42,9 +42,7 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
 
-    module.exports.entry = {
-        index: './src/index.js'
-    };
+    module.exports.entry = path.resolve(__dirname, './src/index.js');
 
     module.exports.output = {
         path: path.resolve(__dirname, './lib'),
@@ -77,9 +75,7 @@ if (process.env.NODE_ENV === 'production') {
 
 } else {
 
-    module.exports.entry = {
-        index: './example/app.js'
-    };
+    module.exports.entry = path.resolve(__dirname, './example/app.js');
 
     module.exports.output = {
         filename: 'bundle.js'
