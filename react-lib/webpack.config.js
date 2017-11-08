@@ -4,30 +4,36 @@ const webpack = require('webpack');
 module.exports = {
     module: {
         rules: [{
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
                     presets: [
+                        'react',
                         'env'
                     ]
                 }
             },
             {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    postcss: [require('postcss-cssnext')],
-                    esModule: true
-                }
-            },
-            {
                 test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: [{
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader"
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                require('postcss-cssnext')
+                            ]
+                        }
+                    }
+                ],
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -58,12 +64,12 @@ if (process.env.NODE_ENV === 'production') {
 
     module.exports.output = {
         path: path.resolve(__dirname, './lib'),
-        filename: 'vue-lib.js',
-        library: 'vue-lib',
+        filename: 'react-lib.js',
+        library: 'react-lib',
         libraryTarget: 'umd'
     };
 
-    module.exports.externals = ['vue'];
+    module.exports.externals = ['react'];
 
     module.exports.devtool = 'source-map';
 
@@ -87,7 +93,7 @@ if (process.env.NODE_ENV === 'production') {
 
 } else {
 
-    module.exports.entry = path.resolve(__dirname, './example/app.js');
+    module.exports.entry = path.resolve(__dirname, './example/app.jsx');
 
     module.exports.output = {
         filename: 'bundle.js'

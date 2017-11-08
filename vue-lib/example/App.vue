@@ -27,9 +27,6 @@ export default {
   },
   components: {
     TestComponent
-  },
-  mounted() {
-    console.log(TestComponent);
   }
 };
 </script>
