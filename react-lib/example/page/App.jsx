@@ -4,7 +4,7 @@ import style from './style/app.scss';
 
 import logo from '../assets/imgs/logo.png';
 
-import { TestComponent } from '../../lib/react-lib';
+import { TestComponent } from '../../src/index';
 
 export default class App extends React.Component {
 

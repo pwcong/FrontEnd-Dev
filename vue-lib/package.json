@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf ./lib",
     "build": "npm run clean & cross-env NODE_ENV=production webpack --progress",
-    "dev": "npm run build & webpack-dev-server --open"
+    "dev": "webpack-dev-server --open"
   },
   "keywords": [
     "Vue Lib"

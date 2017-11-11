@@ -17,7 +17,7 @@
 <script>
 import logo from "./assets/imgs/vue.png";
 
-import { TestComponent } from "../lib/vue-lib";
+import { TestComponent } from "../../src/index";
 
 export default {
   data() {
