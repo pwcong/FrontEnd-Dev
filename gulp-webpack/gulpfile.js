@@ -61,9 +61,7 @@ gulp.task('sass', function () {
 
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
-        .pipe(sourcemaps.init())
         .pipe(postcss([cssnext()]))
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.stream());
 });
@@ -80,6 +78,7 @@ gulp.task('build', ['sass-prod', 'js-prod'], function () {
 gulp.task('js-prod', function () {
 
     return gulp.src('app/src/index.js')
+        .pipe(sourcemaps.init())
         .pipe(gulpWebpack({
             output: {
                 filename: 'bundle.js',
@@ -112,6 +111,7 @@ gulp.task('js-prod', function () {
                 })
             ]
         }))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/js'));
 
 });
@@ -119,9 +119,11 @@ gulp.task('js-prod', function () {
 gulp.task('sass-prod', function () {
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
+        .pipe(sourcemaps.init())
         .pipe(postcss([cssnext()]))
         .pipe(cleanCSS({
             compatibility: 'ie8'
         }))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/css'));
 });

@@ -40,9 +40,7 @@ gulp.task('sass', function () {
 
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
-        .pipe(sourcemaps.init())
         .pipe(postcss([cssnext()]))
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.stream());
 });
@@ -70,11 +68,13 @@ gulp.task('build', ['sass-prod', 'js-prod'], function () {
 gulp.task('sass-prod', function () {
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
+        .pipe(sourcemaps.init())
         .pipe(postcss([cssnext()]))
         .pipe(cleanCSS({
             compatibility: 'ie8'
         }))
         .pipe(rev())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/css'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('dist/rev/css'));
@@ -85,8 +85,10 @@ gulp.task('js-prod', function (cb) {
     pump(
         [
             gulp.src('app/js/**/*.js'),
+            sourcemaps.init(),
             uglify(),
             rev(),
+            sourcemaps.write('.'),
             gulp.dest('dist/js'),
             rev.manifest(),
             gulp.dest('dist/rev/js')
