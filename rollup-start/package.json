@@ -1,0 +1,17 @@
+{
+  "name": "rollup-start",
+  "version": "1.0.0",
+  "description": "A start demo for rollup",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "npm run clean & rollup --config ./config/rollup.config.dev.js",
+    "build": "npm run clean & rollup --config ./config/rollup.config.prod.js"
+  },
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "rollup": "^0.58.2"
+  }
+}

@@ -17,16 +17,16 @@
   "author": "pwcong@foxmail.com",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
     "chai": "^4.1.2",
-    "css-loader": "^0.28.7",
+    "css-loader": "^0.28.11",
     "eslint": "^4.12.1",
     "eslint-plugin-html": "^4.0.1",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "karma": "^1.7.1",
@@ -36,19 +36,19 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.6",
     "mocha": "^4.0.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.9.0",
     "phantomjs-prebuilt": "^2.1.16",
-    "postcss-cssnext": "^3.0.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "vue-loader": "^13.3.0",
-    "vue-template-compiler": "^2.5.2",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "postcss-cssnext": "^3.1.0",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.19.1",
+    "vue-loader": "^13.7.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.11.2"
   },
   "dependencies": {
-    "cross-env": "^5.1.0",
+    "cross-env": "^5.1.5",
     "rimraf": "^2.6.2",
-    "vue": "^2.5.3"
+    "vue": "^2.5.16"
   }
 }
