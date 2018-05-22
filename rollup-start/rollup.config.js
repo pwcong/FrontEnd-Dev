@@ -14,11 +14,14 @@ const banner = `/*
  * ${new Date().getFullYear()} - powered by ${author}
  */
 `
-const config = module.exports = {
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+module.exports = {
 
   input: 'src/main.js',
   output: {
-    file: `dist/${name}.js`,
+    file: `dist/${name}${isProduction ? '.min.' : '.debug.'}js`,
     format: 'umd',
     name: name,
     banner: banner
@@ -26,23 +29,18 @@ const config = module.exports = {
   plugins: [
     resolve(),
     commonjs(),
-    babel()
-  ]
-
-}
-
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(uglify({
-    output: {
-      comments: function (node, comment) {
-        var text = comment.value;
-        var type = comment.type;
-        if (type == "comment2") {
-          return /@preserve|@license|@cc_on/i.test(text);
+    babel(),
+    isProduction && uglify({
+      output: {
+        comments: function (node, comment) {
+          var text = comment.value;
+          var type = comment.type;
+          if (type == "comment2") {
+            return /@preserve|@license|@cc_on/i.test(text);
+          }
         }
       }
-    }
-  }));
-} else {
-  config.output.file = `dist/${name}.dev.js`;
+    })
+  ]
+
 }
