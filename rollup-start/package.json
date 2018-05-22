@@ -4,9 +4,11 @@
   "description": "A start demo for rollup",
   "main": "src/main.js",
   "scripts": {
-    "start": "rollup -c",
-    "build": "cross-env NODE_ENV=production npm run start",
-    "dev": "npm run start"
+    "start": "serve public",
+    "preset": "cross-env NAME=foo rollup -c",
+    "watch": "cross-env NAME=foo rollup -c -w",
+    "build": "cross-env NODE_ENV=production npm run preset",
+    "dev": "npm-run-all --parallel start watch"
   },
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
@@ -15,10 +17,14 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1.5",
+    "npm-run-all": "^4.1.3",
     "rollup": "^0.59.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-uglify": "^4.0.0"
+  },
+  "dependencies": {
+    "serve": "^6.5.8"
   }
 }

@@ -21,8 +21,9 @@ module.exports = {
 
   input: 'src/main.js',
   output: {
-    file: `dist/${name}${isProduction ? '.min.' : '.debug.'}js`,
+    file: isProduction ? `dist/${name}.min.js` : `public/${name}.debug.js`,
     format: 'umd',
+    sourcemap: true,
     name: name,
     banner: banner
   },
