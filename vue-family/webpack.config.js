@@ -1,104 +1,112 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isProd = process.env.NODE_ENV === 'production';
+const distPath = path.resolve(__dirname, 'dist');
+
+const commonCssLoaders = [
+  isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+  {
+    loader: 'css-loader',
+    options: { importLoaders: 1 }
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [require('postcss-cssnext')()]
+    }
+  }
+];
 
 module.exports = {
-    entry: {
-        index: './src/app.js',
-        vendor: ['babel-polyfill', 'vue', 'vuex', 'vue-router', 'axios']
-    },
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'js/[name].[hash].js'
-    },
-    module: {
-        rules: [{
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    presets: [
-                        'env',
-                        'stage-1'
-                    ]
-                }
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    postcss: [require('postcss-cssnext')],
-                    extractCSS: true,
-                    esModule: true
-                }
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
-            },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'imgs/[name].[ext]?[hash]',
-                }
-            }
-        ]
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-        historyApiFallback: true,
-        port: 3000,
-        contentBase: [
-            './'
-        ],
-        inline: true,
-        publicPath: '/'
-    },
-    plugins: [
-        new HTMLWebpackPlugin({
-            title: 'Vue Family',
-            template: 'index.ejs',
-            minify: {
-                collapseWhitespace: true
-            }
-        }),
-        new ExtractTextPlugin({
-            filename: 'css/[name].[hash].css',
-            allChunks: true
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'js/vendor.js'
-        })
+  mode: isProd ? 'production' : 'development',
+  entry: {
+    index: './src/app.js',
+    vendors: ['babel-polyfill', 'vue', 'vuex', 'vue-router', 'axios']
+  },
+  output: {
+    path: distPath,
+    filename: 'js/[name].[hash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['env', 'stage-1']
+        }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: [...commonCssLoaders, 'sass-loader']
+      },
+      {
+        test: /\.css$/,
+        use: commonCssLoaders
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'imgs/[name].[ext]?[hash]'
+        }
+      }
     ]
-}
+  },
 
-if (process.env.NODE_ENV === 'production') {
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
 
-    module.exports.devtool = 'source-map';
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  },
 
-    module.exports.plugins = (module.exports.plugins || []).concat([
-
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        })
-    ]);
-}
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+    port: 3000,
+    contentBase: ['./'],
+    inline: true,
+    publicPath: '/',
+    hot: true
+  },
+  plugins: [
+    new CleanWebpackPlugin(distPath),
+    new VueLoaderPlugin(),
+    new HTMLWebpackPlugin({
+      title: 'Vue Family',
+      template: 'src/index.ejs',
+      minify: {
+        collapseWhitespace: true
+      }
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash].css',
+      allChunks: true
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};

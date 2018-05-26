@@ -1,26 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from '../pages/Home.vue';
-import Counter from '../pages/Counter.vue';
+import Index from '@/pages/Index.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
-
-    {
-        path: '/',
-        component: Home
-    },
-    {
-        path: '/counter',
-        component: Counter
-    }
-
-]
+  {
+    path: '/',
+    component: Index
+  }
+];
 
 const router = new VueRouter({
-    routes
+  routes
 });
 
 export default router;

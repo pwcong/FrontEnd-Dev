@@ -6,8 +6,8 @@ import router from './routes';
 import App from './pages/App.vue';
 
 new Vue({
-    el: '#app',
-    store,
-    router,
-    render: h => h(App)
+  el: '#app',
+  store,
+  router,
+  render: h => h(App)
 });
