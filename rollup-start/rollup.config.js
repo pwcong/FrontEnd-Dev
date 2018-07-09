@@ -7,11 +7,12 @@ const pkg = require('./package.json');
 const version = process.env.VERSION || pkg.version;
 const name = process.env.NAME || pkg.name;
 const author = process.env.AUTHOR || pkg.author;
+const license = process.env.LICENSE || pkg.license;
 
 const banner = `/* 
- * @preserve
  * ${name}.js v${version}
- * ${new Date().getFullYear()} - powered by ${author}
+ * ${new Date().getFullYear()} ${author}
+ * @license ${license}
  */
 `
 
