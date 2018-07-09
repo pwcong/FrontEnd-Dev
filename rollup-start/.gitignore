@@ -60,6 +60,5 @@ typings/
 # next.js build output
 .next
 
-# ignore directories
-dist
+# ignore directories and files
 *.debug.*
