@@ -4,7 +4,7 @@
   "description": "A start demo for rollup",
   "main": "src/main.js",
   "scripts": {
-    "start": "serve public",
+    "start": "browser-sync start --server \"public\" --files \"public\"",
     "preset": "cross-env NAME=foo rollup -c",
     "watch": "cross-env NAME=foo rollup -c -w",
     "build": "cross-env NODE_ENV=production npm run preset",
@@ -25,6 +25,6 @@
     "rollup-plugin-uglify": "^4.0.0"
   },
   "dependencies": {
-    "serve": "^6.5.8"
+    "browser-sync": "^2.24.5"
   }
 }
