@@ -18,3 +18,5 @@
 |React 全家桶           |React + Redux + Router + Fetch   |[react-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-family)     |
 |React 打包组件         |React + Webpack          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-lib)                  |
 |Rollup 生成库         |Rollup + Babel          |[rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-start)                  |
+|Uglify               |UglifyJS       |[uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/uglify-js)                  |
+|Minify               |Babel-Minify          |[minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/minify-js)                  |

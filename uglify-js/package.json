@@ -1,0 +1,15 @@
+{
+  "name": "uglify-js",
+  "version": "1.0.0",
+  "description": "A tool that can uglify js files",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "rimraf dist.js & uglifyjs src/main.js -c -m -o dist.js"
+  },
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.4.5"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "minify-js",
+  "version": "1.0.0",
+  "description": "A tool that can minify js files",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "rimraf dist & minify src -d dist"
+  },
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "babel-minify": "^0.4.3",
+    "rimraf": "^2.6.2"
+  }
+}
