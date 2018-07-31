@@ -26,8 +26,8 @@ const commonCssLoaders = [
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    index: './src/app.js',
-    vendors: ['babel-polyfill', 'vue']
+    index: './src/app.ts',
+    vendors: ['vue']
   },
   output: {
     path: distPath,
@@ -36,11 +36,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
         exclude: /node_modules/,
-        loader: 'babel-loader',
         options: {
-          presets: ['env', 'stage-1']
+          appendTsSuffixTo: [/\.vue$/]
         }
       },
       {
@@ -66,6 +66,7 @@ module.exports = {
   },
 
   resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
@@ -96,7 +97,7 @@ module.exports = {
     new CleanWebpackPlugin(distPath),
     new VueLoaderPlugin(),
     new HTMLWebpackPlugin({
-      title: 'Vue Start',
+      title: 'Vue TypeScript',
       template: 'src/index.ejs',
       minify: {
         collapseWhitespace: true
