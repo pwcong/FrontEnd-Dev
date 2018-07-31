@@ -1,0 +1,42 @@
+{
+  "name": "vue-typescript-mvp",
+  "version": "1.0.0",
+  "description": "An vue demo with MVP pattern written in TypeScript",
+  "main": "./src/app.ts",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --progress",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [
+    "Vue",
+    "TypeScript",
+    "MVP"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^2.1.6",
+    "sass-loader": "^7.0.3",
+    "ts-loader": "^4.4.2",
+    "vue-class-component": "^6.2.0",
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "animate.css": "^3.7.0",
+    "cross-env": "^5.2.0",
+    "normalize-css": "^2.3.1",
+    "typescript": "^3.0.1",
+    "vue": "^2.5.16"
+  }
+}
