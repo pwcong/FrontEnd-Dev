@@ -15,6 +15,7 @@
 |Vue 单元测试与代码检查 |Vue + Karma + Mocha + Chai + ESLint |[vue-test-lint](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-test-lint) |
 |Vue TypeScript       |Vue + TypeScript |[vue-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-typescript) |
 |Vue TypeScript MVP       |Vue + TypeScript + MVP |[vue-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-typescript-mvp) |
+|Vue 多页Demo          |Vue MultiPage   |[vue-multipage](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-multipage) |
 |React 标准开发环境     |React + Babel + Webpack  |[react-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-start)               |
 |React 单页面应用       |React + Router + Babel + Webpack |[react-spa](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-spa)           |
 |React 全家桶           |React + Redux + Router + Fetch   |[react-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-family)     |
