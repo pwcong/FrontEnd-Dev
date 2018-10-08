@@ -5,8 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "browser-sync start --server \"public\" --files \"public\"",
-    "preset": "cross-env NAME=foo rollup -c",
-    "watch": "cross-env NAME=foo rollup -c -w",
+    "preset": "cross-env FUNC=foo rollup -c",
+    "watch": "cross-env FUNC=foo rollup -c -w",
     "build": "cross-env NODE_ENV=production npm run preset",
     "dev": "npm-run-all --parallel start watch"
   },

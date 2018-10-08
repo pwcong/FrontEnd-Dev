@@ -6,6 +6,7 @@ const uglify = require('rollup-plugin-uglify').uglify;
 const pkg = require('./package.json');
 const version = process.env.VERSION || pkg.version;
 const name = process.env.NAME || pkg.name;
+const func = process.env.FUNC || name;
 const author = process.env.AUTHOR || pkg.author;
 const license = process.env.LICENSE || pkg.license;
 
@@ -25,7 +26,7 @@ module.exports = {
     file: isProduction ? `dist/${name}.min.js` : `public/${name}.debug.js`,
     format: 'umd',
     sourcemap: true,
-    name: name,
+    name: func,
     banner: banner
   },
   plugins: [
