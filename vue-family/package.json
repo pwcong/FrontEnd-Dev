@@ -1,14 +1,14 @@
 {
   "name": "vue-family",
   "version": "1.0.0",
-  "description": "",
+  "description": "A demo using Vue Family.",
   "main": "src/app.js",
   "scripts": {
     "dev": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
-    "Vue"
+    "Vue Family"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
@@ -28,7 +28,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.28.11",
+    "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.0",
