@@ -1,0 +1,51 @@
+{
+  "name": "vue-family",
+  "version": "1.0.0",
+  "description": "A demo using Vue Family.",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.client.config.js --open",
+    "build:client": "cross-env NODE_ENV=production webpack --config webpack.client.config.js --progress",
+    "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --progress"
+  },
+  "keywords": [
+    "Vue Family"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "animate.css": "^3.6.1",
+    "axios": "^0.18.0",
+    "cross-env": "^5.1.6",
+    "express": "^4.16.4",
+    "normalize-css": "^2.3.1",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.17",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-preset-env": "^6.2.0",
+    "sass-loader": "^7.0.1",
+    "vue-loader": "^15.2.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
