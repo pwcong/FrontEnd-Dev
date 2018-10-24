@@ -18,7 +18,7 @@ const commonCssLoaders = [
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-cssnext')()]
+      plugins: [require('postcss-preset-env')()]
     }
   }
 ];
@@ -27,7 +27,7 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
     index: './src/app.js',
-    vendors: ['babel-polyfill', 'vue', 'vuex', 'vue-router', 'axios']
+    vendors: ['babel-polyfill', 'vue', 'vue-router']
   },
   output: {
     path: distPath,

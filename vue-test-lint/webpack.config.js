@@ -27,7 +27,7 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          postcss: [require('postcss-cssnext')],
+          postcss: [require('postcss-preset-env')],
           extractCSS: true,
           esModule: true
         }
