@@ -1,6 +1,6 @@
 import {
   SAMPLE_MUTATIONS_SET,
-  SAMPLE_ACTION_INIT,
+  SAMPLE_ACTIONS_INIT,
   SAMPLE_ACTIONS_PLUS,
   SAMPLE_ACTIONS_PLUS_ASYNC
 } from '../types';
@@ -16,7 +16,7 @@ export default {
     }
   },
   actions: {
-    [SAMPLE_ACTION_INIT]: ({ commit, state }, payload) => {
+    [SAMPLE_ACTIONS_INIT]: ({ commit, state }, payload) => {
       commit(SAMPLE_MUTATIONS_SET, payload);
     },
     [SAMPLE_ACTIONS_PLUS]: ({ commit, state }) => {

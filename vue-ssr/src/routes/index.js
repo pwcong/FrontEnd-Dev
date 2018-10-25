@@ -6,15 +6,19 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import('@pages/Index.vue')
+    component: () => import('@/pages/Index.vue')
+  },
+  {
+    path: '/counter',
+    component: () => import('@/pages/Counter.vue')
   },
   {
     path: '/page1',
-    component: () => import('@pages/Page1.vue')
+    component: () => import('@/pages/Page1.vue')
   },
   {
     path: '/page2',
-    component: () => import('@pages/Page2.vue')
+    component: () => import('@/pages/Page2.vue')
   }
 ];
 

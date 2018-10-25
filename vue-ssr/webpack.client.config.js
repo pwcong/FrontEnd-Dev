@@ -1,6 +1,12 @@
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config.js');
+
+const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -30,7 +36,7 @@ module.exports = merge(baseConfig, {
     new CleanWebpackPlugin(distPath),
     new VueLoaderPlugin(),
     new HTMLWebpackPlugin({
-      title: 'Vue Family',
+      title: 'Vue SSR',
       template: 'src/index.ejs',
       minify: {
         collapseWhitespace: true
