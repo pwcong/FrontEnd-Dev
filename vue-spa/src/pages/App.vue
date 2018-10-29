@@ -61,7 +61,7 @@ body{
 
 <script>
 
-import logo from '../assets/imgs/vue.png';
+import logo from '@/assets/imgs/vue.png';
 
 export default {
 
