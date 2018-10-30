@@ -17,6 +17,9 @@ export default {
   data() {
     return {};
   },
+  asyncData(store, route) {
+    console.log('Index');
+  },
   methods: {
     plus(e) {
       this.$store.dispatch(SAMPLE_ACTIONS_PLUS);

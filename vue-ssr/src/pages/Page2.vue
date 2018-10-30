@@ -3,7 +3,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  asyncData(store, route) {
+    console.log('Page2');
+  }
+};
 </script>
 
 <style lang="scss" scoped>
