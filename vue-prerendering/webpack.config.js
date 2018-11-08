@@ -109,7 +109,6 @@ module.exports = {
       filename: 'css/[name].[hash].css',
       allChunks: true
     }),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ].concat(
     isProd
