@@ -21,6 +21,7 @@
 |React 单页面应用       |React + Router + Babel + Webpack |[react-spa](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-spa)           |
 |React 全家桶           |React + Redux + Router + Fetch   |[react-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-family)     |
 |React 打包组件         |React + Webpack          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-lib)                  |
+|React TypeScript      |React + TypeScript          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-typescript)            |
 |Rollup 生成库         |Rollup + Babel          |[rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-start)                  |
-|Uglify               |UglifyJS       |[uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/uglify-js)                  |
-|Minify               |Babel-Minify          |[minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/minify-js)                  |
+|Uglify               |UglifyJS       |[uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/uglify-js)                              |
+|Minify               |Babel-Minify          |[minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/minify-js)                       |
