@@ -5,25 +5,19 @@ import style from './style/test.scss';
 import PropTypes from 'prop-types';
 
 export default class Test extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-
-        return (
-            <div className={style.test}>{this.props.label}</div>
-        );
-
-    }
-
+  render() {
+    return <div className={style.test}>{this.props.label}</div>;
+  }
 }
 
 Test.propTypes = {
-    label: PropTypes.string
+  label: PropTypes.string
 };
 
 Test.defaultProps = {
-    label: 'Test'
-}
+  label: 'Test'
+};

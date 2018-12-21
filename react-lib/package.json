@@ -4,8 +4,7 @@
   "description": "An example about how to build React Library.",
   "main": "./lib/react-lib.js",
   "scripts": {
-    "clean": "rimraf ./lib",
-    "build": "npm run clean & cross-env NODE_ENV=production webpack --progress",
+    "build": "cross-env NODE_ENV=production webpack --progress",
     "dev": "webpack-dev-server --open"
   },
   "keywords": [
@@ -17,23 +16,24 @@
     "cross-env": "^5.1.5",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "rimraf": "^2.6.2"
+    "react-dom": "^16.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.0",
-    "file-loader": "^1.1.5",
+    "file-loader": "^1.1.11",
     "node-sass": "^4.9.0",
-    "postcss-cssnext": "^3.1.0",
     "postcss-loader": "^2.1.5",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.19.1",
+    "postcss-preset-env": "^6.5.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.23.1",
     "url-loader": "^1.0.1",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.2"
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
   }
 }
