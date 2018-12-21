@@ -1,5 +1,5 @@
 {
-  "name": "react-start",
+  "name": "react-typescript",
   "version": "1.0.0",
   "description": "Let's start enjoying React.",
   "main": "./src/index.jsx",
@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
-    "react-start"
+    "react-typescript"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",

@@ -1,21 +1,25 @@
 {
   "compilerOptions": {
-      "target": "es5",
-      "lib": [
-          "dom",
-          "es2015"
-      ],
-      "sourceMap": true,
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "experimentalDecorators": true,
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "strictNullChecks": true,
-      "removeComments": true,
-      "allowSyntheticDefaultImports": true
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": [
-      "./src/**/*.ts"
-  ]
+  "exclude": ["node_modules", "dist", "webpack.config.js"]
 }
