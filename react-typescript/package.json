@@ -1,0 +1,40 @@
+{
+  "name": "react-start",
+  "version": "1.0.0",
+  "description": "Let's start enjoying React.",
+  "main": "./src/index.jsx",
+  "scripts": {
+    "dev": "webpack-dev-server --open",
+    "build": "cross-env NODE_ENV=production webpack --progress"
+  },
+  "keywords": [
+    "react-start"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^5.1.5",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-preset-env": "^6.5.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.1",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
