@@ -26,7 +26,7 @@ module.exports = {
     vendors: ['babel-polyfill', 'react', 'react-dom']
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: distPath,
     filename: 'js/[name].[hash].js'
   },
   module: {

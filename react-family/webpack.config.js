@@ -1,113 +1,108 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const isProd = process.env.NODE_ENV === 'production';
+const distPath = path.resolve(__dirname, 'dist');
 
-const extractSass = new ExtractTextPlugin({
-    filename: 'css/[name].[hash].css',
-    allChunks: true,
-    disable: !process.env.NODE_ENV === "production"
-});
-
+const commonCssLoaders = [
+  isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+  'css-loader',
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [require('postcss-preset-env')()]
+    }
+  }
+];
 module.exports = {
-    entry: {
-        index: './src/index.jsx',
-        vendor: ['babel-polyfill', 'react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-thunk', 'whatwg-fetch']
-    },
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'js/[name].[hash].js'
-    },
-    module: {
-        rules: [{
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    presets: [
-                        'react',
-                        'env',
-                        'stage-1'
-                    ]
-                }
-            },
-            {
-                test: /\.scss$/,
-                use: extractSass.extract({
-                    use: [{
-                            loader: "css-loader"
-                        }, {
-                            loader: "sass-loader"
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: [
-                                    require('postcss-cssnext')
-                                ]
-                            }
-                        }
-                    ],
-                    // use style-loader in development 
-                    fallback: "style-loader"
-                })
-            },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: 'imgs/[name].[ext]?[hash]',
-                }
-            }
-        ]
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-        historyApiFallback: true,
-        port: 3000,
-        contentBase: [
-            './'
-        ],
-        inline: true,
-        publicPath: '/'
-    },
-    plugins: [
-        new HTMLWebpackPlugin({
-            title: 'React Family',
-            template: 'index.ejs',
-            minify: {
-                collapseWhitespace: true
-            }
-        }),
-        extractSass,
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'js/vendor.js'
-        })
+  mode: isProd ? 'production' : 'development',
+  entry: {
+    index: './src/index.jsx',
+    vendors: [
+      'babel-polyfill',
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'redux',
+      'react-redux',
+      'redux-thunk',
+      'whatwg-fetch'
     ]
-}
-
-if (process.env.NODE_ENV === 'production') {
-
-    module.exports.devtool = 'source-map';
-
-    module.exports.plugins = (module.exports.plugins || []).concat([
-
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        })
-    ]);
-}
+  },
+  output: {
+    path: distPath,
+    filename: 'js/[name].[hash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['react', 'env', 'stage-1']
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [...commonCssLoaders, 'sass-loader']
+      },
+      {
+        test: /\.css$/,
+        use: commonCssLoaders
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'imgs/[name].[ext]?[hash]'
+        }
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
+    extensions: ['.js', '.jsx']
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  },
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+    port: 3000,
+    contentBase: ['./'],
+    inline: true,
+    publicPath: '/',
+    hot: true
+  },
+  plugins: [
+    new CleanWebpackPlugin(distPath),
+    new HTMLWebpackPlugin({
+      title: 'React Family',
+      template: 'src/index.ejs',
+      minify: {
+        collapseWhitespace: true
+      }
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash].css',
+      allChunks: true
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};

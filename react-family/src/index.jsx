@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -16,10 +18,10 @@ import { HashRouter as Router } from 'react-router-dom';
 import App from './page/App.jsx';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>,
-    document.getElementById('app')
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('app')
 );
