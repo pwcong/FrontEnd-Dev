@@ -13,15 +13,16 @@
 |Vue 全家桶             |Vue + Vuex + Router + Axios |[vue-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-family)              |
 |Vue 打包组件           |Vue + Webpack            |[vue-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-lib)                       |
 |Vue 单元测试与代码检查 |Vue + Karma + Mocha + Chai + ESLint |[vue-test-lint](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-test-lint) |
-|Vue TypeScript       |Vue + TypeScript |[vue-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-typescript) |
-|Vue TypeScript MVP       |Vue + TypeScript + MVP |[vue-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-typescript-mvp) |
-|Vue 多页Demo          |Vue MultiPage   |[vue-multipage](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-multipage) |
-|Vue 预渲染          |Vue Prerendering   |[vue-prerendering](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-prerendering) |
+|Vue TypeScript       |Vue + TypeScript |[vue-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-typescript)                 |
+|Vue TypeScript MVP       |Vue + TypeScript + MVP |[vue-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-typescript-mvp)    |
+|Vue 多页Demo          |Vue MultiPage   |[vue-multipage](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-multipage)                    |
+|Vue 预渲染          |Vue Prerendering   |[vue-prerendering](https://github.com/pwcong/FrontEnd-Dev/tree/master/vue-prerendering)             |
 |React 标准开发环境     |React + Babel + Webpack  |[react-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-start)               |
 |React 单页面应用       |React + Router + Babel + Webpack |[react-spa](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-spa)           |
 |React 全家桶           |React + Redux + Router + Fetch   |[react-family](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-family)     |
-|React 打包组件         |React + Webpack          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-lib)                  |
-|React TypeScript      |React + TypeScript          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-typescript)            |
-|Rollup 生成库         |Rollup + Babel          |[rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-start)                  |
+|React 打包组件         |React + Webpack          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-lib)                   |
+|React TypeScript      |React + TypeScript          |[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-typescript)         |
+|React Family In TypeScript|React Family + TypeScript|[react-lib](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-family-typescript) |
+|Rollup 生成库         |Rollup + Babel          |[rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-start)               |
 |Uglify               |UglifyJS       |[uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/uglify-js)                              |
 |Minify               |Babel-Minify          |[minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/minify-js)                       |

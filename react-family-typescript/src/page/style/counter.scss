@@ -1,0 +1,29 @@
+:local .counter {
+  font-size: 32px;
+  color: #222;
+  .tools {
+    margin-top: 16px;
+  }
+  .tools button {
+    background-color: transparent;
+    font-size: 16px;
+    margin: 8px;
+    border: none;
+    border: 1px solid #00bdff;
+    color: #00bdff;
+    padding: 8px 16px;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+    &:hover,
+    &:active {
+      background-color: #00bdff;
+      color: white;
+    }
+    &.disabled {
+      background-color: grey;
+      border-color: grey;
+      color: white;
+    }
+  }
+}
