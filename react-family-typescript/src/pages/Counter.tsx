@@ -3,21 +3,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { plus, plusAsync } from '../actions/counter';
+import { Counter } from '../models';
+
+import { State as GlobalState } from '../reducers';
 
 import style from './style/counter.scss';
 
 interface Props {
-  counter: {
-    value: number;
-  };
-  dispatch(e: any): void;
+  counter: Counter;
+  plusCounter(nums: number): void;
+  plusCounterSync(nums: number): void;
 }
 
 interface State {
   plusing: boolean;
 }
 
-class Counter extends React.Component<Props, State> {
+class CounterPage extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
 
@@ -29,7 +31,7 @@ class Counter extends React.Component<Props, State> {
   render() {
     return (
       <div className={style.counter}>
-        <div className={style.label}>{this.props.counter.value}</div>
+        <div className={style.label}>{this.props.counter.nums}</div>
 
         <div className={style.tools}>
           <button type="button" onClick={this.handlePlus}>
@@ -49,7 +51,7 @@ class Counter extends React.Component<Props, State> {
   }
 
   private handlePlus = (e: React.MouseEvent<HTMLButtonElement>) => {
-    this.props.dispatch(plus(1));
+    this.props.plusCounter(1);
   };
 
   private handlePlusAsync = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -58,8 +60,7 @@ class Counter extends React.Component<Props, State> {
     });
 
     try {
-      let res = await this.props.dispatch(plusAsync(1));
-
+      let res = await this.props.plusCounterSync(1);
       console.log('plus async: ' + res);
     } catch (err) {
       console.log('plus async fail');
@@ -71,10 +72,16 @@ class Counter extends React.Component<Props, State> {
   };
 }
 
-function select(state: any) {
-  return {
-    counter: state.counter
-  };
-}
+const mapStateToProps = (state: GlobalState) => ({
+  counter: state.counter
+});
 
-export default connect(select)(Counter);
+const mapDispatchToProps = (dispatch: any) => ({
+  plusCounter: (nums: number) => dispatch(plus(nums)),
+  plusCounterSync: (nums: number) => dispatch(plusAsync(nums))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CounterPage);

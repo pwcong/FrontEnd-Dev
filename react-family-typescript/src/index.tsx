@@ -15,7 +15,7 @@ const store = createStore(reducer, applyMiddleware(thunk));
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom';
 
-import App from './page/App';
+import App from './pages/App';
 
 ReactDOM.render(
   <Provider store={store}>

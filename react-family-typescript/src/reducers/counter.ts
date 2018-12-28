@@ -1,14 +1,14 @@
-import { COUNTER_PLUS, CounterAction } from '../actions';
+import { COUNTER_PLUS } from '../actions';
 
 export const DEFAULT_STATE = {
-  value: 0
+  nums: 0
 };
 
-export default (state = DEFAULT_STATE, action: CounterAction) => {
+export default (state = DEFAULT_STATE, action: any) => {
   switch (action.type) {
     case COUNTER_PLUS:
       return Object.assign({}, state, {
-        value: state.value + action.payload.nums
+        nums: state.nums + action.payload.nums
       });
     default:
       return state;

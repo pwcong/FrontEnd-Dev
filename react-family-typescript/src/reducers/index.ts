@@ -1,6 +1,12 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
 
-export default combineReducers({
+import { Counter } from '../models';
+
+export interface State {
+  counter: Counter;
+}
+
+export default combineReducers<State>({
   counter
 });
