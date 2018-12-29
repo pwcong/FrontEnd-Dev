@@ -23,7 +23,6 @@ module.exports = {
   entry: {
     index: './src/index.tsx',
     vendors: [
-      'babel-polyfill',
       'react',
       'react-dom',
       'react-router-dom',
