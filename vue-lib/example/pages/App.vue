@@ -2,7 +2,7 @@
   <div class="container">
     <img :src="logo" alt="Logo">
     <div>
-      <test-component label="Hello World!" />
+      <test-component label="Hello World!"/>
     </div>
   </div>
 </template>
@@ -15,9 +15,9 @@
 </style>
 
 <script>
-import logo from './assets/imgs/vue.png';
+import logo from "../assets/imgs/vue.png";
 
-import { TestComponent } from '../../src/index';
+import { TestComponent } from "../../src/index";
 
 export default {
   data() {

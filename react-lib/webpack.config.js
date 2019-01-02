@@ -6,6 +6,21 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, 'lib');
 
+const commonCssLoaders = [
+  {
+    loader: 'style-loader'
+  },
+  {
+    loader: 'css-loader'
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: [require('postcss-preset-env')()]
+    }
+  }
+];
+
 module.exports = {
   mode: isProd ? 'production' : 'development',
   module: {
@@ -20,23 +35,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader'
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [require('postcss-preset-env')()]
-            }
-          }
-        ]
+        use: [...commonCssLoaders, 'sass-loader']
+      },
+      {
+        test: /\.css$/,
+        use: commonCssLoaders
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

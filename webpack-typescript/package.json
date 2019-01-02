@@ -1,7 +1,7 @@
 {
   "name": "webpack-typescript",
   "version": "1.0.0",
-  "description": "convert TypeScript to ES5",
+  "description": "Convert TypeScript to ES5",
   "main": "./src/index.ts",
   "scripts": {
     "clean": "rimraf ./dist",

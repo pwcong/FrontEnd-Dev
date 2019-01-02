@@ -4,8 +4,7 @@
   "description": "An example about how to build Vue Library.",
   "main": "./lib/vue-lib.js",
   "scripts": {
-    "clean": "rimraf ./lib",
-    "build": "npm run clean & cross-env NODE_ENV=production webpack --progress",
+    "build": "cross-env NODE_ENV=production webpack --progress",
     "dev": "webpack-dev-server --open"
   },
   "keywords": [
@@ -17,21 +16,22 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
-    "file-loader": "^0.11.2",
+    "file-loader": "^1.1.11",
     "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
     "postcss-preset-env": "^6.2.0",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.19.1",
-    "url-loader": "^1.0.1",
-    "vue-loader": "^13.7.1",
+    "sass-loader": "^7.0.1",
+    "url-loader": "^1.1.2",
+    "vue-loader": "^15.2.1",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.2"
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "cross-env": "^5.1.0",
-    "rimraf": "^2.6.2",
-    "vue": "^2.5.3"
+    "vue": "^2.5.16"
   }
 }
