@@ -1,19 +1,13 @@
 <template>
   <div class="container">
-
     <ul class="row list">
-      <li class="item" v-for="(item, index) in items" :key="'item-' + index">
-        {{ item.name }}
-      </li>
+      <li class="item" v-for="(item, index) in items" :key="'item-' + index">{{ item.name }}</li>
     </ul>
 
     <div class="row">
-
       <button type="button" @click="handleAddItem">Add Item</button>
       <button type="button" @click="handleAddItemAsync">Add Item Async</button>
-
     </div>
-
   </div>
 </template>
 
@@ -21,15 +15,15 @@
 </style>
 
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from "vue";
+import Component from "vue-class-component";
 
-import { AppView } from '../mvp/view/BaseView';
+import { AppView } from "../mvp/view/BaseView";
 
-import { AppPresenter } from '../mvp/presenter/BasePresenter';
-import AppPresenterImpl from '../mvp/presenter/impl/AppPresenterImpl';
+import { AppPresenter } from "../mvp/presenter/BasePresenter";
+import AppPresenterImpl from "../mvp/presenter/impl/AppPresenterImpl";
 
-import AppItem from '../mvp/bean/AppItem';
+import AppItem from "../mvp/bean/AppItem";
 
 @Component({
   props: {}

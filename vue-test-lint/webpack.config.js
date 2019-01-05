@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     index: './src/app.js',
-    vendor: ['babel-polyfill', 'vue']
+    vendors: ['babel-polyfill', 'vue']
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -56,7 +56,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Vue Start',
-      template: 'index.ejs',
+      template: 'src/index.ejs',
       minify: {
         collapseWhitespace: true
       }
@@ -66,8 +66,8 @@ module.exports = {
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'js/vendor.js'
+      name: 'vendors',
+      filename: 'js/vendors.js'
     })
   ]
 };

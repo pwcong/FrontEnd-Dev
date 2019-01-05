@@ -3,13 +3,14 @@ const webpack = require('webpack');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
-const distPath = path.resolve(__dirname, 'dist');
+const distPath = path.resolve(__dirname, './dist');
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     path: distPath,
     filename: 'js/bundle.[hash].js'
@@ -17,20 +18,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['env']
-        }
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src')
-    },
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.ts']
   },
   devtool: 'source-map',
   devServer: {
@@ -41,10 +36,23 @@ module.exports = {
     publicPath: '/',
     hot: true
   },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // Must be set to true if using source-maps in production
+        terserOptions: {
+          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+          ie8: true
+        }
+      })
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(distPath),
     new HTMLWebpackPlugin({
-      title: 'Webpack-Babel',
+      title: 'Webpack-TypeScript-IE8',
       template: 'src/index.ejs'
     }),
     new webpack.HotModuleReplacementPlugin()

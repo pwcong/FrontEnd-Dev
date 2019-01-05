@@ -1,13 +1,11 @@
-body{
-    font-family: 'Microsoft YaHei', sans-serif;
+body {
+  font-family: 'Microsoft YaHei', sans-serif;
 }
-.container{
+.container {
+  text-align: center;
 
-    text-align: center;
-
-    .welcome{
-        margin-top: 100px;
-        font-size: 28px;
-    }
-
+  .welcome {
+    margin-top: 100px;
+    font-size: 28px;
+  }
 }

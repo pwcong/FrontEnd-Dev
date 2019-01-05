@@ -1,12 +1,11 @@
 {
   "name": "webpack-babel",
   "version": "1.0.0",
-  "description": "convert ES6 to ES5.",
+  "description": "Convert ES6 to ES5.",
   "main": "./src/index.js",
   "scripts": {
-    "clean": "rimraf ./dist",
-    "dev": "npm run clean & webpack-dev-server",
-    "build": "npm run clean & cross-env NODE_ENV=production webpack --progress"
+    "dev": "webpack-dev-server --open",
+    "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
     "ES6-ES5"
@@ -17,12 +16,13 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
-    "html-webpack-plugin": "^2.30.1",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.2"
+    "clean-webpack-plugin": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "cross-env": "^5.1.5",
-    "rimraf": "^2.6.2"
+    "cross-env": "^5.1.5"
   }
 }

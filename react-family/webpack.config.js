@@ -94,10 +94,7 @@ module.exports = {
     new CleanWebpackPlugin(distPath),
     new HTMLWebpackPlugin({
       title: 'React Family',
-      template: 'src/index.ejs',
-      minify: {
-        collapseWhitespace: true
-      }
+      template: 'src/index.ejs'
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',

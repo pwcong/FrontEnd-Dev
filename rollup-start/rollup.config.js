@@ -15,12 +15,11 @@ const banner = `/*
  * ${new Date().getFullYear()} ${author}
  * @license ${license}
  */
-`
+`;
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-
   input: 'src/main.js',
   output: {
     file: isProduction ? `dist/${name}.min.js` : `public/${name}.debug.js`,
@@ -33,17 +32,17 @@ module.exports = {
     resolve(),
     commonjs(),
     babel(),
-    isProduction && uglify({
-      output: {
-        comments: function (node, comment) {
-          var text = comment.value;
-          var type = comment.type;
-          if (type == "comment2") {
-            return /@preserve|@license|@cc_on/i.test(text);
+    isProduction &&
+      uglify({
+        output: {
+          comments: function(node, comment) {
+            var text = comment.value;
+            var type = comment.type;
+            if (type == 'comment2') {
+              return /@preserve|@license|@cc_on/i.test(text);
+            }
           }
         }
-      }
-    })
+      })
   ]
-
-}
+};

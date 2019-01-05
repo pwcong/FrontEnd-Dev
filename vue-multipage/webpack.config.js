@@ -175,19 +175,13 @@ module.exports = {
             new HTMLWebpackPlugin({
               filename: page.name + '.html',
               template: page.template,
-              chunks: ['vendors', page.name],
-              minify: {
-                collapseWhitespace: true
-              }
+              chunks: ['vendors', page.name]
             })
         )
       : [
           new HTMLWebpackPlugin({
             title: 'Vue MultiPage',
-            template: 'index.ejs',
-            minify: {
-              collapseWhitespace: true
-            }
+            template: 'index.ejs'
           })
         ]
   )

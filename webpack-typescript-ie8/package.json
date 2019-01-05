@@ -1,25 +1,29 @@
 {
-  "name": "ie8-test",
+  "name": "webpack-typescript-ie8",
   "version": "1.0.0",
-  "description": "Test For IE8.",
-  "main": "./src/index.jsx",
+  "description": "Convert TypeScript to ES3 For IE8.",
+  "main": "./src/index.ts",
   "scripts": {
+    "dev": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
-    "ie8-test"
+    "TS-IE8"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "dependencies": {
-    "cross-env": "^5.2.0",
-    "ts-loader": "^5.3.2",
+    "cross-env": "^5.1.5",
     "typescript": "^3.2.2"
   },
   "devDependencies": {
+    "@types/node": "^10.12.18",
     "clean-webpack-plugin": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^1.2.1",
+    "ts-loader": "^5.3.1",
     "webpack": "^4.9.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.4"
   }
 }

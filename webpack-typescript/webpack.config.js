@@ -1,12 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, './dist');
 
 module.exports = {
+  mode: isProd ? 'production' : 'development',
   entry: './src/index.ts',
   output: {
     path: distPath,
@@ -22,7 +24,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.js', '.ts']
   },
   devtool: 'source-map',
   devServer: {
@@ -30,34 +32,15 @@ module.exports = {
     port: 3000,
     contentBase: ['./'],
     inline: true,
-    publicPath: '/'
+    publicPath: '/',
+    hot: true
   },
   plugins: [
+    new CleanWebpackPlugin(distPath),
     new HTMLWebpackPlugin({
       title: 'Webpack-TypeScript',
-      template: 'src/index.ejs',
-      minify: {
-        collapseWhitespace: true
-      }
-    })
-  ].concat(
-    isProd
-      ? [
-          new webpack.DefinePlugin({
-            'process.env': {
-              NODE_ENV: JSON.stringify('production')
-            }
-          }),
-          new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-              warnings: false
-            }
-          }),
-          new webpack.LoaderOptionsPlugin({
-            minimize: true
-          })
-        ]
-      : []
-  )
+      template: 'src/index.ejs'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };

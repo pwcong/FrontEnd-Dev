@@ -98,10 +98,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HTMLWebpackPlugin({
       title: 'Vue TypeScript MVP',
-      template: 'src/index.ejs',
-      minify: {
-        collapseWhitespace: true
-      }
+      template: 'src/index.ejs'
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',

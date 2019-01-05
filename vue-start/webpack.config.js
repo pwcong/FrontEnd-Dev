@@ -97,10 +97,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HTMLWebpackPlugin({
       title: 'Vue Start',
-      template: 'src/index.ejs',
-      minify: {
-        collapseWhitespace: true
-      }
+      template: 'src/index.ejs'
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',

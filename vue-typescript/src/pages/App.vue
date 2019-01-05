@@ -1,30 +1,25 @@
 <template>
-    <div class="container">
-        <h1>
-            {{title}}
-        </h1>
-        <h2>
-            {{helloCounts}}
-        </h2>
+  <div class="container">
+    <h1>{{title}}</h1>
+    <h2>{{helloCounts}}</h2>
 
-        <button type="button" @click="handleButtonClick">Plus</button>
-
-    </div>
+    <button type="button" @click="handleButtonClick">Plus</button>
+  </div>
 </template>
 
 <style>
 </style>
 
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import Vue from "vue";
+import Component from "vue-class-component";
 
 @Component({
   props: {}
 })
 export default class App extends Vue {
   // data
-  title: string = 'Hello World !';
+  title: string = "Hello World !";
   counts: number = 0;
 
   // methods
@@ -34,7 +29,7 @@ export default class App extends Vue {
 
   // computed
   get helloCounts(): string {
-    return 'Hello Counts: ' + this.counts;
+    return "Hello Counts: " + this.counts;
   }
 
   mounted() {}
