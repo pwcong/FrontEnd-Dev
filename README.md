@@ -4,6 +4,7 @@
 |环境名称               |主要技术                     |目录                                                                                    |
 |-----------------------|-------------------------|--------------------------------------------------------------------------------------------|
 |ES6转ES5               |Webpack + Babel          |[webpack-babel](https://github.com/pwcong/FrontEnd-Dev/tree/master/webpack-babel)           |
+|ES6转ES3               |Webpack + Babel + ES5-SHIM|[webpack-babel-ie8](https://github.com/pwcong/FrontEnd-Dev/tree/master/webpack-babel-ie8)           |
 |TypeScript转ES5        |Webpack + TypeScript     |[webpack-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/master/webpack-typescript) |
 |TypeScript转ES3        |Webpack + TypeScript|[webpack-typescript-ie8](https://github.com/pwcong/FrontEnd-Dev/tree/master/webpack-typescript-ie8) |
 |实时预览               |Browsersync              |[browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/master/browsersync)               |

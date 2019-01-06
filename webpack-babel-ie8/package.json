@@ -1,33 +1,37 @@
 {
-  "name": "webpack-typescript-ie8",
+  "name": "webpack-babel-ie8",
   "version": "1.0.0",
-  "description": "Convert TypeScript to ES3 For IE8.",
-  "main": "./src/index.ts",
+  "description": "Convert ES6 to ES3.",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "keywords": [
-    "TS-IE8"
+    "ES6-ES3"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "console-polyfill": "^0.3.0",
-    "cross-env": "^5.1.5",
-    "es5-shim": "^4.5.12",
-    "typescript": "^3.2.2"
-  },
   "devDependencies": {
-    "@types/node": "^10.12.18",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-member-expression-literals": "^7.2.0",
+    "@babel/plugin-transform-property-literals": "^7.2.0",
+    "@babel/plugin-transform-reserved-words": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "html-webpack-include-assets-plugin": "^1.0.6",
     "html-webpack-plugin": "^3.2.0",
     "terser-webpack-plugin": "^1.2.1",
-    "ts-loader": "^5.3.1",
     "webpack": "^4.9.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "console-polyfill": "^0.3.0",
+    "cross-env": "^5.1.5",
+    "es5-shim": "^4.5.12"
   }
 }

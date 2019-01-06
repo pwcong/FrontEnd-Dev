@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
-const distPath = path.resolve(__dirname, './dist');
+const distPath = path.resolve(__dirname, 'dist');
 
 const externals = {
   'es5-shim.min.js': 'node_modules/es5-shim/es5-shim.min.js',
@@ -17,33 +17,39 @@ const externals = {
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: './src/index.ts',
+  entry: {
+    index: './src/index.js',
+    vendors: ['es5-shim', 'es5-shim/es5-sham', '@babel/polyfill']
+  },
   output: {
     path: distPath,
-    filename: 'js/bundle.[hash].js'
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.ts']
-  },
-  devtool: 'source-map',
-  devServer: {
-    historyApiFallback: true,
-    port: 3000,
-    contentBase: ['./'],
-    inline: true,
-    publicPath: '/',
-    hot: true
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
+    extensions: ['.js', '.jsx']
   },
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    },
     minimizer: [
       new TerserPlugin({
         cache: true,
@@ -56,6 +62,15 @@ module.exports = {
       })
     ]
   },
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+    port: 3000,
+    contentBase: ['./'],
+    inline: true,
+    publicPath: '/',
+    hot: true
+  },
   plugins: [new CleanWebpackPlugin(distPath)].concat(
     isProd
       ? [
@@ -66,7 +81,7 @@ module.exports = {
             }))
           ),
           new HTMLWebpackPlugin({
-            title: 'Webpack-TypeScript-IE8',
+            title: 'Webpack-Babel-IE8',
             template: 'src/index.ejs'
           }),
           new HtmlWebpackIncludeAssetsPlugin({
