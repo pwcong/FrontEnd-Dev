@@ -1,4 +1,4 @@
-# Webpack - TypeScript
+# Webpack - TypeScript - IE8
 
 ```shell
 # dev

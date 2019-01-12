@@ -1,9 +1,6 @@
-# React Start
+# React TypeScript
 
 ```shell
-# clean
-npm run clean
-
 # dev
 npm run dev
 
