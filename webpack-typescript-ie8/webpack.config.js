@@ -12,7 +12,8 @@ const distPath = path.resolve(__dirname, './dist');
 
 const externals = {
   'es5-shim.min.js': 'node_modules/es5-shim/es5-shim.min.js',
-  'es5-sham.min.js': 'node_modules/es5-shim/es5-sham.min.js'
+  'es5-sham.min.js': 'node_modules/es5-shim/es5-sham.min.js',
+  'console-polyfill.js': 'node_modules/console-polyfill/index.js'
 };
 
 module.exports = {
@@ -62,7 +63,7 @@ module.exports = {
           new CopyWebpackPlugin(
             Object.keys(externals).map(k => ({
               from: externals[k],
-              to: path.join(distPath, 'libs')
+              to: path.join(distPath, 'libs', k)
             }))
           ),
           new HTMLWebpackPlugin({
