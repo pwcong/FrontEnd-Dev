@@ -1,5 +1,12 @@
 {
-  "presets": ["@babel/preset-env"],
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "loose": true
+      }
+    ]
+  ],
   "plugins": [
     "@babel/transform-member-expression-literals",
     "@babel/transform-property-literals",

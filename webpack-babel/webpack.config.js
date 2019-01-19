@@ -27,7 +27,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src')
     },
-    extensions: ['.js', '.jsx']
+    extensions: ['.js']
   },
   devtool: 'source-map',
   devServer: {
@@ -38,12 +38,14 @@ module.exports = {
     publicPath: '/',
     hot: true
   },
-  plugins: [
-    new CleanWebpackPlugin(distPath),
-    new HTMLWebpackPlugin({
-      title: 'Webpack-Babel',
-      template: 'src/index.ejs'
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  plugins: [new CleanWebpackPlugin(distPath)].concat(
+    isProd
+      ? [
+          new HTMLWebpackPlugin({
+            title: 'Webpack-Babel',
+            template: 'src/index.ejs'
+          })
+        ]
+      : [new webpack.HotModuleReplacementPlugin()]
+  )
 };
