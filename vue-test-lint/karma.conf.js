@@ -29,10 +29,7 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress'],
 
-    webpack: {
-      module: webpackConfig.module,
-      devtool: webpackConfig.devtool
-    },
+    webpack: webpackConfig,
 
     // web server port
     port: 9876,

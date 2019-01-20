@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <img :src="logo" alt="Logo">
-    <welcome :text="text" />
+    <welcome :text="text"/>
   </div>
 </template>
 
