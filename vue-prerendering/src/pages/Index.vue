@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import LOGO from '@/assets/imgs/vue.png';
+import LOGO from "@/assets/imgs/vue.png";
 
-import { SAMPLE_ACTIONS_PLUS, SAMPLE_ACTIONS_PLUS_ASYNC } from '../store/types';
+import { SAMPLE_ACTIONS_PLUS, SAMPLE_ACTIONS_PLUS_ASYNC } from "../store/types";
 
 export default {
   data() {
@@ -21,17 +21,17 @@ export default {
   },
   methods: {
     plus(e) {
-      console.log('plus');
+      console.log("plus");
       this.$store.dispatch(SAMPLE_ACTIONS_PLUS);
     },
     plusAsync(e) {
-      console.log('plusAsync');
+      console.log("plusAsync");
       this.$store
         .dispatch(SAMPLE_ACTIONS_PLUS_ASYNC, {
           time: 2000
         })
         .then(() => {
-          alert('Plus Async');
+          alert("Plus Async");
         });
     }
   },

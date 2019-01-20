@@ -16,7 +16,7 @@
 
 <style lang="scss">
 body {
-  font-family: 'Microsoft YaHei', sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .container {
@@ -58,7 +58,7 @@ body {
 </style>
 
 <script>
-import logo from '../assets/imgs/vue.png';
+import logo from "../assets/imgs/vue.png";
 
 export default {
   data() {

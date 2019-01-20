@@ -95,7 +95,7 @@ const commonCssLoaders = [
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: Object.assign({}, entry, {
-    vendors: ['babel-polyfill', 'vue']
+    vendors: ['@babel/polyfill', 'vue']
   }),
   output: {
     path: distPath,
@@ -106,10 +106,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['env', 'stage-1']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.vue$/,
@@ -136,7 +133,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
-    }
+    },
+    extensions: ['.js', '.vue']
   },
 
   optimization: {
@@ -166,23 +164,24 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       allChunks: true
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ].concat(
-    pages && pages.length > 0
-      ? pages.map(
-          page =>
+    })
+  ]
+    .concat(
+      pages && pages.length > 0
+        ? pages.map(
+            page =>
+              new HTMLWebpackPlugin({
+                filename: page.name + '.html',
+                template: page.template,
+                chunks: ['vendors', page.name]
+              })
+          )
+        : [
             new HTMLWebpackPlugin({
-              filename: page.name + '.html',
-              template: page.template,
-              chunks: ['vendors', page.name]
+              title: 'Vue MultiPage',
+              template: 'index.ejs'
             })
-        )
-      : [
-          new HTMLWebpackPlugin({
-            title: 'Vue MultiPage',
-            template: 'index.ejs'
-          })
-        ]
-  )
+          ]
+    )
+    .concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
 };

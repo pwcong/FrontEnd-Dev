@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import LOGO from '@/assets/imgs/vue.png';
+import LOGO from "@/assets/imgs/vue.png";
 
 export default {
   data() {
@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 body {
-  font-family: 'Microsoft YaHei', sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 .container {
   text-align: center;

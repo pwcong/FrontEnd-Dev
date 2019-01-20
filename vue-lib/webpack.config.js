@@ -29,10 +29,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['env']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.vue$/,
@@ -78,11 +75,7 @@ module.exports = {
     hot: true
   },
 
-  plugins: [
-    new CleanWebpackPlugin(distPath),
-    new VueLoaderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  plugins: [new CleanWebpackPlugin(distPath), new VueLoaderPlugin()]
 };
 
 if (isProd) {
@@ -99,4 +92,7 @@ if (isProd) {
   module.exports.output = {
     filename: 'bundle.js'
   };
+  module.exports.plugins = module.exports.plugins.concat([
+    new webpack.HotModuleReplacementPlugin()
+  ]);
 }

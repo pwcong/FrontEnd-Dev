@@ -1,4 +1,1 @@
-export {
-    default as TestComponent
-}
-from './components/Test.vue';
+export { default as TestComponent } from './components/Test';

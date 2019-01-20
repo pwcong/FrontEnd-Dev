@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { SAMPLE_ACTIONS_PLUS, SAMPLE_ACTIONS_PLUS_ASYNC } from '../store/types';
+import { SAMPLE_ACTIONS_PLUS, SAMPLE_ACTIONS_PLUS_ASYNC } from "../store/types";
 
 export default {
   data() {
@@ -27,7 +27,7 @@ export default {
           time: 2000
         })
         .then(() => {
-          alert('Plus Async');
+          alert("Plus Async");
         });
     }
   },

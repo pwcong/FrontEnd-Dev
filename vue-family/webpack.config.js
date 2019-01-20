@@ -27,7 +27,7 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
     index: './src/app.js',
-    vendors: ['babel-polyfill', 'vue', 'vuex', 'vue-router', 'axios']
+    vendors: ['@babel/polyfill', 'vue', 'vuex', 'vue-router', 'axios']
   },
   output: {
     path: distPath,
@@ -38,10 +38,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['env', 'stage-1']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.vue$/,
@@ -68,7 +65,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
-    }
+    },
+    extensions: ['.js', '.vue']
   },
 
   optimization: {
@@ -102,7 +100,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       allChunks: true
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    })
+  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
 };

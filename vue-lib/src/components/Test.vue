@@ -15,11 +15,7 @@
 </style>
 
 <template>
-
-    <div class="test">
-        {{label}}
-    </div>
-
+  <div class="test">{{label}}</div>
 </template>
 
 <script>
@@ -27,7 +23,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Test'
+      default: "Test"
     }
   }
 };

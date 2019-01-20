@@ -1,9 +1,6 @@
 # Vue Lib
 
 ```shell
-# clean
-npm run clean
-
 # dev
 npm run dev
 
