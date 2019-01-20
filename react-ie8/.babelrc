@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "loose": true,
+        "targets": {
+          "browsers": [
+            "ie >= 8",
+            "Chrome >= 21",
+            "Firefox >= 1",
+            "Edge >= 13",
+            "last 3 versions"
+          ]
+        }
+      }
+    ],
+    "@babel/react"
+  ],
+  "plugins": [
+    "@babel/transform-member-expression-literals",
+    "@babel/transform-property-literals",
+    "@babel/transform-reserved-words"
+  ]
+}

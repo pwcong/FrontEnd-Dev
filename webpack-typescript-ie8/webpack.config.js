@@ -57,24 +57,21 @@ module.exports = {
       })
     ]
   },
-  plugins: [new CleanWebpackPlugin(distPath)].concat(
-    isProd
-      ? [
-          new CopyWebpackPlugin(
-            Object.keys(externals).map(k => ({
-              from: externals[k],
-              to: path.join(distPath, 'libs', k)
-            }))
-          ),
-          new HTMLWebpackPlugin({
-            title: 'Webpack-TypeScript-IE8',
-            template: 'src/index.ejs'
-          }),
-          new HtmlWebpackIncludeAssetsPlugin({
-            assets: Object.keys(externals).map(k => 'libs/' + k),
-            append: false
-          })
-        ]
-      : [new webpack.HotModuleReplacementPlugin()]
-  )
+  plugins: [
+    new CleanWebpackPlugin(distPath),
+    new CopyWebpackPlugin(
+      Object.keys(externals).map(k => ({
+        from: externals[k],
+        to: path.join(distPath, 'libs', k)
+      }))
+    ),
+    new HTMLWebpackPlugin({
+      title: 'Webpack-TypeScript-IE8',
+      template: 'src/index.ejs'
+    }),
+    new HtmlWebpackIncludeAssetsPlugin({
+      assets: Object.keys(externals).map(k => 'libs/' + k),
+      append: false
+    })
+  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
 };

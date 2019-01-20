@@ -38,14 +38,11 @@ module.exports = {
     publicPath: '/',
     hot: true
   },
-  plugins: [new CleanWebpackPlugin(distPath)].concat(
-    isProd
-      ? [
-          new HTMLWebpackPlugin({
-            title: 'Webpack-Babel',
-            template: 'src/index.ejs'
-          })
-        ]
-      : [new webpack.HotModuleReplacementPlugin()]
-  )
+  plugins: [
+    new CleanWebpackPlugin(distPath),
+    new HTMLWebpackPlugin({
+      title: 'Webpack-Babel',
+      template: 'src/index.ejs'
+    })
+  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
 };

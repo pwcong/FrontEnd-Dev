@@ -23,7 +23,7 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
     index: './src/index.jsx',
-    vendors: ['babel-polyfill', 'react', 'react-dom']
+    vendors: ['@babel/polyfill', 'react', 'react-dom']
   },
   output: {
     path: distPath,
@@ -34,10 +34,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['react', 'env', 'stage-1']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
@@ -91,7 +88,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       allChunks: true
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    })
+  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
 };

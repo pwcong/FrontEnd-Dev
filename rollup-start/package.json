@@ -4,27 +4,27 @@
   "description": "A start demo for rollup",
   "main": "src/main.js",
   "scripts": {
+    "clean": "rimraf ./dist",
     "start": "browser-sync start --server \"public\" --files \"public\"",
     "preset": "cross-env FUNC=foo rollup -c",
     "watch": "cross-env FUNC=foo rollup -c -w",
-    "build": "cross-env NODE_ENV=production npm run preset",
+    "build": "npm run clean && cross-env NODE_ENV=production npm run preset",
     "dev": "npm-run-all --parallel start watch"
   },
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.7.0",
-    "cross-env": "^5.1.5",
-    "npm-run-all": "^4.1.3",
-    "rollup": "^0.59.2",
-    "rollup-plugin-babel": "^3.0.4",
-    "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^4.0.0"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "rollup": "^1.1.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-uglify": "^6.0.1"
   },
   "dependencies": {
-    "browser-sync": "^2.24.5"
+    "browser-sync": "^2.24.5",
+    "cross-env": "^5.2.0",
+    "rimraf": "^2.6.3"
   }
 }

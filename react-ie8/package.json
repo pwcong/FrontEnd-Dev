@@ -1,37 +1,47 @@
 {
-  "name": "react-lib",
+  "name": "react-ie8",
   "version": "1.0.0",
-  "description": "An example about how to build React Library.",
-  "main": "./lib/react-lib.js",
+  "description": "Let's start enjoying React for IE8.",
+  "main": "./src/index.jsx",
   "scripts": {
+    "dev": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress",
-    "dev": "webpack-dev-server --open"
+    "build:ie8": "cross-env IE8=true npm run build"
   },
   "keywords": [
-    "React Lib"
+    "react-ie8"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "dependencies": {
     "cross-env": "^5.1.5",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "es5-polyfill": "^0.0.6",
+    "nervjs": "^1.3.9",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-member-expression-literals": "^7.2.0",
+    "@babel/plugin-transform-property-literals": "^7.2.0",
+    "@babel/plugin-transform-reserved-words": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
+    "html-webpack-include-assets-plugin": "^1.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
     "postcss-preset-env": "^6.5.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2",
+    "terser-webpack-plugin": "^1.2.1",
     "webpack": "^4.9.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.4"

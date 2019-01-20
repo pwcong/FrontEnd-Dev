@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -15,7 +15,7 @@ const store = createStore(reducer, applyMiddleware(thunk));
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom';
 
-import App from './page/App.jsx';
+import App from './pages/App';
 
 ReactDOM.render(
   <Provider store={store}>

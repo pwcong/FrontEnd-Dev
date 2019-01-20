@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 
-import Home from './Home.jsx';
-import About from './About.jsx';
+import Home from './Home';
+import About from './About';
 
 import './style/app.scss';
 import logo from '../assets/imgs/logo.png';
