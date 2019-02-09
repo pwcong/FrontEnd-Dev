@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './style/app.scss';
+import './style/app.scss';
 
 import logo from '../assets/imgs/logo.png';
 
@@ -13,8 +13,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className={style.container}>
-        <img src={logo} className={style.logo} />
+      <div className="container">
+        <img src={logo} className="logo" />
 
         <div>
           <TestComponent label="Hello World!" />

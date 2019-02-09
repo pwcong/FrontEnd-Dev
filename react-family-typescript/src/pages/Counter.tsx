@@ -7,7 +7,7 @@ import { Counter } from '../models';
 
 import { State as GlobalState } from '../reducers';
 
-import style from './style/counter.scss';
+import './style/counter.scss';
 
 interface Props {
   counter: Counter;
@@ -30,15 +30,15 @@ class CounterPage extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className={style.counter}>
-        <div className={style.label}>{this.props.counter.nums}</div>
+      <div className="counter">
+        <div className="label">{this.props.counter.nums}</div>
 
-        <div className={style.tools}>
+        <div className="tools">
           <button type="button" onClick={this.handlePlus}>
             Plus
           </button>
           <button
-            className={this.state.plusing ? style.disabled : ''}
+            className={this.state.plusing ? 'disabled' : ''}
             disabled={this.state.plusing}
             type="button"
             onClick={this.handlePlusAsync}
