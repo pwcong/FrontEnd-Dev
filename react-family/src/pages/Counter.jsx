@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { plus, plusAsync } from '../actions/counter';
 
-import style from './style/counter.scss';
+import './style/counter.scss';
 
 class Counter extends React.Component {
   constructor(props) {
@@ -17,15 +17,15 @@ class Counter extends React.Component {
 
   render() {
     return (
-      <div className={style.counter}>
-        <div className={style.label}>{this.props.counter.value}</div>
+      <div className="counter">
+        <div className="label">{this.props.counter.value}</div>
 
-        <div className={style.tools}>
+        <div className="tools">
           <button type="button" onClick={this.handlePlus}>
             Plus
           </button>
           <button
-            className={this.state.plusing ? style.disabled : ''}
+            className={this.state.plusing ? 'disabled' : ''}
             disabled={this.state.plusing}
             type="button"
             onClick={this.handlePlusAsync}

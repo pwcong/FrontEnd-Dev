@@ -14,7 +14,7 @@
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.8.0",
     "gulp-postcss": "^7.0.0",
@@ -23,9 +23,9 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
-    "postcss": "^6.0.11",
-    "postcss-cssnext": "^3.0.2",
-    "pump": "^1.0.2"
+    "postcss": "^7.0.14",
+    "postcss-preset-env": "^6.5.0",
+    "pump": "^3.0.0"
   },
   "dependencies": {
     "rimraf": "^2.6.2"

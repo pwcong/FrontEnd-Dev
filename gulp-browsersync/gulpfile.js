@@ -8,7 +8,7 @@ const sass = require('gulp-sass');
 
 // use the latest css syntax
 const postcss = require('gulp-postcss');
-const cssnext = require('postcss-cssnext');
+const cssnext = require('postcss-preset-env');
 
 // minify css styles
 const cleanCSS = require('gulp-clean-css');

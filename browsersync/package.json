@@ -12,6 +12,6 @@
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.18.13"
+    "browser-sync": "^2.26.3"
   }
 }

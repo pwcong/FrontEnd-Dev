@@ -9,7 +9,7 @@
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "dependencies": {
-    "babel-minify": "^0.4.3",
-    "rimraf": "^2.6.2"
+    "babel-minify": "^0.5.0",
+    "rimraf": "^2.6.3"
   }
 }
