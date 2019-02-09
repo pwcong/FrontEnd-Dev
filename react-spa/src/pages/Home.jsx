@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './style/home.scss';
+import './style/home.scss';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -8,6 +8,6 @@ export default class Home extends React.Component {
   }
 
   render() {
-    return <div className={style.home}>Hello !</div>;
+    return <div className="home">Hello !</div>;
   }
 }

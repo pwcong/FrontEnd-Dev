@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './style/about.scss';
+import './style/about.scss';
 
 export default class About extends React.Component {
   constructor(props) {
@@ -8,6 +8,6 @@ export default class About extends React.Component {
   }
 
   render() {
-    return <div className={style.about}>React SPA</div>;
+    return <div className="about">React SPA</div>;
   }
 }

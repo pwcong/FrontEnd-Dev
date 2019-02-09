@@ -23,7 +23,7 @@ if (isProd) {
   pages = [];
 
   function addPage(pageDir) {
-    let appFilePath = path.join(pageDir, 'app.js');
+    let appFilePath = path.join(pageDir, 'index.js');
     let tplFilePath = path.join(pageDir, 'tpl.ejs');
 
     if (fs.existsSync(appFilePath) && fs.existsSync(tplFilePath)) {
@@ -61,7 +61,7 @@ if (isProd) {
     entry[page.name] = page.entry;
   });
 } else if (process.env.ENTRY) {
-  let appFilePath = path.join(srcDir, process.env.ENTRY, 'app.js');
+  let appFilePath = path.join(srcDir, process.env.ENTRY, 'index.js');
 
   if (fs.existsSync(appFilePath)) {
     entry = {
