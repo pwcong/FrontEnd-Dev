@@ -1,0 +1,121 @@
+@import '~@rc-x/style/common.scss';
+
+$test-prefix-cls: #{$prefix-cls}-test;
+.#{$test-prefix-cls} {
+  &-title {
+    border-left: 2px solid $primary-color;
+    padding-left: 8px;
+    font-size: $font-size-lg;
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  &-package {
+    padding: 16px;
+
+    table {
+      width: 100%;
+      font-size: $font-size;
+      color: $text-color-secondary;
+      border-collapse: collapse;
+      tr {
+        &:not(:last-child) {
+          border-bottom: 1px dashed $border-color-split;
+        }
+      }
+      td {
+        padding: 4px;
+
+        &:nth-child(1) {
+          width: 156px;
+        }
+      }
+    }
+  }
+
+  &-props {
+    padding: 16px;
+
+    border-top: 1px solid $border-color;
+  }
+
+  &-prop {
+    display: flex;
+    font-size: $font-size;
+    color: $text-color-secondary;
+    padding: 4px;
+    &:not(:last-child) {
+      border-bottom: 1px dashed $border-color-split;
+    }
+    &-label {
+      width: 156px;
+    }
+    &-controller {
+      flex: 1;
+    }
+
+    &-switch-group,
+    &-checkbox-group,
+    &-radio-group {
+      user-select: none;
+      label {
+        padding: 4px 6px;
+        input {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  &-component,
+  &-custom {
+    padding: 16px;
+    border-top: 1px solid $border-color;
+  }
+
+  &-items {
+  }
+
+  &-item {
+    display: none;
+    &-active {
+      display: block;
+    }
+  }
+
+  &-tabs {
+    position: fixed;
+    top: -24px;
+    left: 0;
+    right: 0;
+    user-select: none;
+    @include easeInOutTransition;
+    display: flex;
+    flex-flow: row nowrap;
+    box-shadow: 0 1px 5px 1px $border-color;
+
+    &:hover {
+      top: 0;
+    }
+  }
+
+  &-tab {
+    padding: 8px;
+    cursor: pointer;
+
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+    font-size: $font-size-sm;
+    color: $text-color;
+    background-color: $white;
+    @include easeInOutTransition;
+    &:hover:not(&-active) {
+      color: $primary-color;
+    }
+    &-active {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}

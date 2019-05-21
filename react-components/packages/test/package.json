@@ -1,0 +1,16 @@
+{
+  "name": "@rc/test",
+  "version": "0.0.1",
+  "description": "Just for testing component",
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": [
+    "rc-test"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@rc/style": "^0.0.1",
+    "@rc/utils": "^0.0.1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@rc/utils",
+  "version": "0.0.1",
+  "description": "Global Utils",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "keywords": [
+    "rc-utils"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT"
+}
