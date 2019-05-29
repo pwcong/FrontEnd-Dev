@@ -4,6 +4,7 @@
   "description": "Global Utils",
   "main": "dist/bundle.min.js",
   "module": "dist/bundle.es.js",
+  "types": "dist/bundle.d.ts",
   "keywords": [
     "rc-utils"
   ],
