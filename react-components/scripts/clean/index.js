@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const { getPackages } = require('../utils');
 
-module.exports = () => {
+const clean = () => {
   const packages = getPackages();
 
   // clean dist dirs
@@ -9,3 +9,9 @@ module.exports = () => {
     fs.emptyDirSync(p.distPath);
   });
 };
+
+if (require.main === module) {
+  clean();
+}
+
+module.exports = clean;
