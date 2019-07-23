@@ -62,6 +62,7 @@ async function main() {
     const currentPackage = packagesMap[args[0]];
     if (!currentPackage) {
       console.log(chalk.red(`component ${args[0]} not found`));
+      return;
     }
     startDev(currentPackage.path);
   } else {
