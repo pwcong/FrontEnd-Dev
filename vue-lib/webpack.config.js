@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -75,7 +75,7 @@ module.exports = {
     hot: true
   },
 
-  plugins: [new CleanWebpackPlugin(distPath), new VueLoaderPlugin()]
+  plugins: [new CleanWebpackPlugin(), new VueLoaderPlugin()]
 };
 
 if (isProd) {

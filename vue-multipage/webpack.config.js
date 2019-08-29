@@ -4,7 +4,7 @@ const klawSync = require('klaw-sync');
 const webpack = require('webpack');
 
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -159,7 +159,7 @@ module.exports = {
     hot: true
   },
   plugins: [
-    new CleanWebpackPlugin(distPath),
+    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
