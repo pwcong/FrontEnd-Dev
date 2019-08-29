@@ -1,4 +1,4 @@
-export const prefixCls = 'rc-x';
+export const prefixCls = 'rc';
 
 export const getPrefixCls = (cls?: string, customPrefix?: string) =>
   cls ? `${customPrefix || prefixCls}-${cls}` : prefixCls;

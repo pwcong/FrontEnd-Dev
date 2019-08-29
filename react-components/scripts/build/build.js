@@ -1,7 +1,7 @@
 const path = require('path');
 const rollup = require('rollup');
 const ts = require('rollup-plugin-typescript');
-const { dts } = require('rollup-plugin-dts');
+const dts = require('rollup-plugin-dts').default;
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
@@ -11,7 +11,7 @@ const filesize = require('rollup-plugin-filesize');
 module.exports = async (inputOptions, outputOptions) => {
   const commonExternal = ['react', 'react-dom'].concat(
     Object.keys((inputOptions.package || {})['dependencies'] || {})
-      .filter(k => /@rc-x/.test(k))
+      .filter(k => /@rc/.test(k))
       .map(k => k)
   );
   const commonPlugins = [resolve(), commonjs(), postcss(), filesize()];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import { classNames, getPrefixCls } from '@rc/utils';
 
 import './style.scss';
 

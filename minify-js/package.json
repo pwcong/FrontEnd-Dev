@@ -4,7 +4,8 @@
   "description": "A tool that can minify js files",
   "main": "src/main.js",
   "scripts": {
-    "start": "rimraf dist & minify src -d dist"
+    "clean": "rimraf ./dist",
+    "start": "rimraf dist && minify src -d dist"
   },
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",

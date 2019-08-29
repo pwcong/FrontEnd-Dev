@@ -1,4 +1,4 @@
-@import '~@rc-x/style/common.scss';
+@import '~@rc/style/common.scss';
 
 $test-prefix-cls: #{$prefix-cls}-test;
 .#{$test-prefix-cls} {

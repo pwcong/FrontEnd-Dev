@@ -9,7 +9,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const { getPackagesMap } = require('../utils');
 const start = require('../utils/start');
-const clean = require('../utils/clean');
+const clean = require('../clean');
 
 const getEntryCode = packagePath => {
   return `

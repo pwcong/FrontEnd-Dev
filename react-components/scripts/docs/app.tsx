@@ -3,7 +3,7 @@ import React from 'react';
 import { withRouter, Route, Switch, RouteComponentProps } from 'react-router';
 import { HashRouter as Router } from 'react-router-dom';
 
-import { classNames, getPrefixCls } from '@rc-x/utils';
+import { classNames, getPrefixCls } from '@rc/utils';
 
 import packageJSON from '../../package.json';
 
@@ -115,7 +115,7 @@ const Home: React.FunctionComponent = props => {
         color: '#333'
       }}
     >
-      RC-Component-X
+      RC-Component
       <p
         style={{
           textAlign: 'center',

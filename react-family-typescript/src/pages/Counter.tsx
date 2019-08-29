@@ -3,23 +3,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { plus, plusAsync } from '../actions/counter';
-import { Counter } from '../models';
+import { ICounter } from '../models';
 
-import { State as GlobalState } from '../reducers';
+import { IState as IGlobalState } from '../reducers';
 
 import './style/counter.scss';
 
-interface Props {
-  counter: Counter;
+interface IProps {
+  counter: ICounter;
   plusCounter(nums: number): void;
   plusCounterSync(nums: number): void;
 }
 
-interface State {
+interface IState {
   plusing: boolean;
 }
 
-class CounterPage extends React.Component<Props, State> {
+class CounterPage extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
 
@@ -72,7 +72,7 @@ class CounterPage extends React.Component<Props, State> {
   };
 }
 
-const mapStateToProps = (state: GlobalState) => ({
+const mapStateToProps = (state: IGlobalState) => ({
   counter: state.counter
 });
 

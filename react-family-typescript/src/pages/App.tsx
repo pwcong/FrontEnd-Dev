@@ -4,8 +4,8 @@ import { Route, NavLink } from 'react-router-dom';
 import Home from './Home';
 import Counter from './Counter';
 
-import './style/app.scss';
 import logo from '../assets/imgs/logo.png';
+import './style/app.scss';
 
 export default class App extends React.Component {
   render() {

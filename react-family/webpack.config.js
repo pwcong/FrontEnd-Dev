@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -88,7 +88,7 @@ module.exports = {
     hot: true
   },
   plugins: [
-    new CleanWebpackPlugin(distPath),
+    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       title: 'React Family',
       template: 'src/index.ejs'

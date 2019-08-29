@@ -8,7 +8,7 @@ const sass = require('gulp-sass');
 
 // use the latest css syntax
 const postcss = require('gulp-postcss');
-const cssnext = require('postcss-cssnext');
+const cssnext = require('postcss-preset-env');
 
 // minify css styles
 const cleanCSS = require('gulp-clean-css');
@@ -89,26 +89,11 @@ gulp.task('js-prod', function() {
               exclude: /node_modules/,
               loader: 'babel-loader',
               options: {
-                presets: ['es2015']
+                presets: ['@babel/env']
               }
             }
           ]
-        },
-        plugins: [
-          new webpack.DefinePlugin({
-            'process.env': {
-              NODE_ENV: JSON.stringify('production')
-            }
-          }),
-          new webpack.optimize.UglifyJsPlugin({
-            compress: {
-              warnings: false
-            },
-            output: {
-              comments: false
-            }
-          })
-        ]
+        }
       })
     )
     .pipe(sourcemaps.write('.'))

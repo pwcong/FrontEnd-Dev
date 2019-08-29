@@ -7,15 +7,15 @@ const changeCase = require('change-case');
 
 const { packagesPath, getPackagesMap } = require('../utils');
 
-const dependencies = ['@rc-x/style', '@rc-x/utils'];
-const devDependencies = ['@rc-x/test'];
+const dependencies = ['@rc/style', '@rc/utils'];
+const devDependencies = ['@rc/test'];
 
 inquirer
   .prompt([
     {
       type: 'input',
       name: 'name',
-      message: '请输入组件名称（无需 @rc-x 前缀）',
+      message: '请输入组件名称（无需 @rc 前缀）',
       validate: input => {
         if (!input) {
           console.log(chalk.red(' 组件名称不能为空'));
@@ -54,13 +54,13 @@ inquirer
     // 1. 生成包 package.json
     const packagesMap = getPackagesMap();
     const package = Object.assign({
-      name: `@rc-x/${name}`,
+      name: `@rc/${name}`,
       version: '0.0.1',
       description: description,
       author: 'Pwcong <pwcong@foxmail.com>',
       main: 'dist/bundle.min.js',
       module: 'dist/bundle.es.js',
-      keywords: [`rc-x-${name}`],
+      keywords: [`rc-${name}`],
       license: 'MIT',
       dependencies: {},
       devDependencies: {}
@@ -83,7 +83,7 @@ inquirer
       path.join(distPath, 'style.scss'),
       prettier.format(
         `
-        @import '~@rc-x/style/common.scss';
+        @import '~@rc/style/common.scss';
         
         $${name}-prefix-cls: #{$prefix-cls}-${name};
         .#{$${name}-prefix-cls} { }
@@ -102,7 +102,7 @@ inquirer
         `
         import React from 'react';
         
-        import { classNames, getPrefixCls } from '@rc-x/utils';
+        import { classNames, getPrefixCls } from '@rc/utils';
         
         import './style.scss';
 
@@ -131,7 +131,7 @@ inquirer
       prettier.format(
         `
         import React from 'react';
-        import Test from '@rc-x/test';
+        import Test from '@rc/test';
         
         import ${componentName} from '../index';
         import packageJson from '../package.json';
