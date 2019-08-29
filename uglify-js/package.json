@@ -9,7 +9,7 @@
   "author": "Pwcong <pwcong@foxmail.com>",
   "license": "ISC",
   "dependencies": {
-    "rimraf": "^2.6.2",
-    "uglify-js": "^3.4.5"
+    "rimraf": "^3.0.0",
+    "uglify-js": "^3.6.0"
   }
 }

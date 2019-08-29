@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, 'lib');
@@ -66,10 +66,7 @@ module.exports = {
     publicPath: '/',
     hot: true
   },
-  plugins: [
-    new CleanWebpackPlugin(distPath),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  plugins: [new CleanWebpackPlugin()]
 };
 
 if (isProd) {
@@ -83,6 +80,10 @@ if (isProd) {
   module.exports.externals = ['react'];
 } else {
   module.exports.entry = path.resolve(__dirname, './example/app.jsx');
+  module.exports.plugins = [
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ];
   module.exports.output = {
     filename: 'bundle.js'
   };

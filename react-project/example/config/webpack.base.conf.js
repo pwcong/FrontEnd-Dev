@@ -1,6 +1,6 @@
 const path = require('path');
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const rootPath = path.join(__dirname, '..');
@@ -19,7 +19,7 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(distPath),
+    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       title: 'Example',
       template: path.join(rootPath, 'src/index.ejs')
