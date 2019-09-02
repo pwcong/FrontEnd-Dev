@@ -1,15 +1,15 @@
-import { AppView } from '../../view/BaseView';
+import { IAppView } from '../../view/BaseView';
 
 import BasePresenter from '../BasePresenter';
-import { AppPresenter } from '../BasePresenter';
+import { IAppPresenter } from '../BasePresenter';
 
 import AppModelImpl from '../../model/impl/AppModelImpl';
 
-export default class AppPresenterImpl extends BasePresenter<AppView>
-  implements AppPresenter {
+export default class AppPresenterImpl extends BasePresenter<IAppView>
+  implements IAppPresenter {
   model: AppModelImpl;
 
-  constructor(view: AppView) {
+  constructor(view: IAppView) {
     super(view);
 
     this.model = new AppModelImpl();

@@ -1,7 +1,7 @@
-import { BaseModel } from '../BaseModel';
+import { IBaseModel } from '../BaseModel';
 import AppItem from '../../bean/AppItem';
 
-export default class AppModelImpl implements BaseModel<AppItem> {
+export default class AppModelImpl implements IBaseModel<AppItem> {
   index: number = 1;
 
   getData(): Promise<AppItem> {

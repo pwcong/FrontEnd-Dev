@@ -4,12 +4,13 @@ module.exports = {
     browser: true
   },
   parserOptions: {
+    ecmaVersion: 6,
     sourceType: 'module'
   },
+  extends: ['plugin:vue/recommended', 'eslint:recommended'],
   plugins: ['html'],
   rules: {
     indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always']
   }

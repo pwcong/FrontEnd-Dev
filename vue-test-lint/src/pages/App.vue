@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <img :src="logo" alt="Logo">
-    <welcome :text="text"/>
+    <img :src="logo" alt="Logo" />
+    <welcome :text="text" />
   </div>
 </template>
 
@@ -13,19 +13,19 @@
 </style>
 
 <script>
-import logo from '../assets/imgs/vue.png';
+import logo from "../assets/imgs/vue.png";
 
-import Welcome from '../components/Welcome.vue';
+import Welcome from "../components/Welcome.vue";
 
 export default {
+  components: {
+    Welcome
+  },
   data() {
     return {
       logo,
-      text: 'Hello World!'
+      text: "Hello World!"
     };
-  },
-  components: {
-    Welcome
   }
 };
 </script>

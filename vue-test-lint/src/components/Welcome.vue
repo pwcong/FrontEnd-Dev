@@ -4,7 +4,9 @@
 }
 </style>
 <template>
-  <h1 class="welcome">{{text}}</h1>
+  <h1 class="welcome">
+    {{ text }}
+  </h1>
 </template>
 <script>
 export default {

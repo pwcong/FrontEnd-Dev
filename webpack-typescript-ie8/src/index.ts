@@ -1,3 +1,5 @@
 import { sayHello } from './util';
 
-sayHello();
+sayHello({
+  name: 'World'
+});

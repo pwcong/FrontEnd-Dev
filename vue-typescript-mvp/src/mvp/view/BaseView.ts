@@ -1,9 +1,9 @@
 import AppItem from '../bean/AppItem';
 
-interface BaseView<T> {
+interface IBaseView<T> {
 }
 
-export interface AppView extends BaseView<AppItem> {
+export interface IAppView extends IBaseView<AppItem> {
   addItem: (item: AppItem) => void;
   alter: (msg: string) => void;
 }

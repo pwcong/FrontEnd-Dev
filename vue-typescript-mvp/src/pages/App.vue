@@ -18,9 +18,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-import { AppView } from "../mvp/view/BaseView";
+import { IAppView } from "../mvp/view/BaseView";
 
-import { AppPresenter } from "../mvp/presenter/BasePresenter";
+import { IAppPresenter } from "../mvp/presenter/BasePresenter";
 import AppPresenterImpl from "../mvp/presenter/impl/AppPresenterImpl";
 
 import AppItem from "../mvp/bean/AppItem";
@@ -28,8 +28,8 @@ import AppItem from "../mvp/bean/AppItem";
 @Component({
   props: {}
 })
-export default class App extends Vue implements AppView {
-  presenter: AppPresenter;
+export default class App extends Vue implements IAppView {
+  presenter: IAppPresenter;
   items: AppItem[] = [];
 
   constructor() {

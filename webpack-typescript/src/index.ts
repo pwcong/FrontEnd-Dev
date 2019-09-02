@@ -1,9 +1,9 @@
-interface Who {
+interface IWho {
   name: string;
 }
 
-function sayHello(w: Who): void {
-  console.log('Hello ' + w.name + '!');
+function sayHello(w: IWho): void {
+  console.log(`Hello ${w.name}!`);
 }
 
 sayHello({
