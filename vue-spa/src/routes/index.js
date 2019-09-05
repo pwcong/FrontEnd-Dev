@@ -4,9 +4,9 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: () => import('@/pages/Page1') },
-  { path: '/a', component: () => import('@/pages/Page2') },
-  { path: '/b', component: () => import('@/pages/Page3') }
+  { path: '/', component: () => import('@/pages/page1') },
+  { path: '/a', component: () => import('@/pages/page2') },
+  { path: '/b', component: () => import('@/pages/page3') }
 ];
 
 const router = new VueRouter({

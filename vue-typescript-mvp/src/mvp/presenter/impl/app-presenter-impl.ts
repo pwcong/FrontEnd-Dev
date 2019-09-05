@@ -1,9 +1,8 @@
-import { IAppView } from '../../view/BaseView';
+import { IAppView } from '../../view/base-view';
 
-import BasePresenter from '../BasePresenter';
-import { IAppPresenter } from '../BasePresenter';
+import BasePresenter, { IAppPresenter } from '../base-presenter';
 
-import AppModelImpl from '../../model/impl/AppModelImpl';
+import AppModelImpl from '../../model/impl/app-model-impl';
 
 export default class AppPresenterImpl extends BasePresenter<IAppView>
   implements IAppPresenter {

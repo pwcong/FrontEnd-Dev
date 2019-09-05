@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 
-import Home from './Home';
-import About from './About';
+import Home from './home';
+import About from './about';
 
 import './style/app.scss';
+
 import logo from '../assets/imgs/logo.png';
 
 export default class App extends React.Component {

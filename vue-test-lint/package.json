@@ -2,7 +2,7 @@
   "name": "vue-test-lint",
   "version": "1.0.0",
   "description": "An Vue Demo with test and lint.",
-  "main": "./src/app.js",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress",

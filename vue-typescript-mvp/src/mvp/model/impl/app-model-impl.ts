@@ -1,5 +1,5 @@
-import { IBaseModel } from '../BaseModel';
-import AppItem from '../../bean/AppItem';
+import { IBaseModel } from '../base-model';
+import AppItem from '../../bean/app-item';
 
 export default class AppModelImpl implements IBaseModel<AppItem> {
   index: number = 1;

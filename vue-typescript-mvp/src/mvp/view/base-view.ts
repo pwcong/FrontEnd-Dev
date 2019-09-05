@@ -1,4 +1,4 @@
-import AppItem from '../bean/AppItem';
+import AppItem from '../bean/app-item';
 
 interface IBaseView<T> {
 }

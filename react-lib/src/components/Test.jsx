@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './style/test.scss';
-
 import PropTypes from 'prop-types';
+
+import './style/test.scss';
 
 export default class Test extends React.Component {
   render() {

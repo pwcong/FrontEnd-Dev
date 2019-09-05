@@ -15,7 +15,7 @@
 <script>
 import logo from "../assets/imgs/vue.png";
 
-import Welcome from "../components/Welcome.vue";
+import Welcome from "../components/welcome.vue";
 
 export default {
   components: {

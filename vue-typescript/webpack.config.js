@@ -26,7 +26,7 @@ const commonCssLoaders = [
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    index: './src/app.ts',
+    index: './src/index.ts',
     vendors: ['vue']
   },
   output: {

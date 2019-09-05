@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 
-import Home from './Home';
-import Counter from './Counter';
+import Home from './home';
+import Counter from './counter';
 
 import './style/app.scss';
 import logo from '../assets/imgs/logo.png';

@@ -26,7 +26,7 @@ const commonCssLoaders = [
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    index: './src/app.js',
+    index: './src/index.js',
     vendors: ['@babel/polyfill', 'vue', 'vuex', 'vue-router', 'axios']
   },
   output: {

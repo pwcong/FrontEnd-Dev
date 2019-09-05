@@ -18,12 +18,12 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-import { IAppView } from "../mvp/view/BaseView";
+import { IAppView } from "../mvp/view/base-view";
 
-import { IAppPresenter } from "../mvp/presenter/BasePresenter";
-import AppPresenterImpl from "../mvp/presenter/impl/AppPresenterImpl";
+import { IAppPresenter } from "../mvp/presenter/base-presenter";
+import AppPresenterImpl from "../mvp/presenter/impl/app-presenter-impl";
 
-import AppItem from "../mvp/bean/AppItem";
+import AppItem from "../mvp/bean/app-item";
 
 @Component({
   props: {}

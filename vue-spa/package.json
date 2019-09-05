@@ -2,7 +2,7 @@
   "name": "vue-spa",
   "version": "1.0.0",
   "description": "A Vue Start demo.",
-  "main": "./src/app.js",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress"
