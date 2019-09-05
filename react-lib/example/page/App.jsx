@@ -6,7 +6,7 @@ import logo from '../assets/imgs/logo.png';
 
 import { TestComponent } from '@/index';
 
-export default class App extends React.Component {
+export default class App extends React.PureComponent {
   constructor(props) {
     super(props);
   }

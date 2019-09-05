@@ -2,7 +2,7 @@ import React from 'react';
 
 import './style/home.scss';
 
-export default class Home extends React.Component {
+export default class Home extends React.PureComponent {
   constructor(props) {
     super(props);
   }
