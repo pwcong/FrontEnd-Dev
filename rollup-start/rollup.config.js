@@ -1,7 +1,7 @@
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const babel = require('rollup-plugin-babel');
-const uglify = require('rollup-plugin-uglify').uglify;
+const terser = require('rollup-plugin-terser').terser;
 
 const pkg = require('./package.json');
 const version = process.env.VERSION || pkg.version;
@@ -33,16 +33,6 @@ module.exports = {
     commonjs(),
     babel(),
     isProduction &&
-      uglify({
-        output: {
-          comments: function(node, comment) {
-            var text = comment.value;
-            var type = comment.type;
-            if (type == 'comment2') {
-              return /@preserve|@license|@cc_on/i.test(text);
-            }
-          }
-        }
-      })
+      terser()
   ]
 };
