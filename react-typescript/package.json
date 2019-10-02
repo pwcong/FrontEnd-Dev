@@ -11,7 +11,7 @@
     "react-typescript"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cross-env": "^5.2.0",
     "react": "^16.9.0",

@@ -7,7 +7,7 @@
     "start": "rimraf dist.js & uglifyjs src/main.js -c -m -o dist.js"
   },
   "author": "Pwcong <pwcong@foxmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "rimraf": "^3.0.0",
     "uglify-js": "^3.6.0"

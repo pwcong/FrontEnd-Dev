@@ -10,7 +10,7 @@
     "browsersync"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.26.7"
   }

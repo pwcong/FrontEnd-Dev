@@ -11,7 +11,7 @@
     "TS-IE8"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "console-polyfill": "^0.3.0",
     "cross-env": "^5.2.1",

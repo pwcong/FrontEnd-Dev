@@ -15,7 +15,7 @@
     "Multipage"
   ],
   "author": "Pwcong <pwcong@foxmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
