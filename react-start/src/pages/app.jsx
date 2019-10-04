@@ -9,15 +9,11 @@ export default class App extends React.PureComponent {
     super(props);
   }
 
-  sayHello = () => {
-    console.log('Hello');
-  }
-  
   render() {
     return (
-      <div className='container'>
-        <img src={logo} className='logo' />
-        <p className='welcome' onClick={this.sayHello}>React Start</p>
+      <div className="container">
+        <img src={logo} className="logo" />
+        <p className="welcome">React Start</p>
       </div>
     );
   }
