@@ -7,6 +7,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
       { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         test: /\.(png|jpg|gif|svg)$/,

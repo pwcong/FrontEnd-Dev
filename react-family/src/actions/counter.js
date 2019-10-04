@@ -12,7 +12,7 @@ export function plus(nums = 1) {
 
 export function plusAsync(nums = 1) {
   return dispatch => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         dispatch(plus(nums));
         resolve(nums);

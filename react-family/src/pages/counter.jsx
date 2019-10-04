@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
@@ -7,6 +8,14 @@ import { plus, plusAsync } from '../actions/counter';
 import './style/counter.scss';
 
 class Counter extends React.PureComponent {
+
+  static propTypes = {
+    counter: PropTypes.object({
+      value: PropTypes.any
+    }),
+    dispatch: PropTypes.func
+  }
+
   constructor(props) {
     super(props);
 
@@ -17,17 +26,17 @@ class Counter extends React.PureComponent {
 
   render() {
     return (
-      <div className="counter">
-        <div className="label">{this.props.counter.value}</div>
+      <div className='counter'>
+        <div className='label'>{this.props.counter.value}</div>
 
-        <div className="tools">
-          <button type="button" onClick={this.handlePlus}>
+        <div className='tools'>
+          <button type='button' onClick={this.handlePlus}>
             Plus
           </button>
           <button
             className={this.state.plusing ? 'disabled' : ''}
             disabled={this.state.plusing}
-            type="button"
+            type='button'
             onClick={this.handlePlusAsync}
           >
             {this.state.plusing ? 'Plusing' : 'Plus Async'}
@@ -37,11 +46,11 @@ class Counter extends React.PureComponent {
     );
   }
 
-  handlePlus = e => {
+  handlePlus = () => {
     this.props.dispatch(plus(1));
   };
 
-  handlePlusAsync = async e => {
+  handlePlusAsync = async () => {
     this.setState({
       plusing: true
     });

@@ -7,7 +7,11 @@ export default class Home extends React.PureComponent {
     super(props);
   }
 
+  sayHello = () => {
+    console.log('Hello');
+  }
+
   render() {
-    return <div className="home">Hello !</div>;
+    return <div className="home" onClick={this.sayHello}>Hello !</div>;
   }
 }
