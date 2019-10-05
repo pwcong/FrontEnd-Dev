@@ -1,9 +1,0 @@
-@import './vars.scss';
-
-@mixin easeInOutTransition() {
-  transition: all $transition-duration ease-in-out;
-}
-
-@mixin linearTransition() {
-  transition: all $transition-duration linear;
-}
