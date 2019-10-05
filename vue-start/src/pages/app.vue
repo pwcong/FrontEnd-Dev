@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <img :src="logo" alt="Logo">
+    <img
+      :src="logo"
+      alt="Logo"
+    >
     <h1>Hello World!</h1>
   </div>
 </template>
@@ -13,7 +16,7 @@
 </style>
 
 <script>
-import logo from "@/assets/imgs/vue.png";
+import logo from '@/assets/imgs/vue.png';
 
 export default {
   data() {

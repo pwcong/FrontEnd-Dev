@@ -1,13 +1,31 @@
 <template>
   <div class="container">
-    <img :src="logo" alt="Logo">
+    <img
+      :src="logo"
+      alt="Logo"
+    >
     <div class="navs">
-      <router-link class="nav" to="/">S</router-link>
-      <router-link class="nav" to="/a">P</router-link>
-      <router-link class="nav" to="/b">A</router-link>
+      <router-link
+        class="nav"
+        to="/"
+      >
+        S
+      </router-link>
+      <router-link
+        class="nav"
+        to="/a"
+      >
+        P
+      </router-link>
+      <router-link
+        class="nav"
+        to="/b"
+      >
+        A
+      </router-link>
     </div>
     <div class="content">
-      <router-view></router-view>
+      <router-view />
     </div>
   </div>
 </template>
@@ -56,7 +74,7 @@ body {
 </style>
 
 <script>
-import logo from "@/assets/imgs/vue.png";
+import logo from '@/assets/imgs/vue.png';
 
 export default {
   data() {

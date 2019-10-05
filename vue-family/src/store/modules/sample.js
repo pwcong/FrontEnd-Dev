@@ -12,16 +12,16 @@ const store = {
     counts: state => state.counts
   },
   mutations: {
-    [SAMPLE_MUTATIONS_PLUS]: (state, payload) => {
+    [SAMPLE_MUTATIONS_PLUS]: (state) => {
       state.counts++;
     }
   },
   actions: {
-    [SAMPLE_ACTIONS_PLUS]: ({ commit, state }) => {
+    [SAMPLE_ACTIONS_PLUS]: ({ commit }) => {
       commit(SAMPLE_MUTATIONS_PLUS);
     },
-    [SAMPLE_ACTIONS_PLUS_ASYNC]: ({ dispatch, commit, state }, payload) => {
-      return new Promise((resolve, reject) => {
+    [SAMPLE_ACTIONS_PLUS_ASYNC]: ({ dispatch }, payload) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           dispatch(SAMPLE_ACTIONS_PLUS);
           resolve();

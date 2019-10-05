@@ -1,19 +1,37 @@
 <template>
   <div class="container">
-    <img :src="logo" alt="Logo">
+    <img
+      :src="logo"
+      alt="Logo"
+    >
     <div class="navs">
-      <router-link class="nav" to="/">Index</router-link>
-      <router-link class="nav" to="/page1">Page1</router-link>
-      <router-link class="nav" to="/page2">Page2</router-link>
+      <router-link
+        class="nav"
+        to="/"
+      >
+        Index
+      </router-link>
+      <router-link
+        class="nav"
+        to="/page1"
+      >
+        Page1
+      </router-link>
+      <router-link
+        class="nav"
+        to="/page2"
+      >
+        Page2
+      </router-link>
     </div>
     <div class="content">
-      <router-view></router-view>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import LOGO from "@/assets/imgs/vue.png";
+import LOGO from '@/assets/imgs/vue.png';
 
 export default {
   data() {

@@ -1,39 +1,43 @@
 <template>
   <div class="index">
     <div class="counter">
-      <span>{{counts}}</span>
+      <span>{{ counts }}</span>
       <div>
-        <button @click="plus">PLUS</button>
-        <button @click="plusAsync">PLUS ASYNC</button>
+        <button @click="plus">
+          PLUS
+        </button>
+        <button @click="plusAsync">
+          PLUS ASYNC
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { SAMPLE_ACTIONS_PLUS, SAMPLE_ACTIONS_PLUS_ASYNC } from "../store/types";
+import { SAMPLE_ACTIONS_PLUS, SAMPLE_ACTIONS_PLUS_ASYNC } from '../store/types';
 
 export default {
   data() {
     return {};
   },
+  computed: {
+    counts() {
+      return this.$store.getters.counts;
+    }
+  },
   methods: {
-    plus(e) {
+    plus() {
       this.$store.dispatch(SAMPLE_ACTIONS_PLUS);
     },
-    plusAsync(e) {
+    plusAsync() {
       this.$store
         .dispatch(SAMPLE_ACTIONS_PLUS_ASYNC, {
           time: 2000
         })
         .then(() => {
-          alert("Plus Async");
+          alert('Plus Async');
         });
-    }
-  },
-  computed: {
-    counts() {
-      return this.$store.getters.counts;
     }
   }
 };
