@@ -1,0 +1,17 @@
+{
+  "name": "browsersync",
+  "version": "1.0.0",
+  "description": "preview when coding",
+  "main": "./app",
+  "scripts": {
+    "start": "browser-sync start --server \"app\" --files \"app\""
+  },
+  "keywords": [
+    "browsersync"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}

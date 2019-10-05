@@ -1,0 +1,16 @@
+.container {
+  min-width: 320px;
+  font-family: 'Microsoft YaHei', sans-serif;
+  box-sizing: border-box;
+  padding: 0 24px;
+  text-align: center;
+  .logo {
+    margin-top: 100px;
+    width: 152px;
+    height: 152px;
+  }
+  .welcome {
+    font-size: 32px;
+    color: #333;
+  }
+}

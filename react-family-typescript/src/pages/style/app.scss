@@ -1,0 +1,40 @@
+.container {
+  min-width: 320px;
+  font-family: 'Microsoft YaHei', sans-serif;
+  box-sizing: border-box;
+  padding: 0 24px;
+  text-align: center;
+  .logo {
+    margin-top: 100px;
+    width: 152px;
+    height: 152px;
+  }
+  .welcome {
+    font-size: 32px;
+    color: #333;
+  }
+  .nav {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 32px;
+    li {
+      display: inline-block;
+      list-style: none;
+      a {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: #666;
+        transition: color 0.2s;
+        &.active,
+        &:hover {
+          color: #00bdff;
+          border-bottom: 2px solid #00bdff;
+        }
+      }
+    }
+  }
+}

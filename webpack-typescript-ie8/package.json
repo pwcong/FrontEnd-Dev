@@ -1,0 +1,33 @@
+{
+  "name": "webpack-typescript-ie8",
+  "version": "1.0.0",
+  "description": "Convert TypeScript to ES3 For IE8.",
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "webpack-dev-server --open",
+    "build": "cross-env NODE_ENV=production webpack --progress"
+  },
+  "keywords": [
+    "TS-IE8"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "console-polyfill": "^0.3.0",
+    "cross-env": "^5.2.1",
+    "es5-shim": "^4.5.13",
+    "typescript": "^3.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.3",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "html-webpack-include-assets-plugin": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "ts-loader": "^6.0.4",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}

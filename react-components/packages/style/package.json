@@ -1,0 +1,13 @@
+{
+  "name": "@rc/style",
+  "version": "0.0.1",
+  "description": "Common Stylesheet",
+  "main": "dist/bundle.min.js",
+  "module": "dist/bundle.es.js",
+  "types": "dist/bundle.d.ts",
+  "keywords": [
+    "rc-style"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT"
+}
