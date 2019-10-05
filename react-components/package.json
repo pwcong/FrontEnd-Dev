@@ -10,7 +10,8 @@
     "docs": "node ./scripts/docs",
     "build:docs": "node ./scripts/docs/build",
     "prepublish": "npm run build",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "lint": "eslint packages --ext .ts,.tsx --fix"
   },
   "workspaces": [
     "packages/*"
@@ -20,11 +21,16 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router": "^5.0.3",
     "@types/react-router-dom": "^4.3.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
     "chalk": "^2.4.2",
     "change-case": "^3.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "commander": "^3.0.0",
     "css-loader": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-react": "^7.15.1",
     "file-loader": "^4.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^8.1.0",

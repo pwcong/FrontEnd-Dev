@@ -93,108 +93,107 @@ const TestChild = (props: ITestChildProps) => {
         <div className={getPrefixCls('title', baseCls)}>Props</div>
         {controllers.map((c, index) => {
           const componentProp = componentTestProps[c.name];
-
           if (!componentProp) {
             return null;
           }
 
           const propCls = getPrefixCls('prop', baseCls);
+          const radioGroupCls = getPrefixCls('radio-group', propCls);
+          const switchGroupCls = getPrefixCls('switch-group', propCls);
+          const checkboxGroupCls = getPrefixCls('checkbox-group', propCls);
 
           let controller: React.ReactNode;
           switch (componentProp.type) {
-            case 'input':
-              controller = (
-                <input
-                  value={c.value}
-                  type="text"
-                  onChange={e => {
-                    c.setValue(e.target.value);
-                  }}
-                />
-              );
-              break;
-            case 'inputNumber':
-              controller = (
-                <input
-                  type="number"
-                  value={c.value}
-                  onChange={e => {
-                    c.setValue(Number(e.target.value));
-                  }}
-                />
-              );
-              break;
-            case 'radio':
-              const radioGroupCls = getPrefixCls('radio-group', propCls);
-              controller = (
-                <div className={radioGroupCls}>
-                  {componentProp.options.map((o, _index) => (
-                    <label key={`${radioGroupCls}-${_index}`}>
-                      <input
-                        name={`${c.name}-${index}-${_index}`}
-                        value={o.value}
-                        type="radio"
-                        checked={o.value === c.value}
-                        onChange={e => c.setValue(o.value)}
-                      />
-                      {o.label}
-                    </label>
-                  ))}
-                </div>
-              );
-              break;
-            case 'switch':
-              const switchGroupCls = getPrefixCls('switch-group', propCls);
-              controller = (
-                <div className={switchGroupCls}>
-                  <label>
+          case 'input':
+            controller = (
+              <input
+                value={c.value}
+                type='text'
+                onChange={e => {
+                  c.setValue(e.target.value);
+                }}
+              />
+            );
+            break;
+          case 'inputNumber':
+            controller = (
+              <input
+                type='number'
+                value={c.value}
+                onChange={e => {
+                  c.setValue(Number(e.target.value));
+                }}
+              />
+            );
+            break;
+          case 'radio':
+            controller = (
+              <div className={radioGroupCls}>
+                {componentProp.options.map((o, _index) => (
+                  <label key={`${radioGroupCls}-${_index}`}>
                     <input
-                      name={`${c.name}-${index}`}
-                      type="checkbox"
-                      checked={c.value}
-                      onChange={e => {
-                        c.setValue(e.target.checked);
+                      name={`${c.name}-${index}-${_index}`}
+                      value={o.value}
+                      type='radio'
+                      checked={o.value === c.value}
+                      onChange={() => c.setValue(o.value)}
+                    />
+                    {o.label}
+                  </label>
+                ))}
+              </div>
+            );
+            break;
+          case 'switch':
+            controller = (
+              <div className={switchGroupCls}>
+                <label>
+                  <input
+                    name={`${c.name}-${index}`}
+                    type='checkbox'
+                    checked={c.value}
+                    onChange={e => {
+                      c.setValue(e.target.checked);
+                    }}
+                  />
+                  {c.value ? 'true' : 'false'}
+                </label>
+              </div>
+            );
+            break;
+          case 'checkbox':
+            controller = (
+              <div className={checkboxGroupCls}>
+                {componentProp.options.map((o, _index) => (
+                  <label key={`${checkboxGroupCls}-${_index}`}>
+                    <input
+                      name={`${c.name}-${index}-${_index}`}
+                      value={o.value}
+                      type='checkbox'
+                      checked={c.value.indexOf(o.value) > -1}
+                      onChange={() => {
+                        const newValue: Array<any> = [];
+                        const valueIndex = c.value.indexOf(o.value);
+                        if (valueIndex < 0) {
+                          newValue.push(o.value);
+                        }
+                        c.value.forEach((v, __index) => {
+                          if (valueIndex > -1 && __index === valueIndex) {
+                            return;
+                          }
+                          newValue.push(v);
+                        });
+                        c.setValue(newValue);
                       }}
                     />
-                    {c.value ? 'true' : 'false'}
+                    {o.label}
                   </label>
-                </div>
-              );
-              break;
-            case 'checkbox':
-              const checkboxGroupCls = getPrefixCls('checkbox-group', propCls);
-              controller = (
-                <div className={checkboxGroupCls}>
-                  {componentProp.options.map((o, _index) => (
-                    <label key={`${checkboxGroupCls}-${_index}`}>
-                      <input
-                        name={`${c.name}-${index}-${_index}`}
-                        value={o.value}
-                        type="checkbox"
-                        checked={c.value.indexOf(o.value) > -1}
-                        onChange={e => {
-                          const newValue: Array<any> = [];
-                          const valueIndex = c.value.indexOf(o.value);
-                          if (valueIndex < 0) {
-                            newValue.push(o.value);
-                          }
-                          c.value.forEach((v, __index) => {
-                            if (valueIndex > -1 && __index === valueIndex) {
-                              return;
-                            }
-                            newValue.push(v);
-                          });
-                          c.setValue(newValue);
-                        }}
-                      />
-                      {o.label}
-                    </label>
-                  ))}
-                </div>
-              );
-              break;
-            default:
-              break;
+                ))}
+              </div>
+            );
+            break;
+          default:
+            break;
           }
 
           return (
@@ -256,7 +255,7 @@ const Test = (props: ITestProps) => {
     const [tabIndex, setTabIndex] = useState(defaultIndex);
 
     testMain = [
-      <div className={getPrefixCls('items', baseCls)} key="items">
+      <div className={getPrefixCls('items', baseCls)} key='items'>
         {component.map((c, i) => {
           const childCls = getPrefixCls('item', baseCls);
           return (
@@ -275,7 +274,7 @@ const Test = (props: ITestProps) => {
           );
         })}
       </div>,
-      <div className={getPrefixCls('tabs', baseCls)} key="tabs">
+      <div className={getPrefixCls('tabs', baseCls)} key='tabs'>
         {component.map((c, i) => {
           const tabCls = getPrefixCls('tab', baseCls);
           return (

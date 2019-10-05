@@ -17,7 +17,7 @@ const classNames = (...args: any) => {
     if (argType === 'string' || argType === 'number') {
       classes.push(arg);
     } else if (Array.isArray(arg) && arg.length) {
-      const inner = classNames.apply(null, arg);
+      const inner = classNames(...arg);
       if (inner) {
         classes.push(inner);
       }

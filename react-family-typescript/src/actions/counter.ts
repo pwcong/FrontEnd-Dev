@@ -10,7 +10,7 @@ export const plus = (nums = 1) => ({
 });
 
 export const plusAsync = (nums = 1) => (dispatch: any) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       dispatch(plus(nums));
       resolve(nums);

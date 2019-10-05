@@ -6,7 +6,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/eslint-recommended'
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -25,7 +26,10 @@ module.exports = {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
-    semi: ['error', 'always']
+    semi: ['error', 'always'],
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/no-explicit-any': 0
   },
   settings: {
     react: {

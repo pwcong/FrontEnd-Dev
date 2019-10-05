@@ -50,17 +50,17 @@ class CounterPage extends React.PureComponent<IProps, IState> {
     );
   }
 
-  private handlePlus = (e: React.MouseEvent<HTMLButtonElement>) => {
+  private handlePlus = () => {
     this.props.plusCounter(1);
   };
 
-  private handlePlusAsync = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  private handlePlusAsync = async () => {
     this.setState({
       plusing: true
     });
 
     try {
-      let res = await this.props.plusCounterSync(1);
+      const res = await this.props.plusCounterSync(1);
       console.log('plus async: ' + res);
     } catch (err) {
       console.log('plus async fail');
