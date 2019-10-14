@@ -2,10 +2,9 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { plus, plusAsync } from '../actions/counter';
-import { ICounter } from '../models';
-
-import { IState as IGlobalState } from '../reducers';
+import { plus, plusAsync } from '@/actions/counter';
+import { ICounter } from '@/models';
+import { IState as IGlobalState } from '@/reducers';
 
 import './style/counter.scss';
 

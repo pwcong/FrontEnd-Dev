@@ -4,7 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Home from './home';
 import Counter from './counter';
 
-import logo from '../assets/imgs/logo.png';
+import logo from '@/assets/imgs/logo.png';
 import './style/app.scss';
 
 export default class App extends React.PureComponent {

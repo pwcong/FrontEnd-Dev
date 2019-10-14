@@ -5,7 +5,7 @@ import Home from './home';
 import Counter from './counter';
 
 import './style/app.scss';
-import logo from '../assets/imgs/logo.png';
+import logo from '@/assets/imgs/logo.png';
 
 export default class App extends React.PureComponent {
   constructor(props) {
