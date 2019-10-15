@@ -90,7 +90,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       allChunks: true
-    }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    })
+  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
 };
