@@ -20,6 +20,31 @@ export interface IProps extends RouteComponentProps {
 
 const baseCls = getPrefixCls('docs');
 
+const Home: React.FunctionComponent = () => {
+  return (
+    <div
+      style={{
+        textAlign: 'center',
+        paddingTop: '192px',
+        fontSize: 24,
+        color: '#333'
+      }}
+    >
+      RC-Component
+      <p
+        style={{
+          textAlign: 'center',
+          color: '#999',
+          fontSize: 12,
+          marginTop: '16px'
+        }}
+      >
+        {packageJSON.description}
+      </p>
+    </div>
+  );
+};
+
 class App extends React.PureComponent<IProps> {
   renderAside = () => {
     const { components } = this.props;
@@ -105,29 +130,6 @@ class App extends React.PureComponent<IProps> {
   }
 }
 
-const Home: React.FunctionComponent = props => {
-  return (
-    <div
-      style={{
-        textAlign: 'center',
-        paddingTop: '192px',
-        fontSize: 24,
-        color: '#333'
-      }}
-    >
-      RC-Component
-      <p
-        style={{
-          textAlign: 'center',
-          color: '#999',
-          fontSize: 12,
-          marginTop: '16px'
-        }}
-      >
-        {packageJSON.description}
-      </p>
-    </div>
-  );
-};
+
 
 export default withRouter(App);
