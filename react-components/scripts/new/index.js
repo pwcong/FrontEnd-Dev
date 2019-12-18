@@ -7,8 +7,8 @@ const changeCase = require('change-case');
 
 const { packagesPath, getPackagesMap } = require('../utils');
 
-const dependencies = ['@rc/style', '@rc/utils'];
-const devDependencies = ['@rc/test'];
+const dependencies = [ '@rc/style', '@rc/utils' ];
+const devDependencies = [ '@rc/test' ];
 
 inquirer
   .prompt([
@@ -16,16 +16,14 @@ inquirer
       type: 'input',
       name: 'name',
       message: '请输入组件名称（无需 @rc 前缀）',
-      validate: input => {
+      validate: (input) => {
         if (!input) {
           console.log(chalk.red(' 组件名称不能为空'));
           return false;
         }
 
         if (input !== changeCase.paramCase(input)) {
-          console.log(
-            chalk.red(' 组件名称不符合规范（小写字母，多词横杠连接）')
-          );
+          console.log(chalk.red(' 组件名称不符合规范（小写字母，多词横杠连接）'));
           return false;
         }
 
@@ -45,7 +43,7 @@ inquirer
       message: '请输入组件描述'
     }
   ])
-  .then(answer => {
+  .then((answer) => {
     const { name, description } = answer;
 
     const componentName = changeCase.pascalCase(name);
@@ -60,21 +58,22 @@ inquirer
       author: 'Pwcong <pwcong@foxmail.com>',
       main: 'dist/bundle.min.js',
       module: 'dist/bundle.es.js',
-      keywords: [`rc-${name}`],
+      keywords: [ `rc-${name}` ],
       license: 'MIT',
       dependencies: {},
       devDependencies: {}
     });
-    dependencies.forEach(d => {
+    dependencies.forEach((d) => {
       package['dependencies'][d] = '^' + packagesMap[d].version;
     });
-    devDependencies.forEach(d => {
+    devDependencies.forEach((d) => {
       package['devDependencies'][d] = '^' + packagesMap[d].version;
     });
     fs.outputFileSync(
       path.join(distPath, 'package.json'),
       prettier.format(JSON.stringify(package), {
-        parser: 'json'
+        parser: 'json',
+        tabWidth: 2
       })
     );
 
@@ -90,6 +89,7 @@ inquirer
       `,
         {
           parser: 'scss',
+          tabWidth: 2,
           singleQuote: true
         }
       )
@@ -120,6 +120,7 @@ inquirer
         {
           parser: 'babel',
           semi: true,
+          tabWidth: 2,
           singleQuote: true
         }
       )
@@ -151,6 +152,7 @@ inquirer
         {
           parser: 'babel',
           semi: true,
+          tabWidth: 2,
           singleQuote: true
         }
       )

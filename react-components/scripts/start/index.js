@@ -1,6 +1,6 @@
 const path = require('path');
 const program = require('commander');
-const fs = require('fs-extra');
+const prettier = require('prettier');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 
@@ -11,17 +11,24 @@ const { getPackagesMap } = require('../utils');
 const start = require('../utils/start');
 const clean = require('../clean');
 
-const getEntryCode = packagePath => {
-  return `
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from '${packagePath}'
-
-ReactDOM.render(<App />,document.getElementById('app'))
+const getEntryCode = (packagePath) => {
+  const code = `
+    import React from 'react'
+    import ReactDOM from 'react-dom'
+    import App from '${packagePath}'
+    
+    ReactDOM.render(<App />,document.getElementById('app'))
   `;
+
+  return prettier.format(code, {
+    parser: 'babel',
+    semi: true,
+    tabWidth: 2,
+    singleQuote: true
+  });
 };
 
-const startDev = packagePath => {
+const startDev = (packagePath) => {
   const distPath = path.join(packagePath, 'dist');
   const testPath = path.join(packagePath, '__tests__');
 
@@ -72,7 +79,7 @@ async function main() {
           type: 'list',
           name: 'package',
           message: 'Please select the component for development testing',
-          choices: Object.keys(packagesMap).map(key => {
+          choices: Object.keys(packagesMap).map((key) => {
             const package = packagesMap[key];
             return {
               name: `${package.name} (${package.description || '-'})`,
@@ -81,7 +88,7 @@ async function main() {
           })
         }
       ])
-      .then(answers => {
+      .then((answers) => {
         if (!answers.package) {
           return;
         }
