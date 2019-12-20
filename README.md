@@ -32,3 +32,4 @@
 | Rollup 生成库              | Rollup + Babel                       | [rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-start)                       |
 | Uglify                     | UglifyJS                             | [uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/uglify-js)                             |
 | Minify                     | Babel-Minify                         | [minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/minify-js)                             |
+| CLI的简单Demo                   | NodeJS                         | [hello-cli](https://github.com/pwcong/FrontEnd-Dev/tree/master/hello-cli)                             |

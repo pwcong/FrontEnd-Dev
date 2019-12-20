@@ -1,0 +1,11 @@
+{
+  "name": "hello-cli",
+  "version": "1.0.0",
+  "description": "A demo of CLI",
+  "main": "src/index.js",
+  "bin": {
+    "hello-cli": "src/index.js"
+  },
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT"
+}
