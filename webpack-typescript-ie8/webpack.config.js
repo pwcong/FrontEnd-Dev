@@ -21,7 +21,7 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     path: distPath,
-    filename: 'js/bundle.[hash].js'
+    filename: 'js/bundle.[contenthash].js'
   },
   module: {
     rules: [
@@ -45,6 +45,17 @@ module.exports = {
     hot: true
   },
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    },
     minimizer: [
       new TerserPlugin({
         cache: true,

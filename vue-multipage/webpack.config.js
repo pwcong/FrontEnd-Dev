@@ -94,12 +94,10 @@ const commonCssLoaders = [
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: Object.assign({}, entry, {
-    vendors: ['@babel/polyfill', 'vue']
-  }),
+  entry: Object.assign({}, entry),
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[contenthash].js'
   },
   module: {
     rules: [
@@ -138,6 +136,8 @@ module.exports = {
   },
 
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         commons: {
@@ -158,14 +158,7 @@ module.exports = {
     publicPath: '/',
     hot: true
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-      allChunks: true
-    })
-  ]
+  plugins: [new CleanWebpackPlugin(), new VueLoaderPlugin()]
     .concat(
       pages && pages.length > 0
         ? pages.map(
@@ -183,5 +176,14 @@ module.exports = {
             })
           ]
     )
-    .concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
+    .concat(
+      isProd
+        ? [
+            new MiniCssExtractPlugin({
+              filename: 'css/[name].[hash].css',
+              allChunks: true
+            })
+          ]
+        : [new webpack.HotModuleReplacementPlugin()]
+    )
 };

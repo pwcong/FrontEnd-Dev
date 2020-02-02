@@ -21,13 +21,10 @@ const commonCssLoaders = [
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: {
-    index: './src/index.tsx',
-    vendors: ['react', 'react-dom']
-  },
+  entry: './src/index.tsx',
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[contenthash].js'
   },
   module: {
     rules: [
@@ -62,6 +59,8 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx']
   },
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         commons: {
@@ -86,10 +85,15 @@ module.exports = {
     new HTMLWebpackPlugin({
       title: 'React Start',
       template: 'src/index.ejs'
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-      allChunks: true
     })
-  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
+  ].concat(
+    isProd
+      ? [
+          new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash].css',
+            allChunks: true
+          })
+        ]
+      : [new webpack.HotModuleReplacementPlugin()]
+  )
 };

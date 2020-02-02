@@ -1,11 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    vendors: ['react', 'react-dom']
-  },
+  entry: {},
   output: {
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[contenthash].js'
   },
   module: {
     rules: [
@@ -54,6 +52,8 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx']
   },
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         commons: {

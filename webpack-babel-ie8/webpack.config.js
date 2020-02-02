@@ -18,10 +18,7 @@ const externals = {
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: {
-    index: './src/index.js',
-    vendors: ['es5-shim', 'es5-shim/es5-sham', '@babel/polyfill']
-  },
+  entry: './src/index.js',
   output: {
     path: distPath,
     filename: 'js/[name].[hash].js'
@@ -42,6 +39,8 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         commons: {

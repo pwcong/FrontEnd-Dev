@@ -27,14 +27,11 @@ const commonCssLoaders = [
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: {
-    index: './src/index.js',
-    vendors: ['@babel/polyfill', 'vue', 'vuex', 'vue-router', 'axios']
-  },
+  entry: './src/index.js',
   output: {
     path: distPath,
     publicPath: '/',
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[contenthash].js'
   },
   module: {
     rules: [
@@ -73,6 +70,8 @@ module.exports = {
   },
 
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         commons: {
@@ -99,14 +98,14 @@ module.exports = {
     new HTMLWebpackPlugin({
       title: 'Vue Prerendering',
       template: 'src/index.ejs'
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-      allChunks: true
     })
   ].concat(
     isProd
       ? [
+          new MiniCssExtractPlugin({
+            filename: 'css/[name].[hash].css',
+            allChunks: true
+          }),
           new PrerenderSPAPlugin({
             staticDir: distPath,
             routes: ['/', '/page1', '/page2']
