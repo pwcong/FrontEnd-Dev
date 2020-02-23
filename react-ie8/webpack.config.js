@@ -35,7 +35,7 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: distPath,
-    filename: 'js/[name].[contenthash].js'
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [

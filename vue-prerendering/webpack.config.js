@@ -31,7 +31,7 @@ module.exports = {
   output: {
     path: distPath,
     publicPath: '/',
-    filename: 'js/[name].[contenthash].js'
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [

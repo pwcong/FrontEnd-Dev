@@ -1,7 +1,7 @@
 module.exports = {
   entry: {},
   output: {
-    filename: 'js/[name].[contenthash].js'
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [

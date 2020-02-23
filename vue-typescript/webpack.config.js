@@ -28,7 +28,7 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     path: distPath,
-    filename: 'js/[name].[contenthash].js'
+    filename: 'js/[name].[hash].js'
   },
   module: {
     rules: [

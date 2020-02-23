@@ -21,7 +21,7 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     path: distPath,
-    filename: 'js/bundle.[contenthash].js'
+    filename: 'js/bundle.[hash].js'
   },
   module: {
     rules: [
