@@ -1,5 +1,5 @@
 const resolve = require('@rollup/plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
+const typescript = require('@rollup/plugin-typescript');
 const terser = require('rollup-plugin-terser').terser;
 
 const pkg = require('./package.json');
@@ -19,7 +19,7 @@ const banner = `/*
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: {
     file: isProduction ? `dist/${name}.min.js` : `public/${name}.debug.js`,
     format: 'umd',
@@ -29,7 +29,7 @@ module.exports = {
   },
   plugins: [
     resolve(),
-    babel(),
+    typescript(),
     isProduction &&
       terser()
   ]

@@ -30,6 +30,7 @@
 | React Project              | React                                | [react-project](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-project)                     |
 | React 组件库               | lerna + React                        | [react-components](https://github.com/pwcong/FrontEnd-Dev/tree/master/react-components)               |
 | Rollup 生成库              | Rollup + Babel                       | [rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-start)                       |
+| Rollup 生成库              | Rollup + TypeScript                  | [rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/master/rollup-typescript)                  |
 | Uglify                     | UglifyJS                             | [uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/uglify-js)                             |
 | Minify                     | Babel-Minify                         | [minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/master/minify-js)                             |
-| CLI的简单Demo                   | NodeJS                         | [hello-cli](https://github.com/pwcong/FrontEnd-Dev/tree/master/hello-cli)                             |
+| CLI 的简单 Demo            | NodeJS                               | [hello-cli](https://github.com/pwcong/FrontEnd-Dev/tree/master/hello-cli)                             |
