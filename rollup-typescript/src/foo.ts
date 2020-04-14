@@ -1,13 +1,13 @@
-export default function(word: string) {
+export default function (word: string) {
   console.log(word);
 }
 
 interface ITest {
-  sayHello(): void;
+  sayHi(): void;
 }
 
 export class Test implements ITest {
-  sayHello(): void {
-    console.log('Hello World!');
+  sayHi(): void {
+    console.log('Hi!');
   }
 }
