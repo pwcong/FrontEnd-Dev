@@ -18,12 +18,12 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
+    "file-loader": "^6.0.0",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "sass-loader": "^7.3.1",
-    "url-loader": "^2.1.0",
+    "sass-loader": "^8.0.2",
+    "url-loader": "^4.1.0",
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
@@ -32,7 +32,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.2",
     "vue": "^2.6.10"
   }
 }
