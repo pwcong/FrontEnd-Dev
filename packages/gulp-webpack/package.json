@@ -29,6 +29,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "rimraf": "^3.0.0"
   }
 }

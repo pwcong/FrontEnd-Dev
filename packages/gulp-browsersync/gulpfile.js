@@ -24,52 +24,56 @@ const revCollector = require('gulp-rev-collector');
 ///////////////////////////////////////////////
 /*              npm run dev                  */
 ///////////////////////////////////////////////
-gulp.task('dev', ['sass', 'js'], function() {
+function dev(cb) {
   browserSync.init({
-    server: './app'
+    server: './app',
   });
 
-  gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('app/js/**/*.js', ['js']);
+  gulp.watch('app/scss/**/*.scss', sassDev);
+  gulp.watch('app/js/**/*.js', jsDev);
   gulp.watch('app/*.html').on('change', browserSync.reload);
-});
+  cb();
+}
 
-gulp.task('sass', function() {
-  return gulp
+function sassDev(cb) {
+  gulp
     .src('app/scss/**/*.scss')
     .pipe(sass())
     .pipe(postcss([cssnext()]))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.stream());
-});
+  cb();
+}
 
-gulp.task('js', function() {
-  return gulp.src('app/js/**/*.js').pipe(browserSync.stream());
-});
+function jsDev(cb) {
+  gulp.src('app/js/**/*.js').pipe(browserSync.stream());
+  cb();
+}
 
 ///////////////////////////////////////////////
 /*              npm run build                */
 ///////////////////////////////////////////////
-gulp.task('build', ['sass-prod', 'js-prod'], function() {
-  return gulp
+function build(cb) {
+  gulp
     .src(['dist/rev/**/*.json', 'app/*.html'])
     .pipe(
       revCollector({
-        replaceReved: true
+        replaceReved: true,
       })
     )
     .pipe(gulp.dest('dist'));
-});
+  cb();
+}
 
-gulp.task('sass-prod', function() {
-  return gulp
+function sassProd(cb) {
+  gulp
     .src('app/scss/**/*.scss')
     .pipe(sass())
     .pipe(sourcemaps.init())
     .pipe(postcss([cssnext()]))
     .pipe(
       cleanCSS({
-        compatibility: 'ie8'
+        compatibility: 'ie8',
       })
     )
     .pipe(rev())
@@ -77,9 +81,11 @@ gulp.task('sass-prod', function() {
     .pipe(gulp.dest('dist/css'))
     .pipe(rev.manifest())
     .pipe(gulp.dest('dist/rev/css'));
-});
 
-gulp.task('js-prod', function(cb) {
+  cb();
+}
+
+function jsProd(cb) {
   pump(
     [
       gulp.src('app/js/**/*.js'),
@@ -89,8 +95,14 @@ gulp.task('js-prod', function(cb) {
       sourcemaps.write('.'),
       gulp.dest('dist/js'),
       rev.manifest(),
-      gulp.dest('dist/rev/js')
+      gulp.dest('dist/rev/js'),
     ],
     cb
   );
-});
+}
+
+const isProd = process.env.NODE_ENV === 'production';
+
+exports.default = isProd
+  ? gulp.series(sassProd, jsProd, build)
+  : gulp.series(sassDev, jsDev, dev);

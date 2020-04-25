@@ -5,8 +5,8 @@
   "main": "./app",
   "scripts": {
     "clean": "rimraf ./dist && rimraf ./app/css",
-    "build": "npm run clean && gulp build",
-    "dev": "npm run clean && gulp dev"
+    "build": "npm run clean && cross-env NODE_ENV=production gulp",
+    "dev": "npm run clean && gulp"
   },
   "keywords": [
     "gulp-browsersync"
@@ -28,6 +28,7 @@
     "pump": "^3.0.0"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "rimraf": "^3.0.0"
   }
 }
