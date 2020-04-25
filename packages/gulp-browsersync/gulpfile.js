@@ -21,6 +21,8 @@ const pump = require('pump');
 const rev = require('gulp-rev');
 const revCollector = require('gulp-rev-collector');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 ///////////////////////////////////////////////
 /*              npm run dev                  */
 ///////////////////////////////////////////////
@@ -100,8 +102,6 @@ function jsProd(cb) {
     cb
   );
 }
-
-const isProd = process.env.NODE_ENV === 'production';
 
 exports.default = isProd
   ? gulp.series(sassProd, jsProd, build)
