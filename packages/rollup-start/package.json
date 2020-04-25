@@ -2,11 +2,11 @@
   "name": "rollup-start",
   "version": "1.0.0",
   "description": "A start demo for rollup",
-  "main": "src/index.js",
+  "main": "dist/index.min.js",
   "function": "foo",
   "scripts": {
     "clean": "rimraf ./dist",
-    "start": "browser-sync start --server \"public\" --files \"public\"",
+    "start": "browser-sync start --server \"__test__\" --files \"__test__,src\" --serveStatic \".\"",
     "preset": "rollup -c",
     "watch": "rollup -c -w",
     "build": "npm run clean && cross-env NODE_ENV=production npm run preset",

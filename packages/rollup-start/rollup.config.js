@@ -9,9 +9,11 @@ const func = pkg.function || name;
 const author = pkg.author;
 const license = pkg.license;
 
+const now = new Date();
+
 const banner = `/* 
  * ${name}.js v${version}
- * ${new Date().getFullYear()} ${author}
+ * ${`${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()}`} ${author}
  * @license ${license}
  */
 `;
@@ -21,16 +23,11 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   input: 'src/index.js',
   output: {
-    file: isProduction ? `dist/${name}.min.js` : `public/${name}.debug.js`,
+    file: isProduction ? `dist/index.min.js` : `__test__/index.debug.js`,
     format: 'umd',
     sourcemap: true,
     name: func,
-    banner: banner
+    banner: banner,
   },
-  plugins: [
-    resolve(),
-    babel(),
-    isProduction &&
-      terser()
-  ]
+  plugins: [resolve(), babel(), isProduction && terser()],
 };
