@@ -1,20 +1,22 @@
 const path = require('path');
 const rollup = require('rollup');
-const ts = require('rollup-plugin-typescript');
+const ts = require('@rollup/plugin-typescript');
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
 const dts = require('rollup-plugin-dts').default;
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
 const postcss = require('rollup-plugin-postcss');
 const terser = require('rollup-plugin-terser').terser;
 const filesize = require('rollup-plugin-filesize');
 
 module.exports = async (inputOptions, outputOptions) => {
-  const commonExternal = ['react', 'react-dom'].concat(
+  const baseExternal = ['react', 'react-dom'];
+  const commonExternal = baseExternal.concat(
     Object.keys((inputOptions.package || {})['dependencies'] || {})
-      .filter(k => /@rc/.test(k))
-      .map(k => k)
+      .filter((k) => /@rc/.test(k))
+      .map((k) => k)
   );
-  const commonPlugins = [resolve(), commonjs(), postcss(), filesize()];
+
+  const commonPlugins = [resolve(), commonjs(), postcss()];
 
   const esBundle = await rollup.rollup(
     Object.assign(
@@ -22,30 +24,32 @@ module.exports = async (inputOptions, outputOptions) => {
         external: commonExternal,
         plugins: [
           ts({
-            tsconfig: path.resolve(__dirname, '../../tsconfig.json')
+            tsconfig: path.resolve(__dirname, '../../tsconfig.json'),
           }),
-          ...commonPlugins
-        ]
+          ...commonPlugins,
+          filesize(),
+        ],
       },
       inputOptions.rollup || {}
     )
   );
   await esBundle.write({
     format: 'es',
-    file: path.join(outputOptions.path, 'bundle.es.js')
+    file: path.join(outputOptions.path, 'bundle.es.js'),
   });
 
   const umdBundle = await rollup.rollup(
     Object.assign(
       {
-        external: ['react', 'react-dom'],
+        external: baseExternal,
         plugins: [
           ts({
-            tsconfig: path.resolve(__dirname, '../../tsconfig.json')
+            tsconfig: path.resolve(__dirname, '../../tsconfig.json'),
           }),
           terser(),
-          ...commonPlugins
-        ]
+          ...commonPlugins,
+          filesize(),
+        ],
       },
       inputOptions.rollup
     )
@@ -57,8 +61,8 @@ module.exports = async (inputOptions, outputOptions) => {
     name: outputOptions.name,
     globals: {
       react: 'React',
-      ['react-dom']: 'ReactDOM'
-    }
+      ['react-dom']: 'ReactDOM',
+    },
   });
 
   const dtsBundle = await rollup.rollup(
@@ -67,15 +71,16 @@ module.exports = async (inputOptions, outputOptions) => {
         external: commonExternal,
         plugins: [
           dts({
-            tsconfig: path.resolve(__dirname, '../../tsconfig.json')
-          })
-        ]
+            tsconfig: path.resolve(__dirname, '../../tsconfig.json'),
+          }),
+          ...commonPlugins,
+        ],
       },
       inputOptions.rollup || {}
     )
   );
   await dtsBundle.write({
     format: 'es',
-    file: path.join(outputOptions.path, 'bundle.d.ts')
+    file: path.join(outputOptions.path, 'bundle.d.ts'),
   });
 };
