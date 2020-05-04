@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "rimraf": "^3.0.0",
-    "uglify-js": "^3.6.0"
+    "uglify-js": "^3.9.2"
   }
 }

@@ -23,7 +23,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "postcss": "^7.0.17",
+    "postcss": "^7.0.28",
     "postcss-preset-env": "^6.7.0",
     "pump": "^3.0.0"
   },
