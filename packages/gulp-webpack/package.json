@@ -1,0 +1,35 @@
+{
+  "name": "gulp-webpack",
+  "version": "1.0.0",
+  "description": "preview when coding & standardized output",
+  "main": "./app",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && cross-env NODE_ENV=production gulp",
+    "dev": "gulp"
+  },
+  "keywords": [
+    "gulp-webpack"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "postcss": "^7.0.28",
+    "postcss-preset-env": "^6.7.0",
+    "webpack": "^4.39.3",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "rimraf": "^3.0.2"
+  }
+}

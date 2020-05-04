@@ -1,0 +1,16 @@
+{
+  "name": "uglify-js",
+  "version": "1.0.0",
+  "description": "A tool that can uglify js files",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "clean": "rimraf index.min.js",
+    "start": "npm run clean && uglifyjs src/index.js -c -m -o index.min.js"
+  },
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "^3.0.0",
+    "uglify-js": "^3.9.2"
+  }
+}

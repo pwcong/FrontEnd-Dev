@@ -1,0 +1,34 @@
+{
+  "name": "gulp-browsersync",
+  "version": "1.0.0",
+  "description": "preview when coding & standardized output",
+  "main": "./app",
+  "scripts": {
+    "clean": "rimraf ./dist && rimraf ./app/css",
+    "build": "npm run clean && cross-env NODE_ENV=production gulp",
+    "dev": "npm run clean && gulp"
+  },
+  "keywords": [
+    "gulp-browsersync"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-collector": "^1.2.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^7.0.28",
+    "postcss-preset-env": "^6.7.0",
+    "pump": "^3.0.0"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "rimraf": "^3.0.0"
+  }
+}
