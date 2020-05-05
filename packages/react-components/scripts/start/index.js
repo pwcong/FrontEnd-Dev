@@ -24,7 +24,7 @@ const getEntryCode = (packagePath) => {
     parser: 'babel',
     semi: true,
     tabWidth: 2,
-    singleQuote: true
+    singleQuote: true,
   });
 };
 
@@ -36,23 +36,26 @@ const startDev = (packagePath) => {
   const virtualModules = new VirtualModulesPlugin({
     [entryPath]: getEntryCode(
       path.join(testPath, 'index.tsx').replace(/\\/g, '/')
-    )
+    ),
   });
 
   const config = {};
   const webpackConfig = {
     entry: {
-      index: entryPath
+      index: entryPath,
     },
     output: {
-      path: distPath
+      path: distPath,
+    },
+    devServer: {
+      contentBase: [packagePath],
     },
     plugins: [
       virtualModules,
       new HTMLWebpackPlugin({
-        template: path.join(__dirname, 'index.ejs')
-      })
-    ]
+        template: path.join(__dirname, 'index.ejs'),
+      }),
+    ],
   };
 
   start(config, webpackConfig);
@@ -83,10 +86,10 @@ async function main() {
             const package = packagesMap[key];
             return {
               name: `${package.name} (${package.description || '-'})`,
-              value: package.path
+              value: package.path,
             };
-          })
-        }
+          }),
+        },
       ])
       .then((answers) => {
         if (!answers.package) {

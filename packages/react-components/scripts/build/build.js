@@ -3,6 +3,7 @@ const rollup = require('rollup');
 const ts = require('@rollup/plugin-typescript');
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
+const json = require('@rollup/plugin-json');
 const dts = require('rollup-plugin-dts').default;
 const postcss = require('rollup-plugin-postcss');
 const terser = require('rollup-plugin-terser').terser;
@@ -16,7 +17,7 @@ module.exports = async (inputOptions, outputOptions) => {
       .map((k) => k)
   );
 
-  const commonPlugins = [resolve(), commonjs(), postcss()];
+  const commonPlugins = [resolve(), commonjs(), postcss(), json()];
 
   const esBundle = await rollup.rollup(
     Object.assign(
