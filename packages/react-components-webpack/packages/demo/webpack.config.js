@@ -6,7 +6,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const pkg = require('./package.json');
 
@@ -82,7 +82,7 @@ const config = (module.exports = {
   devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(),
-    new ProgressBarPlugin(),
+    new WebpackBar(),
     new FriendlyErrorsPlugin(),
     new ForkTsCheckerWebpackPlugin(),
   ].concat(

@@ -2,7 +2,7 @@ const path = require('path');
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
   entry: {},
@@ -69,7 +69,7 @@ module.exports = {
     },
   },
   plugins: [
-    new ProgressBarPlugin(),
+    new WebpackBar(),
     new FriendlyErrorsPlugin(),
     new ForkTsCheckerWebpackPlugin(),
   ],
