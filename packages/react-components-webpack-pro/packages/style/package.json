@@ -1,0 +1,15 @@
+{
+  "name": "@rc/style",
+  "version": "0.0.1",
+  "description": "Common Style",
+  "library": "RC_Style",
+  "main": "dist/index.min.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "rc-style"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
