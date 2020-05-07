@@ -6,15 +6,18 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const WebpackBar = require('webpackbar');
 
 const pkg = require('./package.json');
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const srcPath = path.resolve(__dirname, 'src');
-const distPath = path.resolve(__dirname, 'dist');
-const testPath = path.resolve(__dirname, '__test__');
+const rootPath = __dirname;
+const srcPath = path.resolve(rootPath, 'src');
+const distPath = path.resolve(rootPath, 'dist');
+const testPath = path.resolve(rootPath, '__test__');
 
 const commonCssLoaders = [
   'css-loader',
@@ -29,7 +32,7 @@ const commonCssLoaders = [
 const config = (module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: isProd
-    ? path.join(srcPath, 'index.ts')
+    ? path.join(rootPath, 'index.ts')
     : path.join(testPath, 'index.tsx'),
   output: {
     path: distPath,
@@ -82,6 +85,12 @@ const config = (module.exports = {
   devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.join(rootPath, 'static'),
+        to: path.join(distPath, 'static'),
+      },
+    ]),
     new WebpackBar(),
     new FriendlyErrorsPlugin(),
     new ForkTsCheckerWebpackPlugin(),

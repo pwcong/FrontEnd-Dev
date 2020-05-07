@@ -21,7 +21,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  ignorePatterns: ['**/*.js', 'dist'],
+  ignorePatterns: ['**/*.js'],
   plugins: ['react', '@typescript-eslint'],
   rules: {
     indent: ['error', 2],

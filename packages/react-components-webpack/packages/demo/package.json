@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "webpack-dev-server --open",
-    "build:dts": "dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "build:dts": "dts-bundle-generator -o dist/index.d.ts index.ts",
     "build": "cross-env NODE_ENV=production webpack && npm run build:dts",
     "lint": "eslint src --ext .ts,.tsx --fix"
   },
