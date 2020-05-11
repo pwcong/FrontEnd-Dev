@@ -30,7 +30,7 @@ const getEntryCode = (packagePath) => {
 
 const startDev = (packagePath) => {
   const distPath = path.join(packagePath, 'dist');
-  const testPath = path.join(packagePath, '__tests__');
+  const testPath = path.join(packagePath, '__test__');
 
   const entryPath = path.join(testPath, 'entry.tsx');
   const virtualModules = new VirtualModulesPlugin({

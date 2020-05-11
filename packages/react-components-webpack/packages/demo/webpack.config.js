@@ -20,13 +20,14 @@ const distPath = path.resolve(rootPath, 'dist');
 const testPath = path.resolve(rootPath, '__test__');
 
 const commonCssLoaders = [
+  isProd ? MiniCssExtractPlugin.loader : 'style-loader',
   'css-loader',
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()],
-    },
-  },
+      plugins: [require('postcss-preset-env')()]
+    }
+  }
 ];
 
 const config = (module.exports = {

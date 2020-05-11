@@ -22,7 +22,7 @@ const getPackages = (exports.getPackages = () => {
       return Object.assign({}, json, {
         path: package.path.replace(/\\/g, '/'),
         distPath: path.join(package.path, 'dist').replace(/\\/g, '/'),
-        testPath: path.join(package.path, '__tests__').replace(/\\/g, '/'),
+        testPath: path.join(package.path, '__test__').replace(/\\/g, '/'),
         baseName,
         componentName: changeCase.pascalCase(baseName)
       });
