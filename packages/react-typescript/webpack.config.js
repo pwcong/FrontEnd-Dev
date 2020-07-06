@@ -87,7 +87,7 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
-      title: 'React Start',
+      title: 'React TypeScript',
       template: 'src/index.ejs',
     }),
   ].concat(
