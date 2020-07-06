@@ -1,14 +1,19 @@
 import React from 'react';
 
-import './app.scss';
+import { TestComponent } from '@/index';
 
 import logo from '../assets/imgs/logo.png';
+
+import './app.scss';
 
 const App = () => {
   return (
     <div className="container">
       <img src={logo} className="logo" />
-      <p className="welcome">React For IE8</p>
+
+      <div>
+        <TestComponent label="Hello World!" />
+      </div>
     </div>
   );
 };

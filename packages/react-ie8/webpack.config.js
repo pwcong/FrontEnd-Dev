@@ -1,12 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 
 const distPath = path.resolve(__dirname, 'dist');
 
@@ -107,6 +108,7 @@ module.exports = {
     hot: true
   },
   plugins: [
+    new WebpackBar(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin(
       Object.keys(externals).map(k => ({
@@ -118,8 +120,8 @@ module.exports = {
       title: 'React-IE8',
       template: 'src/index.ejs'
     }),
-    new HtmlWebpackIncludeAssetsPlugin({
-      assets: Object.keys(externals).map(k => 'libs/' + k),
+    new HtmlWebpackTagsPlugin({
+      tags: Object.keys(externals).map(k => 'libs/' + k),
       append: false
     })
   ].concat(
