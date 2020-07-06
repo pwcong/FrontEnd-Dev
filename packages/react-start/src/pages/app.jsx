@@ -1,20 +1,16 @@
 import React from 'react';
 
-import './style/app.scss';
+import logo from '@/assets/imgs/logo.png';
 
-import logo from '../assets/imgs/logo.png';
+import './app.scss';
 
-export default class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
+const App = () => {
+  return (
+    <div className="container">
+      <img src={logo} className="logo" />
+      <p className="welcome">React Start</p>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="container">
-        <img src={logo} className="logo" />
-        <p className="welcome">React Start</p>
-      </div>
-    );
-  }
-}
+export default App;

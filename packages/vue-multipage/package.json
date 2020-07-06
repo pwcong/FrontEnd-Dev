@@ -5,10 +5,10 @@
   "main": "./src/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress",
-    "_dev": "webpack-dev-server --open",
-    "dev": "cross-env ENTRY=/ npm run _dev",
-    "dev:pages/a": "cross-env ENTRY=pages/a npm run _dev",
-    "dev:pages/b": "cross-env ENTRY=pages/b npm run _dev"
+    "start": "webpack-dev-server --open",
+    "dev": "cross-env ENTRY=/ npm run start",
+    "dev:pages/a": "cross-env ENTRY=pages/a npm run start",
+    "dev:pages/b": "cross-env ENTRY=pages/b npm run start"
   },
   "keywords": [
     "Vue",
@@ -50,7 +50,8 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "webpackbar": "^4.0.0"
   },
   "dependencies": {
     "animate.css": "^3.7.2",

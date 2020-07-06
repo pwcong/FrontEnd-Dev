@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
@@ -9,17 +10,17 @@ const distPath = path.resolve(__dirname, 'dist');
 
 const commonCssLoaders = [
   {
-    loader: 'vue-style-loader'
+    loader: 'vue-style-loader',
   },
   {
-    loader: 'css-loader'
+    loader: 'css-loader',
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 
 module.exports = {
@@ -29,19 +30,19 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
+        use: commonCssLoaders,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -49,19 +50,19 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192
-            }
-          }
-        ]
-      }
-    ]
+              limit: 8192,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue'],
   },
 
   devtool: 'source-map',
@@ -72,10 +73,10 @@ module.exports = {
     contentBase: ['./example'],
     inline: true,
     publicPath: '/',
-    hot: true
+    hot: true,
   },
 
-  plugins: [new CleanWebpackPlugin(), new VueLoaderPlugin()]
+  plugins: [new WebpackBar(), new CleanWebpackPlugin(), new VueLoaderPlugin()],
 };
 
 if (isProd) {
@@ -84,15 +85,15 @@ if (isProd) {
     path: path.resolve(__dirname, './lib'),
     filename: 'vue-lib.js',
     library: 'vue-lib',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   };
   module.exports.externals = ['vue'];
 } else {
-  module.exports.entry = path.resolve(__dirname, './example/app.js');
+  module.exports.entry = path.resolve(__dirname, './example/index.js');
   module.exports.output = {
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   };
   module.exports.plugins = module.exports.plugins.concat([
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ]);
 }

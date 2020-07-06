@@ -1,0 +1,72 @@
+@import '~@rc/style/common.scss';
+
+$docs-prefix-cls: #{$prefix-cls}-docs;
+
+.#{$docs-prefix-cls} {
+  &-aside {
+    font-size: $font-size;
+    position: fixed;
+    left: 0;
+    width: 172px;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    border-right: 1px solid $border-color;
+    color: $text-color;
+    &:hover {
+      overflow: auto;
+    }
+
+    &-top {
+      font-size: $font-size-lg;
+      padding: 12px 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: $text-color-secondary;
+    }
+
+    &-navs {
+      border-top: 1px solid $border-color;
+      padding: 4px;
+    }
+
+    &-nav {
+      padding: 8px;
+      cursor: pointer;
+      user-select: none;
+
+      &-title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &-desc {
+        font-size: $font-size-sm;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: $text-color-light;
+      }
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      &-active {
+        border-left: 2px solid $primary-color;
+      }
+    }
+  }
+
+  &-main {
+    padding-left: 172px;
+  }
+
+  &-loading {
+    text-align: center;
+    padding: 36px;
+    font-size: 24px;
+    color: $text-color-light;
+  }
+}

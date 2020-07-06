@@ -1,0 +1,17 @@
+{
+  "name": "@rc/utils",
+  "version": "0.0.1",
+  "description": "Common Utils",
+  "library": "RC_Utils",
+  "main": "dist/index.min.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "rc-utils"
+  ],
+  "author": "Pwcong <pwcong@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {}
+}

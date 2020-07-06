@@ -1,8 +1,6 @@
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const commonCssLoaders = [
   MiniCssExtractPlugin.loader,
@@ -29,8 +27,6 @@ module.exports = merge(baseWebpackConfig, {
     ]
   },
   plugins: [
-    new ProgressBarPlugin(),
-    new FriendlyErrorsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
       allChunks: true

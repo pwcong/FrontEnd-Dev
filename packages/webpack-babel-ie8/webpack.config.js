@@ -1,11 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, 'dist');
@@ -13,7 +14,7 @@ const distPath = path.resolve(__dirname, 'dist');
 const externals = {
   'es5-shim.min.js': 'node_modules/es5-shim/es5-shim.min.js',
   'es5-sham.min.js': 'node_modules/es5-shim/es5-sham.min.js',
-  'console-polyfill.js': 'node_modules/console-polyfill/index.js'
+  'console-polyfill.js': 'node_modules/console-polyfill/index.js',
 };
 
 module.exports = {
@@ -21,22 +22,22 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[hash].js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
+        loader: 'babel-loader',
+      },
+    ],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   optimization: {
     moduleIds: 'hashed',
@@ -46,9 +47,9 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
-        }
-      }
+          chunks: 'all',
+        },
+      },
     },
     minimizer: [
       new TerserPlugin({
@@ -57,10 +58,10 @@ module.exports = {
         sourceMap: true, // Must be set to true if using source-maps in production
         terserOptions: {
           // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          ie8: true
-        }
-      })
-    ]
+          ie8: true,
+        },
+      }),
+    ],
   },
   devtool: 'source-map',
   devServer: {
@@ -69,23 +70,24 @@ module.exports = {
     contentBase: ['./'],
     inline: true,
     publicPath: '/',
-    hot: true
+    hot: true,
   },
   plugins: [
+    new WebpackBar(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin(
-      Object.keys(externals).map(k => ({
+      Object.keys(externals).map((k) => ({
         from: externals[k],
-        to: path.join(distPath, 'libs', k)
+        to: path.join(distPath, 'libs', k),
       }))
     ),
     new HTMLWebpackPlugin({
       title: 'Webpack-Babel-IE8',
-      template: 'src/index.ejs'
+      template: 'src/index.ejs',
     }),
-    new HtmlWebpackIncludeAssetsPlugin({
-      assets: Object.keys(externals).map(k => 'libs/' + k),
-      append: false
-    })
-  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()])
+    new HtmlWebpackTagsPlugin({
+      tags: Object.keys(externals).map((k) => 'libs/' + k),
+      append: false,
+    }),
+  ].concat(isProd ? [] : [new webpack.HotModuleReplacementPlugin()]),
 };

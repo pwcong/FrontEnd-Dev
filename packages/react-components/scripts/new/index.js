@@ -128,7 +128,7 @@ inquirer
 
     // 4. 生成测试入口 index.tsx
     fs.outputFileSync(
-      path.join(distPath, '__tests__/index.tsx'),
+      path.join(distPath, '__test__/index.tsx'),
       prettier.format(
         `
         import React from 'react';

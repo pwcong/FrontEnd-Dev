@@ -5,8 +5,8 @@ export const COUNTER_PLUS = 'COUNTER_PLUS';
 export const plus = (nums = 1) => ({
   type: COUNTER_PLUS,
   payload: {
-    nums
-  }
+    nums,
+  },
 });
 
 export const plusAsync = (nums = 1) => (dispatch: any) => {

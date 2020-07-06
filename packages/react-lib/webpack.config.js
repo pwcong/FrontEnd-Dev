@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
+const WebpackBar = require('webpackbar');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -8,17 +8,17 @@ const distPath = path.resolve(__dirname, 'lib');
 
 const commonCssLoaders = [
   {
-    loader: 'style-loader'
+    loader: 'style-loader',
   },
   {
-    loader: 'css-loader'
+    loader: 'css-loader',
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 
 module.exports = {
@@ -28,15 +28,15 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
+        use: commonCssLoaders,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -44,18 +44,18 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192
-            }
-          }
-        ]
-      }
-    ]
+              limit: 8192,
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   devtool: 'source-map',
   devServer: {
@@ -64,9 +64,9 @@ module.exports = {
     contentBase: ['./example'],
     inline: true,
     publicPath: '/',
-    hot: true
+    hot: true,
   },
-  plugins: [new CleanWebpackPlugin()]
+  plugins: [new WebpackBar(), new CleanWebpackPlugin()],
 };
 
 if (isProd) {
@@ -75,16 +75,16 @@ if (isProd) {
     path: distPath,
     filename: 'react-lib.js',
     library: 'react-lib',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   };
   module.exports.externals = ['react'];
 } else {
-  module.exports.entry = path.resolve(__dirname, './example/app.jsx');
+  module.exports.entry = path.resolve(__dirname, './example/index.jsx');
   module.exports.plugins = [
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ];
   module.exports.output = {
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   };
 }

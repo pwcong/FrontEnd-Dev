@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './style/app.scss';
-
 import logo from '@/assets/imgs/logo.png';
 
-export default class App extends React.PureComponent {
-  render() {
-    return (
-      <div className='container'>
-        <img src={logo} className='logo' />
-        <p className='welcome'>React Start</p>
-      </div>
-    );
-  }
-}
+import './app.scss';
+
+const App: React.FunctionComponent = () => {
+  return (
+    <div className="container">
+      <img src={logo} className="logo" />
+      <p className="welcome">React TypeScript</p>
+    </div>
+  );
+};
+
+export default App;

@@ -22,12 +22,13 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
-    "html-webpack-include-assets-plugin": "^2.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "html-webpack-tags-plugin": "^2.0.17",
     "terser-webpack-plugin": "^3.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "webpackbar": "^4.0.0"
   },
   "dependencies": {
     "console-polyfill": "^0.3.0",

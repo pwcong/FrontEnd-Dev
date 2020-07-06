@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -13,14 +14,14 @@ const commonCssLoaders = [
   isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
   {
     loader: 'css-loader',
-    options: { importLoaders: 1 }
+    options: { importLoaders: 1 },
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 
 module.exports = {
@@ -28,42 +29,42 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[hash].js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
+        use: commonCssLoaders,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'imgs/[name].[ext]?[hash]'
-        }
-      }
-    ]
+          name: 'imgs/[name].[ext]?[hash]',
+        },
+      },
+    ],
   },
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue'],
   },
 
   optimization: {
@@ -74,10 +75,10 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
+          chunks: 'all',
+        },
+      },
+    },
   },
 
   devtool: 'source-map',
@@ -86,23 +87,24 @@ module.exports = {
     port: 3000,
     contentBase: ['./'],
     inline: true,
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
+    new WebpackBar(),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new HTMLWebpackPlugin({
       title: 'Vue-Test-Lint',
-      template: 'src/index.ejs'
-    })
+      template: 'src/index.ejs',
+    }),
   ].concat(
     isProd
       ? [
           new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
-            allChunks: true
-          })
+            allChunks: true,
+          }),
         ]
       : [new webpack.HotModuleReplacementPlugin()]
-  )
+  ),
 };

@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -14,16 +15,16 @@ const commonCssLoaders = [
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: './src/index.jsx',
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[hash].js',
   },
   module: {
     rules: [
@@ -31,35 +32,35 @@ module.exports = {
         enforce: 'pre',
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
+        use: commonCssLoaders,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'imgs/[name].[ext]?[hash]'
-        }
-      }
-    ]
+          name: 'imgs/[name].[ext]?[hash]',
+        },
+      },
+    ],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   optimization: {
     moduleIds: 'hashed',
@@ -69,10 +70,10 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
+          chunks: 'all',
+        },
+      },
+    },
   },
   devtool: 'source-map',
   devServer: {
@@ -81,22 +82,23 @@ module.exports = {
     contentBase: ['./'],
     inline: true,
     publicPath: '/',
-    hot: true
+    hot: true,
   },
   plugins: [
+    new WebpackBar(),
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       title: 'React Family',
-      template: 'src/index.ejs'
-    })
+      template: 'src/index.ejs',
+    }),
   ].concat(
     isProd
       ? [
           new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
-            allChunks: true
-          })
+            allChunks: true,
+          }),
         ]
       : [new webpack.HotModuleReplacementPlugin()]
-  )
+  ),
 };

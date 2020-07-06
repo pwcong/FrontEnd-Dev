@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const klawSync = require('klaw-sync');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -12,7 +13,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const srcDir = path.join(__dirname, 'src');
 const subDirs = klawSync(srcDir, {
-  nofile: true
+  nofile: true,
 });
 
 let entry = null;
@@ -41,14 +42,14 @@ if (isProd) {
       pages.push({
         name: name,
         entry: appFilePath,
-        template: tplFilePath
+        template: tplFilePath,
       });
     }
   }
 
   addPage(srcDir);
 
-  subDirs.forEach(function(page, _) {
+  subDirs.forEach(function (page, _) {
     addPage(page.path);
   });
 
@@ -57,7 +58,7 @@ if (isProd) {
     process.exit(0);
   }
 
-  pages.forEach(function(page, _) {
+  pages.forEach(function (page, _) {
     entry[page.name] = page.entry;
   });
 } else if (process.env.ENTRY) {
@@ -65,7 +66,7 @@ if (isProd) {
 
   if (fs.existsSync(appFilePath)) {
     entry = {
-      index: appFilePath
+      index: appFilePath,
     };
   } else {
     console.log(`entry "${appFilePath}" not found.`);
@@ -82,14 +83,14 @@ const commonCssLoaders = [
   isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
   {
     loader: 'css-loader',
-    options: { importLoaders: 1 }
+    options: { importLoaders: 1 },
   },
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 
 module.exports = {
@@ -97,42 +98,42 @@ module.exports = {
   entry: Object.assign({}, entry),
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[hash].js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
+        use: commonCssLoaders,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'imgs/[name].[ext]?[hash]'
-        }
-      }
-    ]
+          name: 'imgs/[name].[ext]?[hash]',
+        },
+      },
+    ],
   },
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue'],
   },
 
   optimization: {
@@ -143,10 +144,10 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
+          chunks: 'all',
+        },
+      },
+    },
   },
 
   devtool: 'source-map',
@@ -156,24 +157,24 @@ module.exports = {
     contentBase: ['./'],
     inline: true,
     publicPath: '/',
-    hot: true
+    hot: true,
   },
-  plugins: [new CleanWebpackPlugin(), new VueLoaderPlugin()]
+  plugins: [new WebpackBar(), new CleanWebpackPlugin(), new VueLoaderPlugin()]
     .concat(
       pages && pages.length > 0
         ? pages.map(
-            page =>
+            (page) =>
               new HTMLWebpackPlugin({
                 filename: page.name + '.html',
                 template: page.template,
-                chunks: ['vendors', page.name]
+                chunks: ['vendors', page.name],
               })
           )
         : [
             new HTMLWebpackPlugin({
               title: 'Vue MultiPage',
-              template: 'index.ejs'
-            })
+              template: 'index.ejs',
+            }),
           ]
     )
     .concat(
@@ -181,9 +182,9 @@ module.exports = {
         ? [
             new MiniCssExtractPlugin({
               filename: 'css/[name].[hash].css',
-              allChunks: true
-            })
+              allChunks: true,
+            }),
           ]
         : [new webpack.HotModuleReplacementPlugin()]
-    )
+    ),
 };

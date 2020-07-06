@@ -1,0 +1,12 @@
+{
+  "name": "react-components-webpack",
+  "private": true,
+  "version": "0.0.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "lerna": "^3.20.2"
+  }
+}
