@@ -1,6 +1,6 @@
 # Vue TypeScript MVP
 
-An vue demo with MVP pattern written in TypeScript
+A Demo for Vue with MVP pattern written in TypeScript
 
 ```shell
 # dev

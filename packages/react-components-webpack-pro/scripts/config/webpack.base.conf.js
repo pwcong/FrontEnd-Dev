@@ -21,7 +21,11 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        options: { configFile: path.join(rootPath, 'tsconfig.json') },
+        exclude: /node_modules/,
+        options: {
+          configFile: path.join(rootPath, 'tsconfig.json'),
+          transpileOnly: true,
+        },
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

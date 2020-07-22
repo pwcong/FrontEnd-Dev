@@ -25,9 +25,9 @@ const commonCssLoaders = [
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 
 const config = (module.exports = {
@@ -49,7 +49,14 @@ const config = (module.exports = {
         exclude: /node_modules/,
         loader: 'eslint-loader',
       },
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          transpileOnly: true,
+        },
+      },
       {
         test: /\.scss$/,
         use: [...commonCssLoaders, 'sass-loader'],

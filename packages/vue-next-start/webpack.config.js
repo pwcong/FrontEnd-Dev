@@ -2,16 +2,22 @@ const path = require('path');
 const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
 
+const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, 'dist');
 
 const commonCssLoaders = [
-  isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-  'css-loader',
+  isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+  {
+    loader: 'css-loader',
+    options: { importLoaders: 1 },
+  },
   {
     loader: 'postcss-loader',
     options: {
@@ -19,9 +25,10 @@ const commonCssLoaders = [
     },
   },
 ];
+
 module.exports = {
   mode: isProd ? 'production' : 'development',
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   output: {
     path: distPath,
     filename: 'js/[name].[hash].js',
@@ -29,18 +36,17 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
-      {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
+          appendTsSuffixTo: [/\.vue$/],
           transpileOnly: true,
         },
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
       },
       {
         test: /\.scss$/,
@@ -59,12 +65,14 @@ module.exports = {
       },
     ],
   },
+
   resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
-    extensions: ['.js', '.ts', '.tsx'],
   },
+
   optimization: {
     moduleIds: 'hashed',
     runtimeChunk: 'single',
@@ -78,6 +86,7 @@ module.exports = {
       },
     },
   },
+
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
@@ -86,13 +95,16 @@ module.exports = {
     inline: true,
     publicPath: '/',
     hot: true,
-    disableHostCheck: true,
+    quiet: true,
   },
   plugins: [
     new WebpackBar(),
+    new FriendlyErrorsPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin(),
+    new VueLoaderPlugin(),
     new HTMLWebpackPlugin({
-      title: 'React Family In TypeScript',
+      title: 'Vue TypeScript',
       template: 'src/index.ejs',
     }),
   ].concat(

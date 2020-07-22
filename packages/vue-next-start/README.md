@@ -1,4 +1,4 @@
-# Vue TypeScript
+# Vue Next Start
 
 A Demo for Vue written in TypeScript
 

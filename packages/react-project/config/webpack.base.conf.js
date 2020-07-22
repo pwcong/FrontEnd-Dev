@@ -14,7 +14,14 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'eslint-loader',
       },
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          transpileOnly: true,
+        },
+      },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',

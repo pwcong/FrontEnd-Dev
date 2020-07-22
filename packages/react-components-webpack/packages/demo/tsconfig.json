@@ -73,5 +73,6 @@
     "src/**/*.tsx",
     "__test__/**/*.ts",
     "__test__/**/*.tsx",
-  ]
+  ],
+  "exclude": ["node_modules"]
 }
