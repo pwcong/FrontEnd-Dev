@@ -12,6 +12,7 @@
 | 实时预览升级版 | Gulp + Browsersync | [gulp-browsersync](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/gulp-browsersync) |
 | 实时预览，打包构建 | Gulp + Browsersync + Babel + Webpack | [gulp-webpack](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/gulp-webpack) |
 | Vue 标准开发环境 | Vue + Babel + Webpack | [vue-start](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/vue-start) |
+| Vue 3 标准开发环境 | Vue3 + Babel + Webpack | [vue-next-start](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/vue-next-start) |
 | Vue 单页面应用 | Vue + Router + Babel + Webpack | [vue-spa](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/vue-start) |
 | Vue 全家桶 | Vue + Vuex + Router + Axios | [vue-family](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/vue-family) |
 | Vue 打包组件 | Vue + Webpack | [vue-lib](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/vue-lib) |
@@ -30,7 +31,7 @@
 | React Project | React | [react-project](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/react-project) |
 | React 组件库 | lerna + React | [react-components](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/react-components) |
 | Rollup 生成库 | Rollup + Babel | [rollup-start](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/rollup-start) |
-| Rollup 生成库 | Rollup + TypeScript | [rollup-ttoescript](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/rollup-typescript) |
+| Rollup 生成库 | Rollup + TypeScript | [rollup-typescript](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/rollup-typescript) |
 | Uglify | UglifyJS | [uglify-js](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/uglify-js) |
 | Minify | Babel-Minify | [minify-js](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/minify-js) |
 | CLI 的简单 Demo | NodeJS | [hello-cli](https://github.com/pwcong/FrontEnd-Dev/tree/dev/packages/hello-cli) |
