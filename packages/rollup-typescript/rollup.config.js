@@ -1,5 +1,6 @@
 const resolve = require('@rollup/plugin-node-resolve');
 const typescript = require('@rollup/plugin-typescript');
+const commonjs = require('@rollup/plugin-commonjs');
 const terser = require('rollup-plugin-terser').terser;
 const dts = require('rollup-plugin-dts').default;
 
@@ -22,6 +23,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const srcPath = 'src/index.ts';
 
+const commonPlugins = [
+  commonjs(), resolve()
+]
+
 const config = [
   {
     input: srcPath,
@@ -32,7 +37,7 @@ const config = [
       name: func,
       banner: banner,
     },
-    plugins: [resolve(), typescript(), isProduction && terser()],
+    plugins: [...commonPlugins, typescript(), isProduction && terser()],
   },
 ];
 
@@ -40,7 +45,7 @@ if (isProduction) {
   config.push({
     input: srcPath,
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
-    plugins: [dts()],
+    plugins: [...commonPlugins, dts()],
   });
 }
 

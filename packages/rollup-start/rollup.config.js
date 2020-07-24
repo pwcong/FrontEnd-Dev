@@ -1,5 +1,6 @@
 const resolve = require('@rollup/plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
+const babel = require('@rollup/plugin-babel');
+const commonjs = require('@rollup/plugin-commonjs');
 const terser = require('rollup-plugin-terser').terser;
 
 const pkg = require('./package.json');
@@ -29,5 +30,5 @@ module.exports = {
     name: func,
     banner: banner,
   },
-  plugins: [resolve(), babel(), isProduction && terser()],
+  plugins: [resolve(), commonjs(), babel(), isProduction && terser()],
 };
