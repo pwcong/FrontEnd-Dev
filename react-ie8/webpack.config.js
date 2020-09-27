@@ -16,19 +16,26 @@ const isProd = process.env.NODE_ENV === 'production';
 const isIE8 = process.env.IE8 === 'true';
 const externals = isIE8
   ? {
-      'es5-polyfill.min.js': 'node_modules/es5-polyfill/dist/polyfill.min.js'
+      'es5-polyfill.min.js': 'node_modules/es5-polyfill/dist/polyfill.min.js',
     }
   : {};
 
 const commonCssLoaders = [
-  isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+  isProd
+    ? {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../',
+        },
+      }
+    : 'style-loader',
   'css-loader',
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 
 module.exports = {
@@ -36,31 +43,31 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: distPath,
-    filename: 'js/[name].[hash].js'
+    filename: 'js/[name].[hash].js',
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
+        use: commonCssLoaders,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'imgs/[name].[ext]?[hash]'
-        }
-      }
-    ]
+          name: 'imgs/[name].[ext]?[hash]',
+        },
+      },
+    ],
   },
   resolve: {
     alias: Object.assign(
@@ -68,11 +75,11 @@ module.exports = {
       isIE8
         ? {
             react: 'nervjs',
-            'react-dom': 'nervjs'
+            'react-dom': 'nervjs',
           }
         : {}
     ),
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   optimization: {
     moduleIds: 'hashed',
@@ -82,9 +89,9 @@ module.exports = {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
-        }
-      }
+          chunks: 'all',
+        },
+      },
     },
     minimizer: [
       new TerserPlugin({
@@ -93,10 +100,10 @@ module.exports = {
         sourceMap: true, // Must be set to true if using source-maps in production
         terserOptions: {
           // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          ie8: true
-        }
-      })
-    ]
+          ie8: true,
+        },
+      }),
+    ],
   },
   devtool: 'source-map',
   devServer: {
@@ -105,33 +112,34 @@ module.exports = {
     contentBase: ['./'],
     inline: true,
     publicPath: '/',
-    hot: true
+    hot: true,
+    quiet: true,
   },
   plugins: [
     new WebpackBar(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin(
-      Object.keys(externals).map(k => ({
+      Object.keys(externals).map((k) => ({
         from: externals[k],
-        to: path.join(distPath, 'libs', k)
+        to: path.join(distPath, 'libs', k),
       }))
     ),
     new HTMLWebpackPlugin({
       title: 'React-IE8',
-      template: 'src/index.ejs'
+      template: 'src/index.ejs',
     }),
     new HtmlWebpackTagsPlugin({
-      tags: Object.keys(externals).map(k => 'libs/' + k),
-      append: false
-    })
+      tags: Object.keys(externals).map((k) => 'libs/' + k),
+      append: false,
+    }),
   ].concat(
     isProd
       ? [
           new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
-            allChunks: true
-          })
+            allChunks: true,
+          }),
         ]
       : [new webpack.HotModuleReplacementPlugin()]
-  )
+  ),
 };

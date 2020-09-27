@@ -8,9 +8,9 @@ const commonCssLoaders = [
   {
     loader: 'postcss-loader',
     options: {
-      plugins: [require('postcss-preset-env')()]
-    }
-  }
+      plugins: [require('postcss-preset-env')()],
+    },
+  },
 ];
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
@@ -18,13 +18,13 @@ module.exports = merge(baseWebpackConfig, {
     rules: [
       {
         test: /\.scss$/,
-        use: [...commonCssLoaders, 'sass-loader']
+        use: [...commonCssLoaders, 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: commonCssLoaders
-      }
-    ]
+        use: commonCssLoaders,
+      },
+    ],
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -33,7 +33,8 @@ module.exports = merge(baseWebpackConfig, {
     inline: true,
     publicPath: '/',
     hot: true,
-    disableHostCheck: true
+    disableHostCheck: true,
+    quiet: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 });

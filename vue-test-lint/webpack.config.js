@@ -11,7 +11,14 @@ const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, 'dist');
 
 const commonCssLoaders = [
-  isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+  isProd
+    ? {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../',
+        },
+      }
+    : 'style-loader',
   {
     loader: 'css-loader',
     options: { importLoaders: 1 },
@@ -88,6 +95,7 @@ module.exports = {
     contentBase: ['./'],
     inline: true,
     publicPath: '/',
+    quiet: true,
   },
   plugins: [
     new WebpackBar(),

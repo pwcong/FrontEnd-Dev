@@ -3,7 +3,12 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const commonCssLoaders = [
-  MiniCssExtractPlugin.loader,
+  {
+    loader: MiniCssExtractPlugin.loader,
+    options: {
+      publicPath: '../',
+    },
+  },
   'css-loader',
   {
     loader: 'postcss-loader',

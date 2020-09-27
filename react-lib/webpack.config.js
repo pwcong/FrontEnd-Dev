@@ -65,6 +65,7 @@ module.exports = {
     inline: true,
     publicPath: '/',
     hot: true,
+    quiet: true,
   },
   plugins: [new WebpackBar(), new CleanWebpackPlugin()],
 };

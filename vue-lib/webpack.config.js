@@ -6,11 +6,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 
 const isProd = process.env.NODE_ENV === 'production';
-const distPath = path.resolve(__dirname, 'dist');
 
 const commonCssLoaders = [
   {
-    loader: 'vue-style-loader',
+    loader: 'style-loader',
   },
   {
     loader: 'css-loader',
@@ -74,6 +73,7 @@ module.exports = {
     inline: true,
     publicPath: '/',
     hot: true,
+    quiet: true,
   },
 
   plugins: [new WebpackBar(), new CleanWebpackPlugin(), new VueLoaderPlugin()],

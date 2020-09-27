@@ -80,7 +80,14 @@ if (isProd) {
 const distPath = path.resolve(__dirname, 'dist');
 
 const commonCssLoaders = [
-  isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+  isProd
+    ? {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../',
+        },
+      }
+    : 'style-loader',
   {
     loader: 'css-loader',
     options: { importLoaders: 1 },
@@ -158,6 +165,7 @@ module.exports = {
     inline: true,
     publicPath: '/',
     hot: true,
+    quiet: true,
   },
   plugins: [new WebpackBar(), new CleanWebpackPlugin(), new VueLoaderPlugin()]
     .concat(

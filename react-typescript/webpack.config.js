@@ -11,7 +11,14 @@ const isProd = process.env.NODE_ENV === 'production';
 const distPath = path.resolve(__dirname, 'dist');
 
 const commonCssLoaders = [
-  isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+  isProd
+    ? {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../',
+        },
+      }
+    : 'style-loader',
   'css-loader',
   {
     loader: 'postcss-loader',
@@ -88,6 +95,7 @@ module.exports = {
     inline: true,
     publicPath: '/',
     hot: true,
+    quiet: true,
   },
   plugins: [
     new WebpackBar(),
