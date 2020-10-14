@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const klawSync = require('klaw-sync');
 const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -167,7 +168,12 @@ module.exports = {
     hot: true,
     quiet: true,
   },
-  plugins: [new WebpackBar(), new CleanWebpackPlugin(), new VueLoaderPlugin()]
+  plugins: [
+    new WebpackBar(),
+    new FriendlyErrorsPlugin(),
+    new CleanWebpackPlugin(),
+    new VueLoaderPlugin(),
+  ]
     .concat(
       pages && pages.length > 0
         ? pages.map(

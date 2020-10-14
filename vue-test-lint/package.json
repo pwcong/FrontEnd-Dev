@@ -42,6 +42,7 @@
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "file-loader": "^6.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.3.0",
     "karma": "^5.0.4",
     "karma-chai": "^0.1.0",

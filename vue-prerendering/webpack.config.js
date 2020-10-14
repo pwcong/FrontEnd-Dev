@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -103,6 +104,7 @@ module.exports = {
   },
   plugins: [
     new WebpackBar(),
+    new FriendlyErrorsPlugin(),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new HTMLWebpackPlugin({

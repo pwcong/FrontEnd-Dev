@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -74,6 +75,7 @@ module.exports = {
   },
   plugins: [
     new WebpackBar(),
+    new FriendlyErrorsPlugin(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin(
       Object.keys(externals).map((k) => ({
