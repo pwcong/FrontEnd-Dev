@@ -4,7 +4,6 @@ import Vue from 'vue';
 
 import './lib';
 
-import config from './config';
 import store from './store';
 import router from './router';
 
@@ -19,8 +18,4 @@ function init() {
   });
 }
 
-if (config.env === 'development') {
-  init();
-} else {
-  document.addEventListener('deviceready', init, false);
-}
+init();

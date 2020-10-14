@@ -33,7 +33,6 @@ function main() {
     plugins: [
       new CopyWebpackPlugin({
         patterns: [
-          { from: filepath, to: distPath },
           {
             from: path.join(rootPath, 'static'),
             to: path.join(distPath, 'static'),
