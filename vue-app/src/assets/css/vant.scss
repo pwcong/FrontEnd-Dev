@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+.van-nav-bar {
+  background-color: $theme-color;
+  .van-icon,
+  .van-nav-bar__text,
+  .van-nav-bar__title {
+    color: white;
+  }
+}
