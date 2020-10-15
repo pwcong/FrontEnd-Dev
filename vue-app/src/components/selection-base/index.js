@@ -4,11 +4,11 @@ import SelectionBase from './index.vue';
 export function buildSelectionBase() {
   const listMixin = buildListMixin({
     properties: ['keyword'],
-    getDataPropName: 'getOptions'
+    getDataPropName: 'getOptions',
   });
 
   return {
     name: 'selection-base',
-    mixins: [SelectionBase, listMixin]
+    mixins: [listMixin, SelectionBase],
   };
 }

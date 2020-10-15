@@ -1,6 +1,6 @@
 <template>
   <van-popup
-    class="select-base-wrapper"
+    class="selection-base-wrapper"
     :value="visible"
     position="right"
     :style="{ width: '100%', height: '100vh' }"
@@ -83,32 +83,26 @@
 <script>
 import { buildListMixin } from '@/mixins';
 
-const listMixin = buildListMixin({
-  properties: ['keyword'],
-  getDataPropName: 'getOptions',
-});
-
 export default {
   name: 'selection-base',
-  mixins: [listMixin],
   props: {
     search: {
       type: Boolean,
     },
     value: {
       type: Array,
-      required: true,
+      default: () => [],
     },
     visible: {
       type: Boolean,
     },
     title: {
       type: String,
-      default: () => '选择',
+      default: '选择',
     },
     isMulti: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     options: {
       type: Array,
@@ -134,18 +128,21 @@ export default {
       if (!!this.getOptions) {
         return this.list;
       } else {
-        return this.options.filter((o) => o.text.indexOf(this.keyword) > -1);
+        return this.options.filter((o) =>
+          !!this.keyword ? o.text.indexOf(this.keyword) > -1 : true
+        );
       }
     },
   },
   methods: {
     handleOk() {
-      this.$emit('cancel');
       this.$emit('input', this.tempValue);
       this.$emit('change', this.tempValue);
+      this.$emit('update:visible', false);
     },
     handleCancel() {
       this.$emit('cancel');
+      this.$emit('update:visible', false);
     },
     async handleChange(item) {
       item = await this.getOption(this, item);
@@ -191,9 +188,10 @@ export default {
   .item {
     display: flex;
     align-items: center;
+    padding: 0.1rem 0;
     .checkbox {
       .van-checkbox {
-        padding-left: 0;
+        margin-right: 0.12rem;
         border-bottom: none;
       }
     }
@@ -208,12 +206,6 @@ export default {
 
   &.has-search .main {
     height: calc(100vh - 100px);
-  }
-
-  .van-checkbox {
-    padding: 0.1rem 0.12rem;
-    background-color: white;
-    border-bottom: 1px solid #eeeeee;
   }
 }
 </style>

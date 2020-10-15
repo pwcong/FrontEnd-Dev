@@ -6,6 +6,7 @@ import PickerArea from './picker-area';
 import { buildSelectionBase } from './selection-base';
 import SelectionOrg from './selection-org';
 import SelectionAddress from './selection-address';
+import TreeselectArea from './treeselect-area';
 
 export default {
   install(Vue) {
@@ -20,5 +21,7 @@ export default {
     Vue.component(SelectionBase.name, SelectionBase);
     Vue.component(SelectionOrg.name, SelectionOrg);
     Vue.component(SelectionAddress.name, SelectionAddress);
+
+    Vue.component(TreeselectArea.name, TreeselectArea);
   },
 };

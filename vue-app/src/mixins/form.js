@@ -61,23 +61,5 @@ export default {
       );
       this.onPickerConfirm(end, dayjs(value[1]).format('YYYY-MM-DD'), picker);
     },
-    getAreaText(v) {
-      return v
-        .map((d) => d || {})
-        .map((d, i) => {
-          if (!d.name && i === 0) {
-            return '全国';
-          }
-          if (!!v[0].name && !d.name && i === 1) {
-            return '全省/市';
-          }
-          if (i === 2) {
-            return '';
-          }
-          return d.name;
-        })
-        .filter((d) => !!d)
-        .join('-');
-    },
   },
 };
