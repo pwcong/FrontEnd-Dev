@@ -74,11 +74,11 @@ module.exports = {
     moduleIds: 'hashed',
     runtimeChunk: 'single',
     splitChunks: {
+      chunks: 'all',
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all',
         },
       },
     },
