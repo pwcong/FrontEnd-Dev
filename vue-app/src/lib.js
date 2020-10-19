@@ -9,9 +9,9 @@ import 'vant/lib/index.less';
 import '@/assets/css/vant.scss';
 
 import axios from 'axios';
-import VConsole from 'vconsole';
 
 import Flexible from '@/common/lib/flexible';
+import Debugger from '@/common/lib/debugger';
 import config from '@/config';
 import Components from '@/components';
 import lib from '@/common/lib';
@@ -30,5 +30,5 @@ Vue.use(VueCookies);
 Vue.use(Components);
 
 if (config.env === 'test') {
-  new VConsole();
+  Vue.use(Debugger);
 }

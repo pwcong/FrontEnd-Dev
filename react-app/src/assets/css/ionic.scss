@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+/* Set variables for all modes */
+:root {
+  /* Set the background of the entire app */
+}
+
+ion-toolbar {
+  --background: #{$theme-color};
+}
