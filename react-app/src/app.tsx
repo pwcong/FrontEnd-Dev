@@ -12,7 +12,7 @@ import omit from 'omit.js';
 
 import { IStoreState, IUserState } from '@/store';
 import { routes } from '@/router';
-import { withRouteGuard, withRoutePage } from '@/utils/hoc';
+import { withRouteGuard, withRoutePage } from '@/utils';
 
 import './app.scss';
 
@@ -67,7 +67,7 @@ const App: React.FC<IProps & RouteComponentProps> = (props) => {
         });
       }}
     >
-      <CSSTransition timeout={5000} key={location.pathname}>
+      <CSSTransition timeout={50000} key={location.pathname}>
         <Switch location={location}>{pages}</Switch>
       </CSSTransition>
     </TransitionGroup>

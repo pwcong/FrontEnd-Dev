@@ -18,8 +18,8 @@ const config: Partial<IConfig> = {};
 // 模拟用户
 config.testUser = {
   tokenId: '',
-  userCode: 'weijian4.chen',
-  userName: '陈尉建',
+  userCode: '',
+  userName: '',
 };
 
 // 接口配置

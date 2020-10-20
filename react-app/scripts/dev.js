@@ -52,9 +52,7 @@ function main() {
           contentBase: [rootPath],
           host: '0.0.0.0',
           port: port,
-          proxy: {
-            '/cpmsnew': 'http://192.168.1.151:7221',
-          },
+          proxy: {},
         },
       };
       const webpackConfig = {};

@@ -2,9 +2,11 @@ import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { IonLoading } from '@ionic/react';
+import { Loading } from '@/components';
 import native from '@/common/lib/native';
 import { IStoreState, IUserState, IUser, setUser } from '@/store';
+
+import './sso.scss';
 
 export interface IProps extends RouteComponentProps {
   userState: IUserState;
@@ -42,7 +44,7 @@ const Page: React.FC<IProps> = (props) => {
       });
   }, []);
 
-  return <IonLoading isOpen={loading} message={'自动登录中'} />;
+  return <Loading fullScreen={true} message="自动登录中" />;
 };
 
 const mapStateToProps = (state: IStoreState) => ({

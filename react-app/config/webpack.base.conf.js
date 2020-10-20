@@ -118,7 +118,10 @@ exports.buildCssLoadersConfig = function (isProd) {
               options: {
                 lessOptions: {
                   javascriptEnabled: true,
-                  modifyVars: {},
+                  modifyVars: {
+                    'brand-primary': '#c53a3a',
+                    'color-text-base': '#333',
+                  },
                 },
               },
             },

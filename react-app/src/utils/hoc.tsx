@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { IonLoading } from '@ionic/react';
+import { Loading } from '@/components';
 
 export function withRoutePage(page) {
   const Component = React.lazy(page);
@@ -8,7 +8,7 @@ export function withRoutePage(page) {
   const WrappedComponent: React.FC = (props) => {
     return (
       <React.Suspense
-        fallback={<IonLoading isOpen={true} message="页面加载中" />}
+        fallback={<Loading fullScreen={true} message="页面加载中" />}
       >
         <Component {...props} />
       </React.Suspense>

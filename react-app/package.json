@@ -12,13 +12,11 @@
   "author": "pwcong@foxmail.com",
   "license": "MIT",
   "dependencies": {
-    "@ionic/core": "^5.4.0-rc.3",
-    "@ionic/react": "^5.4.0",
+    "antd-mobile": "^2.3.4",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
     "dayjs": "^1.9.1",
-    "ionicons": "^5.2.3",
     "lodash": "^4.17.20",
     "minireset.css": "^0.0.6",
     "omit.js": "^2.0.2",
@@ -34,6 +32,7 @@
     "vconsole": "^3.3.4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.162",
     "@types/node": "^13.13.4",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.7",

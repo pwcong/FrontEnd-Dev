@@ -4,8 +4,8 @@ import config from '@/config';
 import Flexible from '@/common/lib/flexible';
 import Debugger from '@/common/lib/debugger';
 
-import '@ionic/react/css/core.css';
-import '@/assets/css/ionic.scss';
+import 'antd-mobile/dist/antd-mobile.less';
+import '@/assets/css/antd.scss';
 
 Flexible.install();
 
