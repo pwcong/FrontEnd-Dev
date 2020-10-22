@@ -1,13 +1,15 @@
 export const routes = [
   {
     path: '/',
+    name: 'page-index',
     component: () => import('@/pages/index'),
     meta: {
-      requireAuth: true
-    }
+      requireAuth: true,
+    },
   },
   {
     path: '/sso',
-    component: () => import('@/pages/sso')
-  }
+    name: 'page-sso',
+    component: () => import('@/pages/sso'),
+  },
 ];

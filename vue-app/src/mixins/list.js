@@ -66,7 +66,7 @@ export function buildListMixin(options) {
             );
             const targetParams = Object.keys(params).reduce((p, c) => {
               const v = params[c];
-              if (v !== '' && v !== undefined) {
+              if (v !== '' && v !== undefined && v !== null) {
                 p[c] = v;
               }
               return p;
@@ -91,6 +91,9 @@ export function buildListMixin(options) {
         }, 200);
       }, 200),
       onRefresh: _.debounce(function () {
+        if (this.loading) {
+          return;
+        }
         this.pageNum = 1;
         this.params = { ...this.params };
       }, 200),

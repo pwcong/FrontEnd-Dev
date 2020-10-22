@@ -5,13 +5,13 @@ import { routes } from './config';
 import store, {
   USER_GETTERS_USER,
   LOADING_MUTATIONS_SET_LOADING,
-  DIRECTION_MUTATIONS_SET_DIRECTION
+  DIRECTION_MUTATIONS_SET_DIRECTION,
 } from '../store';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes
+  routes,
 });
 
 router.beforeEach(async (to, from, next) => {
@@ -28,7 +28,7 @@ router.beforeEach(async (to, from, next) => {
   }
 });
 
-router.afterEach(function(to) {
+router.afterEach(function (to) {
   store.commit(LOADING_MUTATIONS_SET_LOADING, false);
   window.scrollTo(0, 0);
 });
@@ -59,5 +59,7 @@ export function renderDirection(to, from, next) {
     store.commit(DIRECTION_MUTATIONS_SET_DIRECTION, 'forward');
   }
 }
+
+export { routes };
 
 export default router;

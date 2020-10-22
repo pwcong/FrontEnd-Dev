@@ -1,21 +1,25 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <!-- <keep-alive> -->
-      <router-view class="router-view"></router-view>
-      <!-- </keep-alive> -->
+      <keep-alive :include="cacheList">
+        <router-view class="router-view"></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import { routes } from './router';
+import { getCacheList } from './utils';
 import { DIRECTION_GETTERS_DIRECTION, LOADING_GETTERS_LOADING } from './store';
 
 export default {
   name: 'app',
   data() {
-    return {};
+    return {
+      cacheList: getCacheList(routes),
+    };
   },
   created() {
     // 全局后退方法
