@@ -69,8 +69,18 @@ config.api = {
 
     return headers;
   },
-  getRequest: function (func, params) {
-    let requestUrl = `${config.baseUrl[config.env]}/${func}`;
+  getRequest: function (func, params, options) {
+    options = Object.assign(
+      {
+        meta: config.apiMeta,
+        baseUrl: config.baseUrl,
+      },
+      options
+    );
+
+    const { baseUrl, headers } = options;
+
+    let requestUrl = `${baseUrl[config.env]}/${func}`;
     if (!!params) {
       requestUrl += `?${qs.stringify(params)}`;
     }
@@ -78,28 +88,38 @@ config.api = {
     return {
       url: requestUrl,
       method: 'get',
-      headers: this.commonHeaders(),
+      headers: headers || this.commonHeaders(),
       data: {},
-      meta: config.apiMeta,
+      options,
     };
   },
-  postRequest: function (func, params) {
+  postRequest: function (func, params, options) {
+    options = Object.assign(
+      {
+        meta: config.apiMeta,
+        baseUrl: config.baseUrl,
+      },
+      options
+    );
+
+    const { baseUrl, headers } = options;
+
     return {
-      url: `${config.baseUrl[config.env]}/${func}`,
+      url: `${baseUrl[config.env]}/${func}`,
       method: 'post',
       data: qs.stringify(params || {}),
-      headers: this.commonHeaders(),
-      meta: config.apiMeta,
+      headers: headers || this.commonHeaders(),
+      options,
     };
   },
-  postRequestPic: function (func, params) {
-    return {
-      url: `${config.picUrl[config.env]}/${func}`,
-      method: 'post',
-      data: qs.stringify(params || {}),
-      headers: this.commonHeaders(),
-      meta: config.apiMeta,
-    };
+  postRequestPic: function (func, params, options) {
+    return this.postRequest(
+      func,
+      params,
+      Object.assign({}, options, {
+        baseUrl: config.picUrl,
+      })
+    );
   },
 };
 

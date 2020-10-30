@@ -1,10 +1,6 @@
 import axios from 'axios';
 import { Toast } from 'antd-mobile';
 
-import globalConfig from '@/config';
-
-const { apiMeta } = globalConfig;
-
 const instance = axios.create({
   timeout: 10000,
 });
@@ -35,11 +31,12 @@ instance.interceptors.response.use(
 
     const { config = {}, data = {} } = response;
 
-    const { intercept = false } = config['meta'] || {};
+    const { intercept = false, successKey, successValue, errorKey } =
+      config['meta'] || {};
 
     if (intercept) {
-      if (data[apiMeta['successKey']] !== apiMeta['successValue']) {
-        const message = data[apiMeta['errorKey']] || '请求失败';
+      if (data[successKey] !== successValue) {
+        const message = data[errorKey] || '请求失败';
         Toast.fail({
           message,
           forbidClick: true,
