@@ -38,6 +38,22 @@ export default {
       s = Math.round(s);
       return s;
     },
+    calcPosition(pos, distance) {
+      const { longitude, latitude } = pos;
+
+      const d = (distance / 1.5) * 0.00001;
+
+      const toString = (d) => (Math.round(d * 100000) / 100000).toString();
+
+      return {
+        longitude: toString(
+          Number(longitude) + d * (Math.random() > 0.5 ? 1 : -1)
+        ),
+        latitude: toString(
+          Number(latitude) + d * (Math.random() > 0.5 ? 1 : -1)
+        ),
+      };
+    },
     getPosition() {
       return new Promise(async (resolve, reject) => {
         resolve({

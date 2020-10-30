@@ -173,7 +173,11 @@ export default {
 <style lang="less" scoped>
 .selection-base {
   .main {
-    height: calc(100vh - 46px);
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 46px);
     overflow: auto;
   }
 
@@ -205,7 +209,8 @@ export default {
   }
 
   &.has-search .main {
-    height: calc(100vh - 100px);
+    top: 100px;
+    height: calc(100% - 100px);
   }
 }
 </style>

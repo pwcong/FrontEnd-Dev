@@ -15,7 +15,10 @@ export const listMixin = {
   },
   computed: {
     hasMore() {
-      return this.pageCount * this.pageNum < this.totalCount;
+      return (
+        this.pageCount * this.pageNum < this.totalCount &&
+        this.list.length < this.totalCount
+      );
     },
   },
 };
