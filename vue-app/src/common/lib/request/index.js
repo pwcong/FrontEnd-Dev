@@ -31,8 +31,10 @@ instance.interceptors.response.use(
 
     const { config = {}, data = {} } = response;
 
-    const { intercept = false, successKey, successValue, errorKey } =
-      config.meta || {};
+    const { options = {} } = config;
+
+    const { intercept = true, successKey, successValue, errorKey } =
+      options.meta || {};
 
     if (intercept) {
       if (data[successKey] !== successValue) {
@@ -41,10 +43,10 @@ instance.interceptors.response.use(
           message,
           forbidClick: true,
         });
-        const errors = new Error(message);
-        errors.response = response;
-        errors.data = data;
-        throw errors;
+        const error = new Error(message);
+        error.response = response;
+        error.data = data;
+        throw error;
       }
     }
 
