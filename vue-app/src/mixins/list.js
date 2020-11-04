@@ -30,6 +30,7 @@ export function buildListMixin(options) {
     immediate = true,
     properties = [],
     getDataPropName = 'getData',
+    getParams = (_, params) => params,
     getData,
   } = options;
 
@@ -60,13 +61,17 @@ export function buildListMixin(options) {
               return;
             }
 
-            params = Object.assign(
-              {
-                pageNum: this.pageNum,
-                pageCount: this.pageCount,
-              },
-              params
+            params = getParams(
+              this,
+              Object.assign(
+                {
+                  pageNum: this.pageNum,
+                  pageCount: this.pageCount,
+                },
+                params
+              )
             );
+
             const targetParams = Object.keys(params).reduce((p, c) => {
               const v = params[c];
               if (v !== '' && v !== undefined && v !== null) {

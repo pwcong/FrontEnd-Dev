@@ -1,5 +1,6 @@
 <template>
   <van-popup
+    :get-container="selectionContainer"
     class="selection-base-wrapper"
     :value="visible"
     position="right"
@@ -81,19 +82,18 @@
 </template>
 
 <script>
-import { buildListMixin } from '@/mixins';
+import { buildSelectionMixin } from '@/mixins';
+
+const selectionMixin = buildSelectionMixin({
+  valueType: Array,
+  defaultValue: [],
+});
 
 export default {
   name: 'selection-base',
+  mixins: [selectionMixin],
   props: {
     search: {
-      type: Boolean,
-    },
-    value: {
-      type: Array,
-      default: () => [],
-    },
-    visible: {
       type: Boolean,
     },
     title: {
@@ -120,7 +120,6 @@ export default {
   data() {
     return {
       keyword: '',
-      tempValue: this.$props.value,
     };
   },
   computed: {
@@ -135,15 +134,6 @@ export default {
     },
   },
   methods: {
-    handleOk() {
-      this.$emit('input', this.tempValue);
-      this.$emit('change', this.tempValue);
-      this.$emit('update:visible', false);
-    },
-    handleCancel() {
-      this.$emit('cancel');
-      this.$emit('update:visible', false);
-    },
     async handleChange(item) {
       item = await this.getOption(this, item);
 
@@ -161,16 +151,9 @@ export default {
       return this.tempValue.findIndex((d) => d.value === item.value) > -1;
     },
   },
-  watch: {
-    visible(v, ov) {
-      if (!ov && v) {
-        this.tempValue = this.$props.value;
-      }
-    },
-  },
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .selection-base {
   .main {
     position: absolute;
@@ -202,9 +185,6 @@ export default {
     .text {
       flex: 1;
       font-size: 0.14rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 

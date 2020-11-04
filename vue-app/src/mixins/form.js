@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import { CALENDAR_MIN_DATE, CALENDAR_MAX_DATE } from '@/data/date';
 
 export const REGEXP_EMIAL = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
 export const REGEXP_MOBILEPHONE = /^1[3456789]\d{9}$/;
@@ -9,6 +9,8 @@ export default {
   name: 'form-mixin',
   data() {
     return {
+      CALENDAR_MIN_DATE,
+      CALENDAR_MAX_DATE,
       REGEXP_EMIAL,
       REGEXP_MOBILEPHONE,
       REGEXP_FIXMOB,
