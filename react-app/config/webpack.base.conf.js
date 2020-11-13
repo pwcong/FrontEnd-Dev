@@ -31,28 +31,28 @@ exports.baseWebpackConfig = {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: 'imgs/[name].[ext]?[hash]',
+          name: 'imgs/[name].[hash].[ext]',
         },
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
         loader: 'file-loader',
         options: {
-          name: 'media/[name].[ext]?[hash]',
+          name: 'media/[name].[hash].[ext]',
         },
       },
       {
         test: /\.(zip|rar|7z)$/,
         loader: 'file-loader',
         options: {
-          name: 'archive/[name].[ext]?[hash]',
+          name: 'archive/[name].[hash].[ext]',
         },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
         loader: 'file-loader',
         options: {
-          name: 'fonts/[name].[ext]?[hash]',
+          name: 'fonts/[name].[hash].[ext]',
         },
       },
     ],
